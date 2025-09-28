@@ -1,13 +1,16 @@
 # Biblioteca-2025
-Aplicación web institucional desarrollada en PHP (MySQLi), MySQL, Bootstrap y JavaScript.  Permite la gestión de préstamos de libros, usuarios, inventario y generación de reportes (PDF y Excel).
+
+Aplicación web institucional desarrollada en PHP (MySQLi), MySQL, Bootstrap y JavaScript. Permite la gestión de préstamos de libros, usuarios, inventario y generación de reportes (PDF y Excel).
 REQUISITOS
 
 MANEJO GITHUB
+
 - SEGUIMIENTO DE COMMITS
 
 MODELO RELACIONAL BD
 
 BUENAS PRACTICAS DE PROGRAMACION
+
 - MISMA ESTRUCTURA DE CODIGO
 - COMENTARIOS
 - USO DE VARIABLES, CONSTANTES, ETC (DEBE SER IGUAL).
@@ -21,4 +24,3 @@ NO SALIRSE DE PHP MYSQLI
 BD MYSQL
 
 RESPONSIVE (DATATABLES, PLANTILAS BOOTSTRAP)
-DEBEMOS UTILIZAR camelCase PARA VARIABLES Y FUNCIONES PARA TODO
