@@ -81,8 +81,6 @@
             </div>
         </div>
     </section>
-
-    <!-- 🔹 Nosotros -->
     <section id="nosotros" class="container my-5">
         <div class="text-center">
             <h2 class="fw-bold text-success">Sobre Nosotros</h2>
@@ -93,19 +91,16 @@
         </div>
     </section>
 
-    <!-- 🔹 Footer -->
+
     <footer class="text-center py-3 bg-primary text-white">
         <p>© 2025 Biblioteca SENAP | Desarrollado por Cristian Villa y Jhoan Morales</p>
     </footer>
 
-    <!-- 🔹 Mensaje de error de login -->
     <?php if (isset($_GET['error']) && $_GET['error'] == 1): ?>
         <div class="alert alert-danger text-center" role="alert">
             Email o contraseña incorrectos.
         </div>
     <?php endif; ?>
-
-    <!-- 🔹 Modal de Inicio de Sesión -->
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 shadow-lg rounded-4">

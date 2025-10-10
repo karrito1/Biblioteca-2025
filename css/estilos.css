@@ -129,20 +129,23 @@ body {
   margin-bottom: 15px;
 }
 
-/* 
-   🔹 FOOTER
- */
+/* ===== FOOTER FIJO EN LOGIN ===== */
 footer {
-  background-color: #0b7042;
+  background-color: #0b7042; /* Verde SENA */
   color: white;
   text-align: center;
-  padding: 20px 0;
-  margin-top: 60px;
+  padding: 15px 0;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
   font-size: 0.95rem;
 }
 
-footer p {
-  margin: 0;
+/* Evita que el footer tape el contenido */
+body {
+  padding-bottom: 60px;
 }
 
 /* 

@@ -1,63 +1,70 @@
 <?php
 require_once __DIR__ . '/../models/MySQL.php';
-
 session_start();
 
-if (isset($_POST['email'], $_POST['password'])) {
-
-    $mysql = new MySQL();
-    $conexion = $mysql->conectar();
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'], $_POST['password'])) {
 
     $email = trim($_POST['email']);
     $password = $_POST['password'];
 
-    // Preparar consulta segura
-    $stmt = $conexion->prepare("SELECT * FROM usuarios WHERE email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $resultado = $stmt->get_result();
+    $mysql = new MySQL();
+    $conexion = $mysql->conectar();
+
+
+    $ResultadoConsulta = $conexion->prepare("SELECT id, nombre, email, passwordd, Roles, estado FROM usuarios WHERE email = ?");
+    $ResultadoConsulta->bind_param("s", $email);
+    $ResultadoConsulta->execute();
+    $resultado = $ResultadoConsulta->get_result();
 
     if ($usuario = $resultado->fetch_assoc()) {
 
-        // Verificar estado
-        if ($usuario['estado'] !== 'activo') {
+        // Verificar si el usuario está activo
+        if (strtolower($usuario['estado']) !== 'activo') {
             $mysql->desconectar();
-            header("Location: ../index.php?error=1");
+            header("Location: ../index.php?error=Usuario inactivo");
             exit();
         }
 
+        // Validar contraseña (usa password_hash en lugar de md5 si puedes)
         if (md5($password) === $usuario['passwordd']) {
+
+            // Crear sesión
             $_SESSION['usuario_id'] = $usuario['id'];
             $_SESSION['nombre'] = $usuario['nombre'];
             $_SESSION['email'] = $usuario['email'];
-            $_SESSION['roles'] = $usuario['Roles'];
+            $_SESSION['roles'] = strtoupper($usuario['Roles']);
 
             // Redirigir según rol
-            if ($usuario['Roles'] === 'ADMINISTRADOR') {
-                $mysql->desconectar();
-                header("Location: ../views/dashboard.php");
-                exit();
-            } elseif ($usuario['Roles'] === 'CLIENTE') {
-                $mysql->desconectar();
-                header("Location: ../views/info_usuario.php");
-                exit();
-            } else {
-                $mysql->desconectar();
-                header("Location: ../index.php?error=1");
-                exit();
+            switch ($_SESSION['roles']) {
+                case 'ADMINISTRADOR':
+                    header("Location: ../views/dashboard.php");
+                    break;
+
+                case 'CLIENTE':
+                    header("Location: ../views/dashboard.php");
+                    break;
+
+                default:
+                    header("Location: ../index.php?error=Rol no autorizado");
+                    break;
             }
-        } else {
+
             $mysql->desconectar();
-            header("Location: ../index.php?error=1");
+            exit();
+        } else {
+            // Contraseña incorrecta
+            $mysql->desconectar();
+            header("Location: ../index.php?error=Contraseña incorrecta");
             exit();
         }
     } else {
+        // Usuario no encontrado
         $mysql->desconectar();
-        header("Location: ../index.php?error=1");
+        header("Location: ../index.php?error=Usuario no encontrado");
         exit();
     }
 } else {
-    // Campos no enviados
-    header("Location: ../index.php?error=1");
+    // Acceso no válido
+    header("Location: ../index.php?error=Acceso no permitido");
     exit();
 }
