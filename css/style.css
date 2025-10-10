@@ -79,7 +79,6 @@ span.label-mhover {
 /*********==========Login*/
 .login-container {
   background-image: url("../assets/img/font-login.png");
-  background-image: url("../assets/img/biblioteca1.jpg");
   width: 100%;
   height: 100%;
   display: flex;
@@ -91,7 +90,6 @@ span.label-mhover {
   padding: 20px;
   border-radius: 5px;
   background-color: rgba(5, 53, 63, 0.7);
-  background-color: rgba(3, 3, 3, 0.938);
   position: relative;
   width: 90%;
   max-width: 350px;
@@ -195,7 +193,6 @@ label {
   cursor: pointer;
 }
 select.material-control-login {
-  appearance: none;
   -ms-appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -278,6 +275,7 @@ select.material-control-login:hover {
   margin: 0;
 }
 .navbar-user-top > ul > li {
+  display: inline-block;
   float: right;
   color: rgba(255, 255, 255, 0.4);
   height: 55px;
@@ -460,7 +458,6 @@ select.material-control {
 }
 select.material-control,
 select.no-style {
-  appearance: none;
   -ms-appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;

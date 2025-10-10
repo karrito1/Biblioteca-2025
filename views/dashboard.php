@@ -6,11 +6,7 @@ if (!isset($_SESSION['usuario_id'])) {
     exit();
 }
 
-<<<<<<< HEAD
 $usuario_nombre = $_SESSION['nombre'];
-=======
-$usuario_nombre = $_SESSION['email'];
->>>>>>> e33ffda (Se realizaron cambios visuales en en login y index 10-10-2025)
 $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
 ?>
 

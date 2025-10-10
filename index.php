@@ -1,85 +1,7 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<!-- 
-* Copyright 2018 Carlos Eduardo Alfaro Orellana
--->
->>>>>>> b74019c (Se realizaron cambios visuales en en login y index 10-10-2025)
->>>>>>> e33ffda (Se realizaron cambios visuales en en login y index 10-10-2025)
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de Sesión</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-        body {
-            background-color: #f1f1f1;
-        }
-
-        .login-container {
-            max-width: 380px;
-            margin: 80px auto;
-            background: #fff;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        h5 {
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .btn-primary {
-            width: 100%;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="login-container">
-        <h5 class="text-center">INICIO DE SESIÓN</h5>
-
-        <?php if (isset($_GET['error']) && $_GET['error'] == 1): ?>
-            <div class="alert alert-danger text-center" role="alert">
-                Número de documento o contraseña incorrectos.
-            </div>
-        <?php endif; ?>
-
-        <!-- IMPORTANTE: acción apunta directo al controller -->
-        <form method="POST" action="controller/login_usuarios.php">
-
-            <!-- Documento -->
-            <div class="mb-3">
-                <label class="form-label" for="numeroDocumento">Número Documento</label>
-                <input type="number" class="form-control" name="numeroDocumento" required />
-            </div>
-
-            <!-- Password -->
-            <div class="mb-3">
-                <label class="form-label" for="password">Password</label>
-                <input type="password" class="form-control" name="passwordd" required />
-            </div>
-
-            <!-- Botón -->
-            <button type="submit" class="btn btn-primary" name="btniniciarsesion" value="ok">
-                INICIAR SESIÓN
-            </button>
-        </form>
-    </div>
-
-=======
->>>>>>> e33ffda (Se realizaron cambios visuales en en login y index 10-10-2025)
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Biblioteca SENAP 2025</title>
@@ -88,7 +10,6 @@
     <meta name="keywords" content="biblioteca, educación, lectura, libros digitales, cultura" />
     <meta name="author" content="Cristian Villa y Jhoan Morales" />
 
-<<<<<<< HEAD
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/068a4d5189.js" crossorigin="anonymous"></script>
@@ -218,72 +139,10 @@
                     </div>
                 </form>
             </div>
-=======
-    <!-- Bootstrap y otros estilos -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/068a4d5189.js" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="css/sweet-alert.css">
-    <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- Scripts -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>
-        window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')
-    </script>
-    <script src="js/modernizr.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/main.js"></script>
-</head>
-
-<body>
-    <div class="login-container full-cover-background">
-        <div class="form-container">
-            <p class="text-center" style="margin-top: 17px;">
-                <i class="zmdi zmdi-account-circle zmdi-hc-5x"></i>
-            </p>
-            <h4 class="text-center all-tittles" style="margin-bottom: 30px;">Inicia sesión con tu cuenta</h4>
-
-            <!-- Mensaje de error si hay problema con el login -->
-            <?php if (isset($_GET['error']) && $_GET['error'] == 1): ?>
-                <div class="alert alert-danger text-center" role="alert">
-                    Email o contraseña incorrectos.
-                </div>
-            <?php endif; ?>
-
-            <!-- Formulario de inicio de sesión -->
-            <form method="POST" action="./controllers/logicalogin.php">
-                <div class="group-material-login">
-                    <input type="email" class="material-login-control" required maxlength="70" name="email" id="email">
-                    <span class="highlight-login"></span>
-                    <span class="bar-login"></span>
-                    <label><i class="zmdi zmdi-account"></i> &nbsp; Correo electrónico</label>
-                </div>
-                <br>
-                <div class="group-material-login">
-                    <input type="password" class="material-login-control" required maxlength="70" name="password" id="password">
-                    <span class="highlight-login"></span>
-                    <span class="bar-login"></span>
-                    <label><i class="zmdi zmdi-lock"></i> &nbsp; Contraseña</label>
-                </div>
-                <button class="btn-login" type="submit">
-                    Ingresar al sistema &nbsp; <i class="zmdi zmdi-arrow-right"></i>
-                </button>
-            </form>
->>>>>>> e33ffda (Se realizaron cambios visuales en en login y index 10-10-2025)
         </div>
     </div>
 
     <!-- Bootstrap JS -->
-<<<<<<< HEAD
-=======
->>>>>>> b74019c (Se realizaron cambios visuales en en login y index 10-10-2025)
->>>>>>> e33ffda (Se realizaron cambios visuales en en login y index 10-10-2025)
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
