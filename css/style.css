@@ -16,9 +16,9 @@
 }
 :root {
   --first-color: #33414e;
-  --second-color: #2b3d51;
-  --option-nav: rgba(204, 122, 0, 0.5);
-  --option-infoBar: #ffd559;
+  --second-color: #46403f;
+  --option-nav: rgb(7, 197, 255);
+  --option-infoBar: #0415fa;
 }
 html,
 body {
@@ -78,7 +78,7 @@ span.label-mhover {
 }
 /*********==========Login*/
 .login-container {
-  background-image: url("../assets/img/font-login.png");
+  background-image: url("../assets/img/inde.jpg");
   width: 100%;
   height: 100%;
   display: flex;
@@ -86,7 +86,7 @@ span.label-mhover {
   justify-content: center;
 }
 .form-container {
-  color: #fff;
+  color: #636161;
   padding: 20px;
   border-radius: 5px;
   background-color: rgba(5, 53, 63, 0.7);
@@ -277,7 +277,7 @@ select.material-control-login:hover {
 .navbar-user-top > ul > li {
   display: inline-block;
   float: right;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(240, 10, 10, 0.4);
   height: 55px;
   margin: 0 12px;
   text-align: center;
@@ -304,12 +304,13 @@ select.material-control-login:hover {
 
 .navbar-lateral {
   width: 300px;
-  background-image: url("../assets/img/nav-lateral.jpg");
+  background-image: url("../assets/img/lateral.jpg");
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 2;
+  background-size: cover;
 }
 .nav-lateral-divider {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -318,7 +319,7 @@ select.material-control-login:hover {
 }
 .container-menu-movile {
   height: 100% !important;
-  background-color: rgba(43, 61, 81, 0.8);
+  background-color: rgba(43, 61, 81, 0.438);
 }
 .logo {
   height: 55px;
@@ -333,7 +334,7 @@ select.material-control-login:hover {
   position: relative;
   z-index: 1;
   width: 100%;
-  background-color: #fff;
+  background-color: #3f6e6898;
   padding-left: 300px;
   box-sizing: border-box;
 }

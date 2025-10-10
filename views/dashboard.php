@@ -56,7 +56,7 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
             <div class="nav-lateral-divider full-reset"></div>
             <div class="full-reset" style="padding: 10px 0; color:#fff;">
                 <figure>
-                    <img src="/Biblioteca-2025/assets/img/logo.png" alt="Biblioteca" class="img-responsive center-box" style="width:55%;">
+                    <img src="/Biblioteca-2025/assets/img/logo1.jpg" alt="Biblioteca" class="img-responsive center-box " style="width:55%">
                 </figure>
                 <p class="text-center" style="padding-top: 15px;">Biblioteca SENAP</p>
                 <p class="text-center"><strong>Rol:</strong> <?php echo ucfirst(strtolower($usuario_rol)); ?></p>

@@ -1,149 +1,77 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Biblioteca SENAP 2025</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca SENAP 2025 - Inicio de sesión</title>
+    <link rel="shortcut icon" href="assets/icons/book.ico" type="image/x-icon">
 
-    <meta name="description" content="Biblioteca SENAP ofrece acceso a libros, recursos digitales y actividades culturales para fomentar el aprendizaje y la lectura." />
-    <meta name="keywords" content="biblioteca, educación, lectura, libros digitales, cultura" />
-    <meta name="author" content="Cristian Villa y Jhoan Morales" />
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome y ZMDI -->
     <script src="https://kit.fontawesome.com/068a4d5189.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
 
-    <!-- Tu CSS -->
-    <link rel="stylesheet" href="/css/estilos.css" />
+    <!-- SweetAlert y estilos propios -->
+    <link rel="stylesheet" href="css/sweet-alert.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')
+    </script>
+    <script src="js/modernizr.js"></script>
 </head>
 
 <body>
-
-    <!-- 🔹 Barra de navegación -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <a class="navbar-brand" href="#">📚 Biblioteca SENAP 2025</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesión</a>
-                    </li>
-                </ul>
+    <div class="login-container full-cover-background d-flex justify-content-center align-items-center vh-100">
+        <div class="form-container p-4 shadow rounded" style="background-color: rgba(32, 29, 29, 0.9); max-width: 400px; width: 100%;">
+            <div class="text-center mb-4">
+                <i class="zmdi zmdi-account-circle zmdi-hc-5x"></i>
+                <h4 class="mt-3 all-tittles">Inicia sesión con tu cuenta</h4>
             </div>
-        </div>
-    </nav>
 
-    <!-- 🔹 Hero -->
-    <section class="hero text-center py-5 bg-light">
-        <h1>Bienvenido a la Biblioteca SENAP 2025</h1>
-        <p>Accede a miles de libros, recursos digitales y programas culturales desde cualquier lugar.</p>
-        <a href="#" class="btn btn-primary btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#loginModal">
-            Iniciar Sesión
-        </a>
-    </section>
-
-    <!-- 🔹 Servicios -->
-    <section id="servicios" class="servicios container my-5">
-        <div class="text-center mb-5">
-            <h2 class="fw-bold text-success">Nuestros Servicios</h2>
-            <p class="text-muted">Descubre todo lo que ofrecemos para potenciar tu aprendizaje.</p>
-        </div>
-
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="servicio-card text-center p-4 shadow-sm rounded-4">
-                    <i class="fa-solid fa-book fa-2x mb-3"></i>
-                    <h4>Catálogo de Libros</h4>
-                    <p>Consulta nuestra colección completa y descubre nuevos títulos cada mes.</p>
+            <!-- Mensaje de error -->
+            <?php if (isset($_GET['error']) && $_GET['error'] == 1): ?>
+                <div class="alert alert-danger text-center" role="alert">
+                    Email o contraseña incorrectos.
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="servicio-card text-center p-4 shadow-sm rounded-4">
-                    <i class="fa-solid fa-calendar-check fa-2x mb-3"></i>
-                    <h4>Reservas Online</h4>
-                    <p>Reserva tus libros fácilmente desde cualquier dispositivo.</p>
+            <?php endif; ?>
+            <form method="POST" action="./controllers/logicalogin.php">
+                <div class="group-material-login">
+                    <input type="email" class="material-login-control" name="email" required maxlength="70">
+                    <span class="highlight-login"></span>
+                    <span class="bar-login"></span>
+                    <label><i class="zmdi zmdi-account"></i> &nbsp; correo</label>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="servicio-card text-center p-4 shadow-sm rounded-4">
-                    <i class="fa-solid fa-users fa-2x mb-3"></i>
-                    <h4>Actividades Culturales</h4>
-                    <p>Participa en talleres, clubes de lectura y eventos educativos.</p>
+                <br>
+                <div class="group-material-login">
+                    <input type="password" class="material-login-control" name="password" required maxlength="70">
+                    <span class="highlight-login"></span>
+                    <span class="bar-login"></span>
+                    <label><i class="zmdi zmdi-lock"></i> &nbsp; Contraseña</label>
                 </div>
-            </div>
-        </div>
-    </section>
-    <section id="nosotros" class="container my-5">
-        <div class="text-center">
-            <h2 class="fw-bold text-success">Sobre Nosotros</h2>
-            <p class="text-muted">
-                Somos una biblioteca moderna enfocada en la innovación educativa y la inclusión digital.
-                Nuestro objetivo es fomentar el amor por la lectura en todas las generaciones.
-            </p>
-        </div>
-    </section>
+                <button class="btn-login" type="submit">
+                    Ingresar al sistema &nbsp; <i class="zmdi zmdi-arrow-right"></i>
+                </button>
 
-
-    <footer class="text-center py-3 bg-primary text-white">
-        <p>© 2025 Biblioteca SENAP | Desarrollado por Cristian Villa y Jhoan Morales</p>
-    </footer>
-
-    <?php if (isset($_GET['error']) && $_GET['error'] == 1): ?>
-        <div class="alert alert-danger text-center" role="alert">
-            Email o contraseña incorrectos.
-        </div>
-    <?php endif; ?>
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border-0 shadow-lg rounded-4">
-                <div class="modal-header bg-primary text-white rounded-top-4">
-                    <h5 class="modal-title" id="loginModalLabel">Inicio de Sesión</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                </div>
-
-                <form method="POST" action="./controllers/logicalogin.php">
-                    <div class="modal-body p-4">
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Correo electrónico</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="password" name="password" required>
-                        </div>
-
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <div>
-                                <input type="checkbox" id="remember" name="remember">
-                                <label for="remember">Recordarme</label>
-                            </div>
-                            <a href="#" class="text-decoration-none">¿Olvidaste tu contraseña?</a>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary w-100">Ingresar</button>
-                    </div>
-
-                    <div class="modal-footer">
-                        <p class="m-0">¿No tienes cuenta?
-                            <a href="#" class="text-primary text-decoration-none">Regístrate</a>
-                        </p>
-                    </div>
-                </form>
-            </div>
+            </form>
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/sweet-alert.min.js"></script>
 </body>
 
 </html>
