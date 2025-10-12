@@ -42,6 +42,10 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
     <script src="/Biblioteca-2025/js/bootstrap.min.js"></script>
     <script src="/Biblioteca-2025/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="/Biblioteca-2025/js/main.js"></script>
+    <!-- ✅ AGREGAR ESTAS DOS LINEAS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
 </head>
 
 <body>
@@ -70,27 +74,28 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
 
                     <?php if ($usuario_rol === 'ADMINISTRADOR') { ?>
                         <!-- panel administrador -->
-                        <li> <a href="#" id="btnUsuariosMenu"><i class="zmdi zmdi-book"></i>&nbsp;&nbsp; Registro de usuarios:</a></li>
-                        <li><a href="/Biblioteca-2025/views/loan.php"><i class="zmdi zmdi-calendar"></i>&nbsp;&nbsp; Registro de nuevos clientes.</a></li>
+                        <li><a href="#" id="btnUsuariosMenu"><i class="zmdi zmdi-book"></i>&nbsp;&nbsp; Registro de usuarios</a></li>
+                        <li><a href="/Biblioteca-2025/views/loan.php"><i class="zmdi zmdi-calendar"></i>&nbsp;&nbsp; Registro de nuevos clientes</a></li>
                         <li><a href="/Biblioteca-2025/views/report.php"><i class="zmdi zmdi-trending-up"></i>&nbsp;&nbsp; Reservas</a></li>
                         <li><a href="/Biblioteca-2025/views/report.php"><i class="zmdi zmdi-trending-up"></i>&nbsp;&nbsp; Prestamos</a></li>
                         <li><a href="/Biblioteca-2025/views/report.php"><i class="zmdi zmdi-trending-up"></i>&nbsp;&nbsp; Reportes (PDF/Excel)</a></li>
-
+                        <li><a href="/Biblioteca-2025/views/book.php"><i class="zmdi zmdi-book"></i>&nbsp;&nbsp; Inventario</a></li>
 
                     <?php } elseif ($usuario_rol === 'CLIENTE') { ?>
                         <!-- panel cliente -->
                         <li><a href="/Biblioteca-2025/views/searchbook.php"><i class="zmdi zmdi-search"></i>&nbsp;&nbsp; Buscar libros</a></li>
                         <li><a href="/Biblioteca-2025/views/myreservations.php"><i class="zmdi zmdi-timer"></i>&nbsp;&nbsp; Mis reservas</a></li>
-                        <li><a href="/Biblioteca-2025/views/searchbook.php"><i class="zmdi zmdi-search"></i>&nbsp;&nbsp; Mis Prestamos</a></li>
-                        <li><a href="/Biblioteca-2025/views/myreservations.php"><i class="zmdi zmdi-timer"></i>&nbsp;&nbsp; Mis Datos</a></li>
+                        <li><a href="/Biblioteca-2025/views/searchbook.php"><i class="zmdi zmdi-search"></i>&nbsp;&nbsp; Mis préstamos</a></li>
+                        <li><a href="/Biblioteca-2025/views/myreservations.php"><i class="zmdi zmdi-timer"></i>&nbsp;&nbsp; Mis datos</a></li>
                     <?php } ?>
+
 
                     <li><a href="/Biblioteca-2025/logout.php"><i class="zmdi zmdi-power"></i>&nbsp;&nbsp; Cerrar sesión</a></li>
                 </ul>
             </div>
         </div>
     </div>
-    <!-- contendio de central  -->
+    <!-- ======= CONTENIDO CENTRAL ======= -->
     <div class="content-page-container full-reset custom-scroll-containers">
         <nav class="navbar-user-top full-reset">
             <ul class="list-unstyled full-reset">
@@ -106,23 +111,18 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
                 <h1 class="all-tittles">Panel de <small><?php echo ucfirst(strtolower($usuario_rol)); ?></small></h1>
             </div>
         </div>
-        <!-- seccion segun rol de usuario -->
+        <!-- TARJETAS SEGÚN ROL -->
         <section class="full-reset text-center" style="padding: 40px 0;">
             <?php if ($usuario_rol === 'ADMINISTRADOR') { ?>
-                <!-- tarejtas adminoistarador -->
+                <!-- TARJETAS ADMIN -->
                 <article class="tile" id="btnUsuarios">
-                    <div class="tile-icon full-reset"><i class="zmdi zmdi-accounts"></i></div>
+                    <div class="tile-icon full-reset"><i class="zmdi zmdi-book"></i></div>
                     <div class="tile-name all-tittles">Usuarios registrados</div>
                     <div class="tile-num full-reset">77</div>
                 </article>
                 <article class="tile">
-                    <div class="tile-icon full-reset"><i class="zmdi zmdi-collection-folder-image"></i></div>
-                    <div class="tile-name all-tittles">Libros en inventario</div>
-                    <div class="tile-num full-reset">7</div>
-                </article>
-                <article class="tile">
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-book"></i></div>
-                    <div class="tile-name all-tittles">Libros disponibles</div>
+                    <div class="tile-name all-tittles">Libros registrados</div>
                     <div class="tile-num full-reset">77</div>
                 </article>
                 <article class="tile">
@@ -140,10 +140,9 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
                     <div class="tile-name all-tittles">Reportes</div>
                     <div class="tile-num full-reset">&nbsp;</div>
                 </article>
-
-
-            <?php } elseif ($usuario_rol === 'CLIENTE') { ?>
                 <!-- tarejtas clientes -->
+            <?php } elseif ($usuario_rol === 'CLIENTE') { ?>
+                <!-- TARJETAS CLIENTE -->
                 <article class="tile">
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-search"></i></div>
                     <div class="tile-name all-tittles">Buscar libros</div>
@@ -158,25 +157,14 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
                 </article>
             <?php } ?>
         </section>
-        <!-- el contenedor de usuarios -->
         <div id="tablaUsuariosContainer" class="container" style="display:none; margin-top:30px;"></div>
-
 
         <footer>
             © 2025 Biblioteca-2025 | Desarrollado por Cristian Villa y Jhoan Morales
         </footer>
 
     </div>
-    <!-- links de los cdn en linea -->
-
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-
-    <!-- script  de la tabla -->
-    <script src="/Biblioteca-2025/js/tabla_usuarios.js"></script>
-
+    <script src="../js/tabla_usuarios.js"></script>
 </body>
 
 </html>

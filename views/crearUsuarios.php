@@ -1,3 +1,4 @@
+
 <!-- Modal de Registro -->
 <div class="modal fade" id="modalRegistrarUsuario" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -65,3 +66,5 @@
         </div>
     </div>
 </div>
+<!DOCTYPE html>
+
