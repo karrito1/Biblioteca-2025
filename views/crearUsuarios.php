@@ -66,5 +66,4 @@
         </div>
     </div>
 </div>
-<!DOCTYPE html>
 

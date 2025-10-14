@@ -1,13 +1,22 @@
 <?php
 session_start();
+require_once("../models/MySQL.php");
 
+$db = new MySQL();
+$conexion = $db->conectar();
+
+$query = "SELECT count(*) as totalUsuarios FROM usuarios";
+$resultado = $db->efectuarConsulta($query);
+$total_usuarios = mysqli_fetch_assoc($resultado)['totalUsuarios'];
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: ../index.php?error=1");
     exit();
 }
-
-$usuario_nombre = $_SESSION['nombre'];
+$usuario_nombre = $_SESSION['email'];
 $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -23,29 +32,18 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
     <meta name="author" content="Cristian Villa y Jhoan Morales">
 
     <link rel="Shortcut Icon" type="image/x-icon" href="/Biblioteca-2025/assets/icons/book.ico" />
-
-    <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="/Biblioteca-2025/css/sweet-alert.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" href="/Biblioteca-2025/css/material-design-iconic-font.min.css">
-    <link rel="stylesheet" href="/Biblioteca-2025/css/normalize.css">
-    <link rel="stylesheet" href="/Biblioteca-2025/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Biblioteca-2025/css/sweet-alert.css">
     <link rel="stylesheet" href="/Biblioteca-2025/css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="/Biblioteca-2025/css/style.css">
-
-    <!-- ===== JS ===== -->
     <script src="/Biblioteca-2025/js/sweet-alert.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>
-        window.jQuery || document.write('<script src="/Biblioteca-2025/js/jquery-1.11.2.min.js"><\/script>')
-    </script>
-    <script src="/Biblioteca-2025/js/modernizr.js"></script>
-    <script src="/Biblioteca-2025/js/bootstrap.min.js"></script>
     <script src="/Biblioteca-2025/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="/Biblioteca-2025/js/main.js"></script>
-    <!-- ✅ AGREGAR ESTAS DOS LINEAS -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-
 </head>
 
 <body>
@@ -75,11 +73,12 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
                     <?php if ($usuario_rol === 'ADMINISTRADOR') { ?>
                         <!-- panel administrador -->
                         <li><a href="#" id="btnUsuariosMenu"><i class="zmdi zmdi-book"></i>&nbsp;&nbsp; Registro de usuarios</a></li>
-                        <li><a href="/Biblioteca-2025/views/loan.php"><i class="zmdi zmdi-calendar"></i>&nbsp;&nbsp; Registro de nuevos clientes</a></li>
+                        <li><a href="#" id="btnLibrosMenu"><i class="zmdi zmdi-calendar"></i>&nbsp;&nbsp; Registro de libros</a></li>
                         <li><a href="/Biblioteca-2025/views/report.php"><i class="zmdi zmdi-trending-up"></i>&nbsp;&nbsp; Reservas</a></li>
                         <li><a href="/Biblioteca-2025/views/report.php"><i class="zmdi zmdi-trending-up"></i>&nbsp;&nbsp; Prestamos</a></li>
                         <li><a href="/Biblioteca-2025/views/report.php"><i class="zmdi zmdi-trending-up"></i>&nbsp;&nbsp; Reportes (PDF/Excel)</a></li>
                         <li><a href="/Biblioteca-2025/views/book.php"><i class="zmdi zmdi-book"></i>&nbsp;&nbsp; Inventario</a></li>
+
 
                     <?php } elseif ($usuario_rol === 'CLIENTE') { ?>
                         <!-- panel cliente -->
@@ -106,10 +105,12 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
             </ul>
         </nav>
 
+
         <div class="container">
             <div class="page-header">
                 <h1 class="all-tittles">Panel de <small><?php echo ucfirst(strtolower($usuario_rol)); ?></small></h1>
             </div>
+
         </div>
         <!-- TARJETAS SEGÚN ROL -->
         <section class="full-reset text-center" style="padding: 40px 0;">
@@ -118,7 +119,7 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
                 <article class="tile" id="btnUsuarios">
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-book"></i></div>
                     <div class="tile-name all-tittles">Usuarios registrados</div>
-                    <div class="tile-num full-reset">77</div>
+                    <div class="tile-num full-reset"><?= $total_usuarios ?></div>
                 </article>
                 <article class="tile">
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-book"></i></div>
@@ -157,13 +158,17 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
                 </article>
             <?php } ?>
         </section>
-        <div id="tablaUsuariosContainer" class="container" style="display:none; margin-top:30px;"></div>
+        <div id="tablaUsuariosContainer" class="container" style="display:none; margin-top:30px;">
+
+        </div>
 
         <footer>
             © 2025 Biblioteca-2025 | Desarrollado por Cristian Villa y Jhoan Morales
         </footer>
 
     </div>
+    <?php include __DIR__ . '/modales/modalRegistro.php'; ?>
+
     <script src="../js/tabla_usuarios.js"></script>
 </body>
 
