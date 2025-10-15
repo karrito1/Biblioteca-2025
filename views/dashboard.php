@@ -2,12 +2,32 @@
 session_start();
 require_once("../models/MySQL.php");
 
-$db = new MySQL();
-$conexion = $db->conectar();
+$baseDatos = new MySQL();
+$conexion = $baseDatos->conectar();
+// consulta de usurios registrados
+$consultadoUsuarios = "SELECT count(*) as totalUsuarios FROM usuarios";
+$resultado0 = $baseDatos->efectuarConsulta($consultadoUsuarios);
+$totalUsuarios = mysqli_fetch_assoc($resultado0)['totalUsuarios'];
 
-$query = "SELECT count(*) as totalUsuarios FROM usuarios";
-$resultado = $db->efectuarConsulta($query);
-$total_usuarios = mysqli_fetch_assoc($resultado)['totalUsuarios'];
+// consulta de libros registrados
+$consultaLibros = "SELECT count(*) as totalLibros FROM libros";
+$resultado1 = $baseDatos->efectuarConsulta($consultaLibros);
+$totalLibros = mysqli_fetch_assoc($resultado1)['totalLibros'];
+
+//consulta de  reservas pendientes
+
+$consultaReservas = "SELECT count(*) as totalReservas FROM reservas where estado='Pendiente'";
+$resultado2 = $baseDatos->efectuarConsulta($consultaReservas);
+$totalReservas = mysqli_fetch_assoc($resultado2)['totalReservas'];
+
+//consulta de prestamos activos
+$consultaPrestamos = "SELECT count(*) as totalPrestamos FROM prestamos where estado='activo'";
+$resultado3 = $baseDatos->efectuarConsulta($consultaPrestamos);
+$totalPrestamos = mysqli_fetch_assoc($resultado3)['totalPrestamos'];
+
+
+
+
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: ../index.php?error=1");
     exit();
@@ -120,25 +140,25 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-book"></i></div>
                     <div class="tile-name all-tittles">Usuarios registrados</div>
                     <!-- aca se registra la variables de   de la consulta para mostar en las cards  -->
-                    <div class="tile-num full-reset"><?= $total_usuarios ?></div>
+                    <div class="tile-num full-reset"><?= $totalUsuarios ?></div>
                 </article>
                 <article class="tile">
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-book"></i></div>
                     <div class="tile-name all-tittles">Libros registrados</div>
                     <!-- aca se registra la variables de   de la consulta para mostar en las cards  -->
-                    <div class="tile-num full-reset">77</div>
+                    <div class="tile-num full-reset"><?= $totalLibros ?></div>
                 </article>
                 <article class="tile">
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-calendar"></i></div>
                     <div class="tile-name all-tittles">Reservas pendientes</div>
                     <!-- aca se registra la variables de   de la consulta para mostar en las cards  -->
-                    <div class="tile-num full-reset">7</div>
+                    <div class="tile-num full-reset"><?= $totalReservas ?></div>
                 </article>
                 <article class="tile">
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-calendar"></i></div>
                     <div class="tile-name all-tittles">Prestamos Activos</div>
                     <!-- aca se registra la variables de   de la consulta para mostar en las cards  -->
-                    <div class="tile-num full-reset">7</div>
+                    <div class="tile-num full-reset"><?= $totalPrestamos ?></div>
                 </article>
                 <article class="tile">
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-trending-up"></i></div>
@@ -172,11 +192,11 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
     </div>
     <!-- aca nos dirigimos a la carpeta de los modales -->
     <?php include __DIR__ . '/modales/modalRegistro.php'; ?>
-    <?php include __DIR__ . '/modales/modalEliminar.php'; ?>
-    <?php include __DIR__ . '/modales/modalEditargit.php'; ?>
+
 
 
     <script src="../js/tabla_usuarios.js"></script>
 </body>
 
 </html>
+<?php $baseDatos->desconectar(); ?>
