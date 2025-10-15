@@ -112,28 +112,32 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
             </div>
 
         </div>
-        <!-- TARJETAS SEGÚN ROL -->
+        <!-- tarjetas de doles -->
         <section class="full-reset text-center" style="padding: 40px 0;">
             <?php if ($usuario_rol === 'ADMINISTRADOR') { ?>
-                <!-- TARJETAS ADMIN -->
+                <!--tarjetas segun administrador -->
                 <article class="tile" id="btnUsuarios">
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-book"></i></div>
                     <div class="tile-name all-tittles">Usuarios registrados</div>
+                    <!-- aca se registra la variables de   de la consulta para mostar en las cards  -->
                     <div class="tile-num full-reset"><?= $total_usuarios ?></div>
                 </article>
                 <article class="tile">
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-book"></i></div>
                     <div class="tile-name all-tittles">Libros registrados</div>
+                    <!-- aca se registra la variables de   de la consulta para mostar en las cards  -->
                     <div class="tile-num full-reset">77</div>
                 </article>
                 <article class="tile">
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-calendar"></i></div>
                     <div class="tile-name all-tittles">Reservas pendientes</div>
+                    <!-- aca se registra la variables de   de la consulta para mostar en las cards  -->
                     <div class="tile-num full-reset">7</div>
                 </article>
                 <article class="tile">
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-calendar"></i></div>
                     <div class="tile-name all-tittles">Prestamos Activos</div>
+                    <!-- aca se registra la variables de   de la consulta para mostar en las cards  -->
                     <div class="tile-num full-reset">7</div>
                 </article>
                 <article class="tile">
@@ -143,7 +147,6 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
                 </article>
                 <!-- tarejtas clientes -->
             <?php } elseif ($usuario_rol === 'CLIENTE') { ?>
-                <!-- TARJETAS CLIENTE -->
                 <article class="tile">
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-search"></i></div>
                     <div class="tile-name all-tittles">Buscar libros</div>
@@ -167,7 +170,11 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
         </footer>
 
     </div>
+    <!-- aca nos dirigimos a la carpeta de los modales -->
     <?php include __DIR__ . '/modales/modalRegistro.php'; ?>
+    <?php include __DIR__ . '/modales/modalEliminar.php'; ?>
+    <?php include __DIR__ . '/modales/modalEditargit.php'; ?>
+
 
     <script src="../js/tabla_usuarios.js"></script>
 </body>

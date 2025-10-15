@@ -1,5 +1,5 @@
 <div class="modal fade" id="modalRegistrarUsuario" tabindex="-1" aria-labelledby="modalRegistrarUsuarioLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg"> <!-- modal más ancho -->
+    <div class="modal-dialog modal-lg"> 
         <div class="modal-content">
             <div class="modal-header bg-primary text-white">
                 <h5 class="modal-title" id="modalRegistrarUsuarioLabel">Registrar nuevo usuario</h5>
@@ -9,13 +9,13 @@
             <div class="modal-body">
                 <form id="formRegistrarUsuario">
                     <div class="row">
-                        <!-- Columna 1 -->
+
                         <div class="col-md-6 mb-3">
                             <label for="nombreUsuario" class="form-label">Nombre:</label>
                             <input type="text" class="form-control form-control-sm" id="nombreUsuario" name="nombreUsuario" required>
                         </div>
 
-                        <!-- Columna 2 -->
+                      
                         <div class="col-md-6 mb-3">
                             <label for="correoUsuario" class="form-label">Correo:</label>
                             <input type="email" class="form-control form-control-sm" id="correoUsuario" name="correoUsuario" required>

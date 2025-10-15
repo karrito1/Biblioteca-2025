@@ -1,25 +1,24 @@
 <?php
 require_once("../models/MySQL.php");
 
-$db = new MySQL();
-$conexion = $db->conectar();
+$baseDatos = new MySQL();
+$conexion = $baseDatos->conectar();
 
 $query = "SELECT id, nombre, email, telefono, direccion, estado, fecha_registro, Roles FROM usuarios";
-$result = $db->efectuarConsulta($query);
+$result = $baseDatos->efectuarConsulta($query);
 ?>
 
 <div class="card p-4 mb-5 shadow">
     <h3 class="mb-4"><i class="zmdi zmdi-accounts"></i> Usuarios Registrados</h3>
 
-    <!-- 🔹 Acciones rápidas -->
+    <!--  Acciones rapidas -->
     <div class="mb-4">
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistrarUsuario">
             <i class="zmdi zmdi-account-add"></i> Nuevo Usuario
         </button>
     </div>
 
-
-    <!-- 🔹 Tabla -->
+    <!--  Tabla -->
     <div class="table-responsive ">
         <table id="tablausuarios" class="table table-striped table-bordered">
             <thead class="table-dark text-center">
@@ -61,4 +60,4 @@ $result = $db->efectuarConsulta($query);
     </div>
 </div>
 
-<?php $db->desconectar(); ?>
+<?php $baseDatos->desconectar(); ?>
