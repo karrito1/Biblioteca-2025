@@ -18,13 +18,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'], $_POST['pass
 
     if ($usuario = $resultado->fetch_assoc()) {
 
-     
+
         if (strtolower($usuario['estado']) !== 'activo') {
             $mysql->desconectar();
             header("Location: ../index.php?error=Usuario inactivo");
             exit();
         }
-        if (md5($password) === $usuario['passwordd']) {
+        if (password_verify($password, $usuario['passwordd'])) {
 
             // Crear sesión
             $_SESSION['usuario_id'] = $usuario['id'];
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'], $_POST['pass
             $_SESSION['email'] = $usuario['email'];
             $_SESSION['roles'] = strtoupper($usuario['Roles']);
 
-          
+
             switch ($_SESSION['roles']) {
                 case 'ADMINISTRADOR':
                     header("Location: ../views/dashboard.php");
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'], $_POST['pass
             $mysql->desconectar();
             exit();
         } else {
-       
+
             $mysql->desconectar();
             header("Location: ../index.php?error=Contraseña incorrecta");
             exit();

@@ -192,7 +192,7 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
     </div>
     <!-- aca nos dirigimos a la carpeta de los modales -->
     <?php include __DIR__ . '/modales/modalRegistro.php'; ?>
-
+   
 
 
     <script src="../js/tabla_usuarios.js"></script>
