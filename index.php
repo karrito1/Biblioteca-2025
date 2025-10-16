@@ -1,0 +1,87 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca SENAP 2025 - Inicio de sesión</title>
+    <link rel="shortcut icon" href="assets/icons/book.ico" type="image/x-icon">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome (Kit o CDN) -->
+    <script src="https://kit.fontawesome.com/068a4d5189.js" crossorigin="anonymous"></script>
+
+    <!-- Material Icons (Google) -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- SweetAlert2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.20/dist/sweetalert2.min.css" rel="stylesheet">
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- jQuery 3.6 -->
+    <script src="https://code.jquery.com/jquery-3.6.5.min.js"></script>
+
+    <!-- Modernizr (opcional, solo si necesitas compatibilidad antigua) -->
+    <script src="js/modernizr.js"></script>
+</head>
+
+<body>
+    <div class="login-container full-cover-background d-flex justify-content-center align-items-center vh-100">
+        <div class="form-container p-4 shadow rounded" style="background-color: rgba(32, 29, 29, 0.9); max-width: 400px; width: 100%;">
+            <div class="text-center mb-4">
+                <i class="zmdi zmdi-account-circle zmdi-hc-5x"></i>
+                <h4 class="mt-3 all-tittles">Inicia sesión con tu cuenta</h4>
+            </div>
+
+            <!-- Mensaje de error -->
+            <?php if (isset($_GET['error']) && $_GET['error'] == 1): ?>
+                <div class="alert alert-danger text-center" role="alert">
+                    Email o contraseña incorrectos.
+                </div>
+            <?php endif; ?>
+            <form method="POST" action="./controllers/logicalogin.php">
+                <div class="group-material-login">
+                    <input type="email" class="material-login-control" name="email" required maxlength="70">
+                    <span class="highlight-login"></span>
+                    <span class="bar-login"></span>
+                    <label><i class="zmdi zmdi-account"></i> &nbsp; correo</label>
+                </div>
+                <br>
+                <div class="group-material-login">
+                    <input type="password" class="material-login-control" name="password" required maxlength="70">
+                    <span class="highlight-login"></span>
+                    <span class="bar-login"></span>
+                    <label><i class="zmdi zmdi-lock"></i> &nbsp; Contraseña</label>
+                </div>
+                <button class="btn-login" type="submit">
+                    Ingresar al sistema &nbsp; <i class="zmdi zmdi-arrow-right"></i>
+                </button>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jQuery mCustomScrollbar -->
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.20/dist/sweetalert2.all.min.js"></script>
+
+    <!-- JS propio -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
