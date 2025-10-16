@@ -46,10 +46,17 @@ $result = $baseDatos->efectuarConsulta($query);
                         <td><?= htmlspecialchars($fila['fecha_registro']) ?></td>
                         <td><?= htmlspecialchars($fila['Roles']) ?></td>
                         <td class="text-center">
+<<<<<<< HEAD
                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditarCliente">
                                 <i class="zmdi zmdi-edit"></i>
                             </button>
                             <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="">
+=======
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistrarUsuario">
+                                <i class="zmdi zmdi-edit"></i>
+                            </button>
+                            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalRegistrarUsuario">
+>>>>>>> 28867161c4de894b8f7d8cb6403382d81dcb5e23
                                 <i class="zmdi zmdi-delete"></i>
                             </button>
                         </td>
@@ -59,5 +66,9 @@ $result = $baseDatos->efectuarConsulta($query);
         </table>
     </div>
 </div>
+<<<<<<< HEAD
 <div id="contenedor-modal-editar"></div>
+=======
+
+>>>>>>> 28867161c4de894b8f7d8cb6403382d81dcb5e23
 <?php $baseDatos->desconectar(); ?>

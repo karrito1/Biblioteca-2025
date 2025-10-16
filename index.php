@@ -10,6 +10,7 @@ session_start();
     <title>Biblioteca SENAP 2025 - Inicio de sesión</title>
     <link rel="shortcut icon" href="assets/icons/book.ico" type="image/x-icon">
 
+<<<<<<< HEAD
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -23,14 +24,33 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.20/dist/sweetalert2.min.css" rel="stylesheet">
 
     <!-- Estilos propios -->
+=======
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome y ZMDI -->
+    <script src="https://kit.fontawesome.com/068a4d5189.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+
+    <!-- SweetAlert y estilos propios -->
+    <link rel="stylesheet" href="css/sweet-alert.css">
+>>>>>>> 28867161c4de894b8f7d8cb6403382d81dcb5e23
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="css/style.css">
 
+<<<<<<< HEAD
     <!-- jQuery 3.6 -->
     <script src="https://code.jquery.com/jquery-3.6.5.min.js"></script>
 
     <!-- Modernizr (opcional, solo si necesitas compatibilidad antigua) -->
+=======
+    <!-- jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')
+    </script>
+>>>>>>> 28867161c4de894b8f7d8cb6403382d81dcb5e23
     <script src="js/modernizr.js"></script>
 </head>
 
@@ -71,6 +91,7 @@ session_start();
     </div>
 
     <!-- Bootstrap JS Bundle -->
+<<<<<<< HEAD
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -82,6 +103,12 @@ session_start();
 
     <!-- JS propio -->
     <script src="js/main.js"></script>
+=======
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/sweet-alert.min.js"></script>
+>>>>>>> 28867161c4de894b8f7d8cb6403382d81dcb5e23
 </body>
 
 </html>

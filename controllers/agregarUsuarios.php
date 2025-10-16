@@ -1,8 +1,11 @@
 <?php
 header("Content-Type: application/json; charset=utf-8");
 include_once "../models/MySQL.php";
+<<<<<<< HEAD
 $baseDatos = new MySQL();
 $baseDatos->conectar();
+=======
+>>>>>>> 28867161c4de894b8f7d8cb6403382d81dcb5e23
 
 $response = ["status" => "error", "message" => "Solicitud inválida."];
 
@@ -30,7 +33,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $hash          = password_hash($passwordPlano, PASSWORD_BCRYPT);
 
         try {
+<<<<<<< HEAD
 
+=======
+            $baseDatos = new MySQL();
+            $baseDatos->conectar();
+>>>>>>> 28867161c4de894b8f7d8cb6403382d81dcb5e23
 
             $consulta = "INSERT INTO usuarios 
             (nombre, email, telefono, direccion, estado, fecha_registro, Roles, passwordd) 

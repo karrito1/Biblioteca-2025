@@ -47,6 +47,7 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Biblioteca SENAP 2025</title>
 
+<<<<<<< HEAD
     <!-- ====== Metadatos SEO ====== -->
     <meta name="description"
         content="Biblioteca SENAP ofrece acceso a libros, recursos digitales y actividades culturales para fomentar el aprendizaje y la lectura.">
@@ -88,6 +89,27 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
 </head>
 
 
+=======
+    <meta name="description" content="Biblioteca SENAP ofrece acceso a libros, recursos digitales y actividades culturales para fomentar el aprendizaje y la lectura.">
+    <meta name="keywords" content="biblioteca, educación, lectura, libros digitales, cultura">
+    <meta name="author" content="Cristian Villa y Jhoan Morales">
+
+    <link rel="Shortcut Icon" type="image/x-icon" href="/Biblioteca-2025/assets/icons/book.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="/Biblioteca-2025/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="/Biblioteca-2025/css/sweet-alert.css">
+    <link rel="stylesheet" href="/Biblioteca-2025/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="/Biblioteca-2025/css/style.css">
+    <script src="/Biblioteca-2025/js/sweet-alert.min.js"></script>
+    <script src="/Biblioteca-2025/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/Biblioteca-2025/js/main.js"></script>
+</head>
+
+>>>>>>> 28867161c4de894b8f7d8cb6403382d81dcb5e23
 <body>
     <div class="navbar-lateral full-reset">
         <div class="visible-xs font-movile-menu mobile-menu-button"></div>
@@ -214,11 +236,17 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
     </div>
     <!-- aca nos dirigimos a la carpeta de los modales -->
     <?php include __DIR__ . '/modales/modalRegistro.php'; ?>
+<<<<<<< HEAD
     <?php include __DIR__ . '/modales/modalEditar.php'; ?>
 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/Biblioteca-2025/js/alertaRegistro.js"></script>
+=======
+   
+
+
+>>>>>>> 28867161c4de894b8f7d8cb6403382d81dcb5e23
     <script src="../js/tabla_usuarios.js"></script>
 </body>
 
