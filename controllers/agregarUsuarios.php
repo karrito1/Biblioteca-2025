@@ -1,60 +1,46 @@
 <?php
 header("Content-Type: application/json; charset=utf-8");
 include_once "../models/MySQL.php";
-<<<<<<< HEAD
+
 $baseDatos = new MySQL();
 $baseDatos->conectar();
-=======
->>>>>>> 28867161c4de894b8f7d8cb6403382d81dcb5e23
 
 $response = ["status" => "error", "message" => "Solicitud inválida."];
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $id = intval($_POST["id"] ?? 0);
+    $nombre = trim($_POST["nombre"] ?? "");
+    $email = trim($_POST["email"] ?? "");
+    $telefono = trim($_POST["telefono"] ?? "");
+    $direccion = trim($_POST["direccion"] ?? "");
+    $estado = trim($_POST["estado"] ?? "");
+    $fecha_registro = $_POST["fecha_registro"] ?? "";
+    $Roles = trim($_POST["Roles"] ?? "");
+    $passwordd = $_POST["passwordd"] ?? "";
 
-    if (
-        !empty($_POST["nombre"]) &&
-        !empty($_POST["email"]) &&
-        !empty($_POST["telefono"]) &&
-        !empty($_POST["direccion"]) &&
-        !empty($_POST["estado"]) &&
-        !empty($_POST["fecha_registro"]) &&
-        !empty($_POST["Roles"]) &&
-        !empty($_POST["passwordd"])
-    ) {
+    if ($id && $nombre && $email && $telefono && $direccion && $estado && $fecha_registro && $Roles) {
+        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+        $passwordSQL = !empty($passwordd) ? ", passwordd='" . password_hash($passwordd, PASSWORD_BCRYPT) . "'" : "";
 
-        $nombre        = htmlspecialchars(trim($_POST["nombre"]));
-        $correo        = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-        $telefono      = htmlspecialchars(trim($_POST["telefono"]));
-        $direccion     = htmlspecialchars(trim($_POST["direccion"]));
-        $estado        = htmlspecialchars(trim($_POST["estado"]));
-        $fechaRegistro = htmlspecialchars($_POST["fecha_registro"]);
-        $roles         = htmlspecialchars(trim($_POST["Roles"]));
-        $passwordPlano = $_POST["passwordd"];
-        $hash          = password_hash($passwordPlano, PASSWORD_BCRYPT);
+        $sql = "UPDATE usuarios SET 
+                nombre='$nombre',
+                email='$email',
+                telefono='$telefono',
+                direccion='$direccion',
+                estado='$estado',
+                fecha_registro='$fecha_registro',
+                Roles='$Roles' $passwordSQL
+                WHERE id=$id";
 
-        try {
-<<<<<<< HEAD
-
-=======
-            $baseDatos = new MySQL();
-            $baseDatos->conectar();
->>>>>>> 28867161c4de894b8f7d8cb6403382d81dcb5e23
-
-            $consulta = "INSERT INTO usuarios 
-            (nombre, email, telefono, direccion, estado, fecha_registro, Roles, passwordd) 
-            VALUES ('$nombre','$correo','$telefono','$direccion','$estado','$fechaRegistro','$roles','$hash')";
-
-            if ($baseDatos->efectuarConsulta($consulta)) {
-                $response = ["status" => "success", "message" => "Registro insertado correctamente."];
-            }
-
-            $baseDatos->desconectar();
-        } catch (Exception $e) {
-            $response = ["status" => "error", "message" => $e->getMessage()];
+        if ($baseDatos->efectuarConsulta($sql)) {
+            $response = ["status" => "success", "message" => "Usuario actualizado correctamente."];
+        } else {
+            $response = ["status" => "error", "message" => "No se pudo actualizar el usuario."];
         }
     } else {
-        $response = ["status" => "error", "message" => "Por favor complete todos los campos."];
+        $response = ["status" => "error", "message" => "Complete todos los campos."];
     }
 }
 
+$baseDatos->desconectar();
 echo json_encode($response);

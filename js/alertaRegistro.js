@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }).then((result) => {
       if (!result.isConfirmed) return;
 
-      // 📨 Envío de datos al servidor
       fetch("/Biblioteca-2025/controllers/agregarUsuarios.php", {
         method: "POST",
         body: formData,
@@ -40,13 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             form.reset();
-
-            // 🔒 Cierra el modal
             const modalElement = document.getElementById("modalRegistrarUsuario");
             const modal = bootstrap.Modal.getInstance(modalElement);
             if (modal) modal.hide();
-
-            // 🔄 Recarga la página suavemente
             setTimeout(() => location.reload(), 1800);
           } else {
             Swal.fire({

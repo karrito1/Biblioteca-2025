@@ -30,8 +30,9 @@ class MySQL
     // Desconectar
     public function desconectar()
     {
-        if ($this->conexion) {
-            mysqli_close($this->conexion);
+        if ($this->conexion) {   // Verifica que exista la conexión
+            $this->conexion->close();
+            $this->conexion = null; // Evita cerrarla de nuevo
         }
     }
 
@@ -59,5 +60,3 @@ class MySQL
         return mysqli_error($this->conexion);
     }
 }
-?>
-
