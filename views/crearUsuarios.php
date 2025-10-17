@@ -1,33 +1,69 @@
-<!DOCTYPE html>
-<html lang="es">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Modal de Registro -->
+<div class="modal fade" id="modalRegistrarUsuario" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="modalLabel">Registrar nuevo usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formRegistro" method="POST">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese su nombre" required>
+                    </div>
 
-    <title>BIBLIOTECA SENAP 2025</title>
+                    <div class="mb-3">
+                        <label for="apellido" class="form-label">Apellido</label>
+                        <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Ingrese su apellido" required>
+                    </div>
 
-    <meta name="description" content="Biblioteca SENAP ofrece acceso a libros, recursos digitales y actividades culturales para fomentar el aprendizaje y la lectura. ¡Visítanos hoy!" />
-    <meta name="keywords" content="biblioteca, sala de lectura, educación, acceso a libros, libros digitales, actividades culturales" />
-    <meta name="robots" content="index, follow" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="language" content="es" />
-    <meta name="author" content="Cristian Villa y Jhoan Morales" />
-    <meta name="revisit-after" content="30 days" />
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="usuario@correo.com" required>
+                    </div>
 
-    <!-- Bootstrap CSS minificado -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.4.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="text" name="telefono" id="telefono" class="form-control" placeholder="Ingrese su número de teléfono" required>
+                    </div>
 
-    <!-- Tu archivo CSS -->
-    <link rel="stylesheet" href="estilos.css" />
-</head>
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Dirección</label>
+                        <input type="text" name="direccion" id="direccion" class="form-control" placeholder="Calle, ciudad, número" required>
+                    </div>
 
-<body>
+                    <div class="mb-3">
+                        <label for="rol" class="form-label">Rol</label>
+                        <select name="rol" id="rol" class="form-select" required>
+                            <option value="">Seleccione un rol</option>
+                            <option value="ADMINISTRADOR">Administrador</option>
+                            <option value="CLIENTE">Cliente</option>
+                        </select>
+                    </div>
 
+                    <div class="mb-3">
+                        <label for="estado" class="form-label">Estado</label>
+                        <select name="estado" id="estado" class="form-select">
+                            <option value="Activo">Activo</option>
+                            <option value="Inactivo">Inactivo</option>
+                        </select>
+                    </div>
 
-    <!-- Bootstrap JS Bundle minificado (Popper incluido) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.4.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/068a4d5189.js" crossorigin="anonymous"></script>
-</body>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Crea una contraseña segura" required>
+                    </div>
 
-</html>
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary w-100 py-2">
+                            <i class="fa-solid fa-user-plus"></i> Registrar Usuario
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
