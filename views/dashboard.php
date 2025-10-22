@@ -109,7 +109,7 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
 
                     <?php if ($usuario_rol === 'ADMINISTRADOR') { ?>
                         <!-- panel administrador -->
-                        <li><a href="#" id="btnUsuariosMenu"><i class="zmdi zmdi-book"></i>&nbsp;&nbsp; Registro de usuarios</a></li>
+                        <li><a href="#" id="btnUsuarios"><i class="zmdi zmdi-book"></i>&nbsp;&nbsp; Registro de usuarios</a></li>
                         <li><a href="#" id="btnLibrosMenu"><i class="zmdi zmdi-calendar"></i>&nbsp;&nbsp; Registro de libros</a></li>
                         <li><a href="/Biblioteca-2025/views/report.php"><i class="zmdi zmdi-trending-up"></i>&nbsp;&nbsp; Reservas</a></li>
                         <li><a href="/Biblioteca-2025/views/report.php"><i class="zmdi zmdi-trending-up"></i>&nbsp;&nbsp; Prestamos</a></li>

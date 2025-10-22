@@ -14,7 +14,7 @@ $result = $baseDatos->efectuarConsulta($query);
     <!--  Acciones rapidas -->
     <div class="mb-4">
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistrarUsuario">
-            <i class="zmdi zmdi-account-add"></i> registar prestamo
+            <i class="zmdi zmdi-account-add"></i> registar usuario
         </button>
     </div>
 
