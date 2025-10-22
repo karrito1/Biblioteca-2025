@@ -178,7 +178,6 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
                 <article class="tile">
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-calendar"></i></div>
                     <div class="tile-name all-tittles">Prestamos Activos</div>
-
                     <div class="tile-num full-reset"><?= $totalPrestamos ?></div>
                 </article>
                 <article class="tile">
