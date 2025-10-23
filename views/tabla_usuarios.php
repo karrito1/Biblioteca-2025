@@ -14,7 +14,7 @@ $result = $baseDatos->efectuarConsulta($query);
     <!--  Acciones rapidas -->
     <div class="mb-4">
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistrarUsuario">
-            <i class="zmdi zmdi-account-add"></i> Nuevo Usuario
+            <i class="zmdi zmdi-account-add"></i> registar usuario
         </button>
     </div>
 
@@ -46,19 +46,14 @@ $result = $baseDatos->efectuarConsulta($query);
                         <td><?= htmlspecialchars($fila['fecha_registro']) ?></td>
                         <td><?= htmlspecialchars($fila['Roles']) ?></td>
                         <td class="text-center">
-<<<<<<< HEAD
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditarCliente">
-                                <i class="zmdi zmdi-edit"></i>
+                            <button class="btn btn-primary btnEditar" data-id="<?= $fila['id'] ?>">
+                                Editar
                             </button>
-                            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="">
-=======
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistrarUsuario">
-                                <i class="zmdi zmdi-edit"></i>
+                            <!-- Botón que abre el modal -->
+                            <button class="btn btn-danger btnEliminar" data-id="<?= $fila['id'] ?>">
+                                Eliminar
                             </button>
-                            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalRegistrarUsuario">
->>>>>>> 28867161c4de894b8f7d8cb6403382d81dcb5e23
-                                <i class="zmdi zmdi-delete"></i>
-                            </button>
+
                         </td>
                     </tr>
                 <?php } ?>
@@ -66,9 +61,4 @@ $result = $baseDatos->efectuarConsulta($query);
         </table>
     </div>
 </div>
-<<<<<<< HEAD
-<div id="contenedor-modal-editar"></div>
-=======
-
->>>>>>> 28867161c4de894b8f7d8cb6403382d81dcb5e23
 <?php $baseDatos->desconectar(); ?>

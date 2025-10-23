@@ -7,12 +7,8 @@
             </div>
 
             <div class="modal-body">
-<<<<<<< HEAD
                 <form method="POST" id="formRegistro" action="/Biblioteca-2025/controllers/agregarUsuarios.php">
 
-=======
-                <form method="POST" id="formRegistro">
->>>>>>> 28867161c4de894b8f7d8cb6403382d81dcb5e23
 
                     <!-- DATOS PERSONALES -->
                     <div class="row">
@@ -80,66 +76,4 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
 </div>
-=======
-</div>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const form = document.querySelector("#formRegistro");
-
-        form?.addEventListener("submit", function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            formData.append("btn_registrar", "ok");
-
-            Swal.fire({
-                title: "¿Confirmar registro?",
-                text: "Se guardará un nuevo usuario en el sistema",
-                icon: "question",
-                showCancelButton: true,
-                confirmButtonText: "Sí, registrar",
-                cancelButtonText: "Cancelar",
-                confirmButtonColor: "#28a745",
-                cancelButtonColor: "#6c757d",
-                reverseButtons: true,
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    fetch("../../controllers/agregarUsuarios.php", {
-                            method: "POST",
-                            body: formData,
-                        })
-                        .then((res) => res.json())
-                        .then((data) => {
-                            if (data.status === "success") {
-                                Swal.fire({
-                                    icon: "success",
-                                    title: "¡Registrado!",
-                                    text: data.message,
-                                    timer: 2000,
-                                    showConfirmButton: false,
-                                }).then(() => location.reload());
-                            } else {
-                                Swal.fire({
-                                    icon: "error",
-                                    title: "Error",
-                                    text: data.message,
-                                });
-                            }
-                        })
-                        .catch((errorrr) => {
-                            console.error("Error en la petición:", errorrr);
-                            Swal.fire({
-                                icon: "error",
-                                title: "Error inesperado",
-                                text: "No se pudo conectar con el servidor",
-                            });
-                        });
-                }
-            });
-        });
-    });
-</script>
->>>>>>> 28867161c4de894b8f7d8cb6403382d81dcb5e23

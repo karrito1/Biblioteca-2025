@@ -1,10 +1,17 @@
 <?php
 class MySQL
 {
+<<<<<<< HEAD
     private $ipServidor = "bse0zhzg1wcspyzagqyl-mysql.services.clever-cloud.com";
     private $usuarioBase = "umlfpespdjrybek5";
     private $contrasena = "Y9bK2DzJVwFRgQSWUVys";
     private $nombreBaseDatos = "bse0zhzg1wcspyzagqyl";
+=======
+    private $ipServidor = "127.0.0.1";
+    private $usuarioBase = "root";
+    private $contrasena = "";
+    private $nombreBaseDatos = "biblioteca_2026";
+>>>>>>> origin/main
 
     private $conexion;
 
@@ -30,8 +37,14 @@ class MySQL
     // Desconectar
     public function desconectar()
     {
+<<<<<<< HEAD
         if ($this->conexion) {
             mysqli_close($this->conexion);
+=======
+        if ($this->conexion) {   // Verifica que exista la conexión
+            $this->conexion->close();
+            $this->conexion = null; // Evita cerrarla de nuevo
+>>>>>>> origin/main
         }
     }
 
@@ -59,5 +72,8 @@ class MySQL
         return mysqli_error($this->conexion);
     }
 }
+<<<<<<< HEAD
 ?>
 
+=======
+>>>>>>> origin/main

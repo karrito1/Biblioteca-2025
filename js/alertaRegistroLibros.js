@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("formRegistro");
+  const form = document.getElementById("formRegistrarLibro"); // ID del formulario de libros
   if (!form) return;
 
   form.addEventListener("submit", (e) => {
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 💬 Confirmación antes de registrar
     Swal.fire({
       title: "¿Confirmar registro?",
-      text: "Se guardará un nuevo usuario en el sistema.",
+      text: "Se guardará un nuevo libro en el sistema.",
       icon: "question",
       showCancelButton: true,
       confirmButtonText: "Sí, registrar",
@@ -21,11 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }).then((result) => {
       if (!result.isConfirmed) return;
 
-<<<<<<< HEAD
-      // 📨 Envío de datos al servidor
-=======
->>>>>>> origin/main
-      fetch("/Biblioteca-2025/controllers/agregarUsuarios.php", {
+      fetch("/Biblioteca-2025/controllers/agregarLibros.php", { // URL del controlador de libros
         method: "POST",
         body: formData,
       })
@@ -34,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (data.status === "success") {
             Swal.fire({
               icon: "success",
-              title: "¡Usuario registrado!",
+              title: "¡Libro registrado!",
               text: data.message,
               showConfirmButton: false,
               timer: 1800,
@@ -43,19 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             form.reset();
-<<<<<<< HEAD
-
-            // 🔒 Cierra el modal
-            const modalElement = document.getElementById("modalRegistrarUsuario");
+            const modalElement = document.getElementById("modalRegistrarLibro"); // ID del modal de libros
             const modal = bootstrap.Modal.getInstance(modalElement);
             if (modal) modal.hide();
 
-            // 🔄 Recarga la página suavemente
-=======
-            const modalElement = document.getElementById("modalRegistrarUsuario");
-            const modal = bootstrap.Modal.getInstance(modalElement);
-            if (modal) modal.hide();
->>>>>>> origin/main
             setTimeout(() => location.reload(), 1800);
           } else {
             Swal.fire({
@@ -79,4 +66,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
