@@ -25,7 +25,7 @@ $(document).ready(function () {
     );
   }
 
-  $("#btnLibros, #btnLibrosMenu").on("click", function (e) {
+  $("#btnLibros, #btnLibros").on("click", function (e) {
     e.preventDefault();
     cargarTablaLibros();
   });

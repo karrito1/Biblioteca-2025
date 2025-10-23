@@ -164,7 +164,7 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
                     <!-- aca se registra la variables de   de la consulta para mostar en las cards  -->
                     <div class="tile-num full-reset"><?= $totalUsuarios ?></div>
                 </article>
-                <article class="tile">
+                <article class="tile" id ="btnClientes">
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-book"></i></div>
                     <div class="tile-name all-tittles">Libros registrados</div>
                     <!-- aca se registra la variables de   de la consulta para mostar en las cards  -->
@@ -215,11 +215,15 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
     <!-- aca nos dirigimos a la carpeta de los modales -->
     <?php include __DIR__ . '/modales/modalRegistro.php'; ?>
     <?php include __DIR__ . '/modales/modalEditar.php'; ?>
-
-
+ <?php include __DIR__ . '/modales/modalEliminar.php'; ?>
+ <?php include __DIR__ . '/modales/modalRegistrarLibro.php'; ?>
+  <?php include __DIR__ . '/modales/modalCerrarSesion.php'; ?>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/Biblioteca-2025/js/alertaRegistro.js"></script>
+        <script src="../js/librosClientes.js"></script>
     <script src="../js/tabla_usuarios.js"></script>
+    
+
 </body>
 
 </html>

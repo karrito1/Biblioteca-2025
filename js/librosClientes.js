@@ -10,7 +10,7 @@ $(document).ready(function () {
     $("#tablaLibroscliente").empty();
 
     // Cargar tabla
-    $("#tablaLibroscliente").load(
+    $("#  ").load(
       "/Biblioteca-2025/views/librosClientes.php",
       function () {
         $("#tablaLibroscliente").slideDown(400);
