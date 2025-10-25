@@ -191,7 +191,7 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
                 </article>
                 <!-- tarejtas clientes -->
             <?php } elseif ($usuario_rol === 'CLIENTE') { ?>
-                <article class="tile" id="btnCliente">
+                <article class="tile" id="btnLibros">
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-search"></i></div>
                     <div class="tile-name all-tittles">Libros</div>
                 </article>
@@ -230,6 +230,7 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
     <?php include __DIR__ . '/modales/modalCerrarSesion.php'; ?>
     <?php include __DIR__ . '/modales/modalRegistrarLibro.php'; ?>
     <?php include __DIR__ . '/modales/modalEditarLibro.php'; ?>
+    <?php include __DIR__ . '/modales/modalRegistrarPrestamo.php'; ?>
 
 
     <script src="/Biblioteca-2025/js/alertaCerrar.js"></script>
