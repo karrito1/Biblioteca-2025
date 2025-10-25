@@ -19,10 +19,13 @@ class MySQL
         );
 
         if (!$this->conexion) {
+            error_log("Error de conexión MySQL: " . mysqli_connect_error());
             die("Error al conectar a la base de datos: " . mysqli_connect_error());
         }
 
-        mysqli_set_charset($this->conexion, "utf8");
+        if (!mysqli_set_charset($this->conexion, "utf8")) {
+            error_log("Error al establecer charset: " . mysqli_error($this->conexion));
+        }
 
         return $this->conexion;
     }

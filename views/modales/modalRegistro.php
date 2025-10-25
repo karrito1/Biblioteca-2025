@@ -17,7 +17,12 @@
 
                         <div class="col-md-6 mb-3">
                             <label for="email" class="form-label">Correo electrónico:</label>
-                            <input type="email" class="form-control form-control-sm" id="email" name="email" required>
+                            <input type="email" 
+                                   class="form-control form-control-sm" 
+                                   id="email" 
+                                   name="email" 
+                                   autocomplete="email"
+                                   required>
                         </div>
                     </div>
 
@@ -34,7 +39,12 @@
 
                         <div class="col-md-6 mb-3">
                             <label for="passwordd" class="form-label">Contraseña:</label>
-                            <input type="password" class="form-control form-control-sm" id="passwordd" name="passwordd" required>
+                            <input type="password" 
+                                   class="form-control form-control-sm" 
+                                   id="passwordd" 
+                                   name="passwordd" 
+                                   autocomplete="new-password"
+                                   required>
                         </div>
                     </div>
 

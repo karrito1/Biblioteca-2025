@@ -56,31 +56,19 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
     <!-- ====== Ícono ====== -->
     <link rel="Shortcut Icon" type="image/x-icon" href="/Biblioteca-2025/assets/icons/book.ico" />
 
-    <!-- ====== Bootstrap ====== -->
+    <!-- ===== CSS ===== -->
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- ====== DataTables ====== -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-
-    <!-- ====== Iconos y estilos personalizados ====== -->
-    <link rel="stylesheet" href="/Biblioteca-2025/css/material-design-iconic-font.min.css">
-    <link rel="stylesheet" href="/Biblioteca-2025/css/jquery.mCustomScrollbar.css">
-    <link rel="stylesheet" href="/Biblioteca-2025/css/style.css">
-
-    <!-- ====== Librerías JS externas ====== -->
-    <!-- jQuery debe ir antes que cualquier plugin que dependa de él -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-    <!-- Bootstrap (usa bundle que incluye Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    
     <!-- DataTables -->
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <!-- Scrollbar -->
-    <script src="/Biblioteca-2025/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.13.6/r-2.5.0/datatables.min.css"/>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="../css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="../css/style.css">
 
-    <!-- Script principal del sistema -->
-    <script src="/Biblioteca-2025/js/main.js"></script>
+    <!-- El head termina aquí, los scripts se movieron al final del body -->
 </head>
 
 <body>
@@ -233,22 +221,83 @@ $usuario_rol = $_SESSION['roles']; // 'ADMINISTRADOR' o 'CLIENTE'
     <?php include __DIR__ . '/modales/modalRegistrarPrestamo.php'; ?>
 
 
-    <script src="/Biblioteca-2025/js/alertaCerrar.js"></script>
-    <script src="/Biblioteca-2025/js/alertaRegistro.js"></script>
-    <script src="/Biblioteca-2025/js/alertaEditar.js"></script>
-    <script src="/Biblioteca-2025/js/alertaEliminar.js"></script>
-    <script src="/Biblioteca-2025/js/alertaRegistroLibros.js"></script>
-    <script src="/Biblioteca-2025/js/alertaEditarLibro.js"></script>
-
+    <!-- Core Libraries -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../js/main.js"></script>
+
+    <!-- Event Handlers -->
+    <script>
+    $(document).ready(function() {
+        console.log('Documento listo');
+        
+        // Manejador para el botón de libros
+        $("#btnLibros, #btnLibrosMenu").on("click", function(e) {
+            console.log('Botón de libros clickeado');
+            e.preventDefault();
+            
+            // Ocultar otros contenedores
+            $("#tablaUsuariosContainer").hide();
+            $("#tablaLibrosContainer").empty();
+            
+            // Mostrar loader
+            $("#tablaLibrosContainer").html(
+                '<div class="text-center"><i class="zmdi zmdi-spinner zmdi-hc-spin"></i> Cargando...</div>'
+            );
+            
+            // Cargar tabla
+            $.get("../views/tabla_libros.php")
+                .done(function(response) {
+                    console.log('Datos recibidos');
+                    $("#tablaLibrosContainer").html(response).slideDown(400);
+                    
+                    try {
+                        $("#tablalibros").DataTable({
+                            responsive: true,
+                            pageLength: 10,
+                            order: [[0, 'asc']],
+                            language: {
+                                url: "../js/es-ES.json"
+                            }
+                        });
+                    } catch (error) {
+                        console.error('Error al inicializar DataTable:', error);
+                    }
+                })
+                .fail(function(jqXHR, textStatus, errorThrown) {
+                    console.error('Error al cargar tabla:', textStatus, errorThrown);
+                    $("#tablaLibrosContainer").html(
+                        '<div class="alert alert-danger">Error al cargar los datos</div>'
+                    );
+                });
+        });
+        
+        // Verificar dependencias
+        console.log('jQuery version:', $.fn.jquery);
+        console.log('DataTables loaded:', typeof $.fn.DataTable !== 'undefined');
+        console.log('Bootstrap loaded:', typeof bootstrap !== 'undefined');
+    });
+    </script>
+
+    <!-- Alert Scripts -->
+    <script src="../js/alertaCerrar.js"></script>
+    <script src="../js/alertaRegistro.js"></script>
+    <script src="../js/alertaEditar.js"></script>
+    <script src="../js/alertaEliminar.js"></script>
+    <script src="../js/alertaRegistroLibros.js"></script>
+    <script src="../js/alertaEditarLibro.js"></script>
+
+    <!-- Table Scripts -->
     <script src="../js/tabla_usuarios.js"></script>
     <script src="../js/tabla_libros.js"></script>
     <script src="../js/librosClientes.js"></script>
     <script src="../js/tablaReservas.js"></script>
     <script src="../js/tablaPrestamos.js"></script>
-
-
-
 </body>
 
 </html>

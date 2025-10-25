@@ -19,14 +19,14 @@ $result = $baseDatos->efectuarConsulta($query);
 
     <?php if ($rol === "ADMINISTRADOR") { ?>
         <div class="mb-4">
-            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalRegistrarLibro">
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="">
                 <i class="zmdi zmdi-plus"></i> Nuevo libro
             </button>
         </div>
 
     <?php } elseif ($rol === "CLIENTE") { ?>
         <div class="mb-4">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistrarPrestamo">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="">
                 <i class="zmdi zmdi-assignment"></i> Registrar préstamo
             </button>
         </div>

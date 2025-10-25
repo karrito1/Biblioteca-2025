@@ -41,13 +41,20 @@ session_start();
             <!-- FORMULARIO LOGIN -->
             <form method="POST" action="./controllers/logicalogin.php" class="mb-3">
                 <div class="group-material-login mb-4">
-                    <input type="email" class="material-login-control form-control form-control-lg" name="email"
-                        required maxlength="70">
+                    <input type="email" 
+                           class="material-login-control form-control form-control-lg" 
+                           name="email"
+                           autocomplete="username"
+                           required 
+                           maxlength="70">
                     <label><i class="zmdi zmdi-account"></i> &nbsp; Correo</label>
                 </div>
 
                 <div class="group-material-login mb-4">
-                    <input type="password" class="material-login-control form-control form-control-lg" name="password"
+                    <input type="password" 
+                           class="material-login-control form-control form-control-lg" 
+                           name="password"
+                           autocomplete="current-password"
                         required maxlength="70">
                     <label><i class="zmdi zmdi-lock"></i> &nbsp; Contraseña</label>
                 </div>
@@ -99,7 +106,13 @@ session_start();
 
                                 <div class="mb-3">
                                     <label for="passwordRegistro" class="form-label">Contraseña</label>
-                                    <input type="password" class="form-control form-control-lg" id="passwordRegistro" name="passwordd" required maxlength="70">
+                                    <input type="password" 
+                                           class="form-control form-control-lg" 
+                                           id="passwordRegistro" 
+                                           name="passwordd" 
+                                           autocomplete="new-password"
+                                           required 
+                                           maxlength="70">
                                 </div>
                             </div>
 

@@ -48,7 +48,11 @@ $baseDatos->desconectar();
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Contraseña:</label>
-                            <input type="password" class="form-control form-control-sm" name="passwordd" placeholder="Dejar en blanco para no cambiar">
+                            <input type="password" 
+                                   class="form-control form-control-sm" 
+                                   name="passwordd" 
+                                   autocomplete="new-password"
+                                   placeholder="Dejar en blanco para no cambiar">
                         </div>
                     </div>
 
