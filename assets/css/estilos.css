@@ -1,0 +1,159 @@
+/* Fuente general */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+/* navegacion*/
+.navbar {
+  background-color: #149e60; /* Verde SENA */
+}
+
+.navbar-brand {
+  font-weight: 700;
+  color: #ffffff !important;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.navbar-brand:hover {
+  color: #e0e0e0 !important;
+}
+
+.nav-link {
+  color: #ffffff !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #d9f8e6 !important; /* Verde claro */
+}
+
+/* 
+   🔹 HERO PRINCIPAL
+*/
+.hero {
+  background: linear-gradient(to right, #149e60, #0b7042);
+  color: white;
+  padding: 120px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero .btn {
+  background-color: #ffffff;
+  color: #0f0f0f;
+  border: none;
+  font-weight: 600;
+  padding: 12px 30px;
+  margin-top: 30px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.hero .btn:hover {
+  background-color: #0b7042;
+  color: white;
+}
+
+/* 
+   🔹 SERVICIOS
+ */
+.servicios {
+  padding: 80px 0;
+}
+
+.servicios h2 {
+  color: #149e60;
+  margin-bottom: 10px;
+}
+
+.servicios p {
+  color: #666;
+}
+
+.servicio-card {
+  background: white;
+  border-radius: 15px;
+  padding: 35px 25px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 5px solid transparent;
+}
+
+.servicio-card:hover {
+  transform: translateY(-10px);
+  border-top: 5px solid #141414;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.servicio-card i {
+  font-size: 2.8rem;
+  color: #0d0e0d;
+  margin-bottom: 15px;
+}
+
+.servicio-card h4 {
+  font-weight: 600;
+  color: #0b4d2b;
+}
+
+/* 
+   🔹 NOSOTROS
+*/
+#nosotros {
+  padding: 70px 0;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+#nosotros h2 {
+  color: #149e60;
+  margin-bottom: 15px;
+}
+
+/* 
+   🔹 FOOTER
+ */
+footer {
+  background-color: #0b7042;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 60px;
+  font-size: 0.95rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* 
+   🔹 RESPONSIVE
+ */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
