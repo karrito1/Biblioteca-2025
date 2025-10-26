@@ -8,7 +8,11 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
+<<<<<<< HEAD
                         <label for="titulo" class="form-label">titulo</label>
+=======
+                        <label for="titulo" class="form-label">Título</label>
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
                         <input type="text" class="form-control" id="titulo" name="titulo" required>
                     </div>
                     <div class="mb-3">
@@ -20,7 +24,11 @@
                         <input type="text" class="form-control" id="isbn" name="isbn" required>
                     </div>
                     <div class="mb-3">
+<<<<<<< HEAD
                         <label for="categoria" class="form-label">categoria</label>
+=======
+                        <label for="categoria" class="form-label">Categoría</label>
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
                         <input type="text" class="form-control" id="categoria" name="categoria" required>
                     </div>
                     <div class="mb-3">

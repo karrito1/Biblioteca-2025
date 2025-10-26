@@ -26,8 +26,13 @@ $result = $baseDatos->efectuarConsulta($query);
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Email</th>
+<<<<<<< HEAD
                     <th>telefono</th>
                     <th>direccion</th>
+=======
+                    <th>Teléfono</th>
+                    <th>Dirección</th>
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
                     <th>Estado</th>
                     <th>Fecha Registro</th>
                     <th>Rol</th>
@@ -49,6 +54,10 @@ $result = $baseDatos->efectuarConsulta($query);
                             <button class="btn btn-primary btnEditar" data-id="<?= $fila['id'] ?>">
                                 Editar
                             </button>
+<<<<<<< HEAD
+=======
+                            <!-- Botón que abre el modal -->
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
                             <button class="btn btn-danger btnEliminar" data-id="<?= $fila['id'] ?>">
                                 Eliminar
                             </button>

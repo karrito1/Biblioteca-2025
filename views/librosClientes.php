@@ -25,10 +25,17 @@ $result = $baseDatos->efectuarConsulta($query);
             <thead class="table-dark text-center">
                 <tr>
                     <th>ID</th>
+<<<<<<< HEAD
                     <th>titulo</th>
                     <th>Autor</th>
                     <th>ISBN</th>
                     <th>categoria</th>
+=======
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>ISBN</th>
+                    <th>Categoría</th>
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
                     <th>Cantidad</th>
                     <th>Disponibilidad</th>
                     <th>Fecha Registro</th>

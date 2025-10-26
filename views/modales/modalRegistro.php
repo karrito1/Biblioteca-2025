@@ -8,6 +8,11 @@
 
             <div class="modal-body">
                 <form method="POST" id="formRegistro" action="/Biblioteca-2025/controllers/agregarUsuarios.php">
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
                     <!-- DATOS PERSONALES -->
                     <div class="row">
                         <div class="col-md-6 mb-3">
@@ -16,7 +21,11 @@
                         </div>
 
                         <div class="col-md-6 mb-3">
+<<<<<<< HEAD
                             <label for="email" class="form-label">correo electronico:</label>
+=======
+                            <label for="email" class="form-label">Correo electrónico:</label>
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
                             <input type="email" class="form-control form-control-sm" id="email" name="email" required>
                         </div>
                     </div>
@@ -33,7 +42,11 @@
                         </div>
 
                         <div class="col-md-6 mb-3">
+<<<<<<< HEAD
                             <label for="passwordd" class="form-label">contrasena:</label>
+=======
+                            <label for="passwordd" class="form-label">Contraseña:</label>
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
                             <input type="password" class="form-control form-control-sm" id="passwordd" name="passwordd" required>
                         </div>
                     </div>
@@ -41,12 +54,20 @@
                     <!-- CONTACTO -->
                     <div class="row">
                         <div class="col-md-6 mb-3">
+<<<<<<< HEAD
                             <label for="telefono" class="form-label">telefono:</label>
+=======
+                            <label for="telefono" class="form-label">Teléfono:</label>
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
                             <input type="text" class="form-control form-control-sm" id="telefono" name="telefono" required>
                         </div>
 
                         <div class="col-md-6 mb-3">
+<<<<<<< HEAD
                             <label for="direccion" class="form-label">direccion:</label>
+=======
+                            <label for="direccion" class="form-label">Dirección:</label>
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
                             <input type="text" class="form-control form-control-sm" id="direccion" name="direccion" required>
                         </div>
                     </div>
@@ -64,7 +85,11 @@
                         </div>
                     </div>
 
+<<<<<<< HEAD
                     <!-- boton -->
+=======
+                    <!-- BOTÓN -->
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
                     <button type="submit" class="btn btn-success w-100" name="btn_registrar" value="ok">
                         Registrar
                     </button>
@@ -75,4 +100,7 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 </div>
+=======
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264

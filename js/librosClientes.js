@@ -10,7 +10,11 @@ $(document).ready(function () {
     $("#tablaLibroscliente").empty();
 
     // Cargar tabla
+<<<<<<< HEAD
     $("#tablaLibroscliente").load(
+=======
+    $("#  ").load(
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
       "/Biblioteca-2025/views/librosClientes.php",
       function () {
         $("#tablaLibroscliente").slideDown(400);
@@ -20,7 +24,11 @@ $(document).ready(function () {
           destroy: true,
         });
 
+<<<<<<< HEAD
         // aqui tu logica de botones editar
+=======
+        // Aquí tu lógica de botones Editar
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
       }
     );
   }

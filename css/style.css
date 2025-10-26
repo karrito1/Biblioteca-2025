@@ -47,7 +47,10 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
+<<<<<<< HEAD
   background-color: rgba(137, 138, 138, 0.21);
+=======
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
 }
 .material-input-disabled {
   pointer-events: none;
@@ -79,7 +82,11 @@ span.label-mhover {
 }
 /*********==========Login*/
 .login-container {
+<<<<<<< HEAD
   background-image: url("../assets/img/inde.svg");
+=======
+  background-image: url("../assets/img/inde.jpg");
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
   width: 100%;
   height: 100%;
   display: flex;
@@ -90,7 +97,11 @@ span.label-mhover {
   color: #636161;
   padding: 20px;
   border-radius: 5px;
+<<<<<<< HEAD
   background-color: rgba(238, 241, 241, 0.7);
+=======
+  background-color: rgba(5, 53, 63, 0.7);
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
   position: relative;
   width: 90%;
   max-width: 350px;
@@ -320,7 +331,11 @@ select.material-control-login:hover {
 }
 .container-menu-movile {
   height: 100% !important;
+<<<<<<< HEAD
   background-color: rgba(234, 235, 236, 0.438);
+=======
+  background-color: rgba(43, 61, 81, 0.438);
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
 }
 .logo {
   height: 55px;
@@ -335,7 +350,11 @@ select.material-control-login:hover {
   position: relative;
   z-index: 1;
   width: 100%;
+<<<<<<< HEAD
   background-color: hsl(0, 0%, 100%);
+=======
+  background-color: #3f6e6898;
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
   padding-left: 300px;
   box-sizing: border-box;
 }

@@ -7,6 +7,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>biblioteca senap 2025 - inicio de sesion</title>
     <link rel="shortcut icon" href="assets/icons/book.ico" type="image/x-icon">
 
@@ -15,15 +16,39 @@ session_start();
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.20/dist/sweetalert2.min.css" rel="stylesheet">
+=======
+    <title>Biblioteca SENAP 2025 - Inicio de sesión</title>
+    <link rel="shortcut icon" href="assets/icons/book.ico" type="image/x-icon">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome y ZMDI -->
+    <script src="https://kit.fontawesome.com/068a4d5189.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+
+    <!-- SweetAlert y estilos propios -->
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
     <link rel="stylesheet" href="css/sweet-alert.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="css/style.css">
+<<<<<<< HEAD
     <script src="https://code.jquery.com/jquery-3.6.5.min.js"></script>
+=======
+
+    <!-- jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')
+    </script>
+    <script src="js/modernizr.js"></script>
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
 </head>
 
 <body>
     <div class="login-container full-cover-background d-flex justify-content-center align-items-center vh-100">
+<<<<<<< HEAD
         <div class="form-container p-5 shadow-lg rounded"
             style="background-color: rgba(32, 29, 29, 0.95); max-width: 420px; width: 100%;">
 
@@ -118,6 +143,47 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="js/main.js"></script>
+=======
+        <div class="form-container p-4 shadow rounded" style="background-color: rgba(32, 29, 29, 0.9); max-width: 400px; width: 100%;">
+            <div class="text-center mb-4">
+                <i class="zmdi zmdi-account-circle zmdi-hc-5x"></i>
+                <h4 class="mt-3 all-tittles">Inicia sesión con tu cuenta</h4>
+            </div>
+
+            <!-- Mensaje de error -->
+            <?php if (isset($_GET['error']) && $_GET['error'] == 1): ?>
+                <div class="alert alert-danger text-center" role="alert">
+                    Email o contraseña incorrectos.
+                </div>
+            <?php endif; ?>
+            <form method="POST" action="./controllers/logicalogin.php">
+                <div class="group-material-login">
+                    <input type="email" class="material-login-control" name="email" required maxlength="70">
+                    <span class="highlight-login"></span>
+                    <span class="bar-login"></span>
+                    <label><i class="zmdi zmdi-account"></i> &nbsp; correo</label>
+                </div>
+                <br>
+                <div class="group-material-login">
+                    <input type="password" class="material-login-control" name="password" required maxlength="70">
+                    <span class="highlight-login"></span>
+                    <span class="bar-login"></span>
+                    <label><i class="zmdi zmdi-lock"></i> &nbsp; Contraseña</label>
+                </div>
+                <button class="btn-login" type="submit">
+                    Ingresar al sistema &nbsp; <i class="zmdi zmdi-arrow-right"></i>
+                </button>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/sweet-alert.min.js"></script>
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
 </body>
 
 </html>

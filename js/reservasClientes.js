@@ -28,7 +28,11 @@ $(document).ready(function () {
     );
   }
 
+<<<<<<< HEAD
   // cuando el cliente hace clic en el boton "mis reservas"
+=======
+  // Cuando el cliente hace clic en el botón “Mis Reservas”
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
   $("#btnMisReservas").on("click", function (e) {
     e.preventDefault();
     cargarTablaReservas();

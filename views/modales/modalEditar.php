@@ -32,7 +32,11 @@ $baseDatos->desconectar();
                             <input type="text" class="form-control form-control-sm" name="nombre" value="<?= htmlspecialchars($fila['nombre'] ?? '') ?>" required>
                         </div>
                         <div class="col-md-6">
+<<<<<<< HEAD
                             <label class="form-label">correo electronico:</label>
+=======
+                            <label class="form-label">Correo electrónico:</label>
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
                             <input type="email" class="form-control form-control-sm" name="email" value="<?= htmlspecialchars($fila['email'] ?? '') ?>" required>
                         </div>
                     </div>
@@ -47,18 +51,30 @@ $baseDatos->desconectar();
                             </select>
                         </div>
                         <div class="col-md-6">
+<<<<<<< HEAD
                             <label class="form-label">contrasena:</label>
+=======
+                            <label class="form-label">Contraseña:</label>
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
                             <input type="password" class="form-control form-control-sm" name="passwordd" placeholder="Dejar en blanco para no cambiar">
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col-md-6">
+<<<<<<< HEAD
                             <label class="form-label">telefono:</label>
                             <input type="text" class="form-control form-control-sm" name="telefono" value="<?= htmlspecialchars($fila['telefono'] ?? '') ?>" required>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">direccion:</label>
+=======
+                            <label class="form-label">Teléfono:</label>
+                            <input type="text" class="form-control form-control-sm" name="telefono" value="<?= htmlspecialchars($fila['telefono'] ?? '') ?>" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Dirección:</label>
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
                             <input type="text" class="form-control form-control-sm" name="direccion" value="<?= htmlspecialchars($fila['direccion'] ?? '') ?>" required>
                         </div>
                     </div>

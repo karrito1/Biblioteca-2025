@@ -1,9 +1,9 @@
-// tabla_reservas.js - Gestión de reservas simplificada
+// tabla_reservas.js 
 
 $(document).ready(function() {
     console.log('Inicializando tabla de reservas...');
     
-    // Inicializar DataTable básico
+    // Inicializar DataTable basico
     if ($('#tablaReservas').length) {
         try {
             $('#tablaReservas').DataTable({
@@ -12,9 +12,9 @@ $(document).ready(function() {
                 pageLength: 10,
                 responsive: true
             });
-            console.log('✅ Tabla de reservas inicializada');
+            console.log(' Tabla de reservas inicializada');
         } catch (error) {
-            console.error('❌ Error al inicializar tabla de reservas:', error);
+            console.error(' Error al inicializar tabla de reservas:', error);
         }
     }
 
@@ -35,7 +35,7 @@ $(document).ready(function() {
         }
     });
 
-    // Búsqueda básica
+    // Busqueda basica
     $('#buscarReserva').on('keyup', function() {
         const valor = $(this).val().toLowerCase();
         $('#tablaReservas tbody tr').filter(function() {
@@ -43,5 +43,4 @@ $(document).ready(function() {
         });
     });
 
-    console.log('📋 Sistema de reservas en modo simplificado');
 });

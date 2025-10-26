@@ -6,7 +6,11 @@ document.addEventListener("click", function (e) {
   const id = button.dataset.id;
   if (!id) return;
 
+<<<<<<< HEAD
   // cargar el modal de eliminacion desde php
+=======
+  // Cargar el modal de eliminación desde PHP
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
   fetch("/Biblioteca-2025/views/modales/modalEliminar.php?id=" + id)
     .then((res) => res.text())
     .then((html) => {
@@ -18,7 +22,11 @@ document.addEventListener("click", function (e) {
       const modal = new bootstrap.Modal(modalEl);
       modal.show();
 
+<<<<<<< HEAD
       // boton de confirmar eliminacion dentro del modal
+=======
+      // Botón de confirmar eliminación dentro del modal
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
       const btnConfirmar = document.getElementById("btnConfirmarEliminar");
       btnConfirmar.addEventListener("click", function () {
         const formData = new FormData();
@@ -49,7 +57,11 @@ document.addEventListener("click", function (e) {
             console.error("Error:", err);
             Swal.fire(
               "Ups!",
+<<<<<<< HEAD
               "ocurrio un error al procesar la eliminacion.",
+=======
+              "Ocurrio un error al procesar la eliminación.",
+>>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
               "warning"
             );
           });
