@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#33414e" rx="10"/>
+  <g fill="white">
+    <!-- Stack of books -->
+    <rect x="20" y="70" width="60" height="8" rx="2"/>
+    <rect x="22" y="62" width="56" height="8" rx="2"/>
+    <rect x="24" y="54" width="52" height="8" rx="2"/>
+    <rect x="26" y="46" width="48" height="8" rx="2"/>
+    <rect x="28" y="38" width="44" height="8" rx="2"/>
+    
+    <!-- Book spine details -->
+    <line x1="25" y1="70" x2="25" y2="78" stroke="#33414e" stroke-width="1"/>
+    <line x1="35" y1="70" x2="35" y2="78" stroke="#33414e" stroke-width="1"/>
+    <line x1="45" y1="70" x2="45" y2="78" stroke="#33414e" stroke-width="1"/>
+    
+    <!-- Text -->
+    <text x="50" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">SENAP</text>
+    <text x="50" y="92" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">BIBLIOTECA</text>
+  </g>
+</svg>
