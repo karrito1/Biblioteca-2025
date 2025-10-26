@@ -26,11 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'], $_POST['pass
         }
         if (password_verify($password, $usuario['passwordd'])) {
 
-<<<<<<< HEAD
             // crear sesion
-=======
-            // Crear sesión
->>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
             $_SESSION['usuario_id'] = $usuario['id'];
             $_SESSION['nombre'] = $usuario['nombre'];
             $_SESSION['email'] = $usuario['email'];
@@ -56,11 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'], $_POST['pass
         } else {
 
             $mysql->desconectar();
-<<<<<<< HEAD
             header("Location: ../index.php?error=contrasena incorrecta");
-=======
-            header("Location: ../index.php?error=Contraseña incorrecta");
->>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
             exit();
         }
     } else {
@@ -70,11 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'], $_POST['pass
         exit();
     }
 } else {
-<<<<<<< HEAD
     // acceso no valido
-=======
-    // Acceso no válido
->>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
     header("Location: ../index.php?error=Acceso no permitido");
     exit();
 }

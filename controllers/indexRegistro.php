@@ -18,11 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $rol = "cliente";
         $estado = "activo";
 
-<<<<<<< HEAD
         // hashear la contrasena
-=======
-        // Hashear la contraseña
->>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
         $password_hash = password_hash($passwordd, PASSWORD_DEFAULT);
 
         // Insertar en la BD

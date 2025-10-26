@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const formData = new FormData(form);
     formData.append("btn_registrar", "ok");
 
-<<<<<<< HEAD
     // confirmacion antes de registrar
     Swal.fire({
       title: "¿Confirmar registro?",
@@ -15,15 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
       icon: "question",
       showCancelButton: true,
       confirmButtonText: "si, registrar",
-=======
-    // 💬 Confirmación antes de registrar
-    Swal.fire({
-      title: "¿Confirmar registro?",
-      text: "Se guardará un nuevo libro en el sistema.",
-      icon: "question",
-      showCancelButton: true,
-      confirmButtonText: "Sí, registrar",
->>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
       cancelButtonText: "Cancelar",
       confirmButtonColor: "#28a745",
       cancelButtonColor: "#6c757d",
@@ -65,11 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         })
         .catch((error) => {
-<<<<<<< HEAD
           console.error("error en la peticion:", error);
-=======
-          console.error("Error en la petición:", error);
->>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
           Swal.fire({
             icon: "error",
             title: "Error del servidor",

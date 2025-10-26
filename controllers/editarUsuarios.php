@@ -5,11 +5,7 @@ include_once "../models/MySQL.php";
 $baseDatos = new MySQL();
 $baseDatos->conectar();
 
-<<<<<<< HEAD
 $responsable = ["status" => "error", "message" => "solicitud invalida."];
-=======
-$responsable = ["status" => "error", "message" => "Solicitud inválida."];
->>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -33,11 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $fechaRegistro = htmlspecialchars($_POST["fecha_registro"]);
         $roles         = htmlspecialchars(trim($_POST["Roles"]));
 
-<<<<<<< HEAD
         // si se envia una nueva contrasena, se actualiza el hash
-=======
-        // Si se envía una nueva contraseña, se actualiza el hash
->>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
         $passwordPlano = isset($_POST["passwordd"]) && !empty($_POST["passwordd"])
             ? password_hash($_POST["passwordd"], PASSWORD_BCRYPT)
             : null;

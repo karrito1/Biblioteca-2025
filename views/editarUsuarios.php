@@ -7,13 +7,8 @@
 
     <title>BIBLIOTECA SENAP 2025</title>
 
-<<<<<<< HEAD
     <meta name="description" content="biblioteca senap ofrece acceso a libros, recursos digitales y actividades culturales para fomentar el aprendizaje y la lectura. visitanos hoy!" />
     <meta name="keywords" content="biblioteca, sala de lectura, educacion, acceso a libros, libros digitales, actividades culturales" />
-=======
-    <meta name="description" content="Biblioteca SENAP ofrece acceso a libros, recursos digitales y actividades culturales para fomentar el aprendizaje y la lectura. ¡Visítanos hoy!" />
-    <meta name="keywords" content="biblioteca, sala de lectura, educación, acceso a libros, libros digitales, actividades culturales" />
->>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
     <meta name="robots" content="index, follow" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="language" content="es" />

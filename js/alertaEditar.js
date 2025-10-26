@@ -28,15 +28,9 @@ document.addEventListener("click", function (e) {
             .then((res) => res.json())
             .then((data) => {
               if (data.status === "success") {
-<<<<<<< HEAD
                 Swal.fire("exito!", data.message, "success").then(() => {
                   modal.hide();
                   location.reload(); // o actualizar tabla dinamicamente
-=======
-                Swal.fire("¡Éxito!", data.message, "success").then(() => {
-                  modal.hide();
-                  location.reload(); // o actualizar tabla dinámicamente
->>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
                 });
               } else {
                 Swal.fire("Error", data.message, "error");
@@ -46,11 +40,7 @@ document.addEventListener("click", function (e) {
               console.error(err);
               Swal.fire(
                 "Ups!",
-<<<<<<< HEAD
                 "ocurrio un error al procesar la respuesta del servidor.",
-=======
-                "Ocurrió un error al procesar la respuesta del servidor.",
->>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
                 "warning"
               );
             });

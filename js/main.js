@@ -1,6 +1,5 @@
 $(document).ready(function(){
     $('.tooltips-general').tooltip('hide');
-<<<<<<< HEAD
     
     // Debug: Verify jQuery and document ready
     // test ajax connectivity
@@ -220,24 +219,6 @@ $(document).ready(function(){
             NavLateral.removeClass('desktopMenu');
             ContentPage.removeClass('desktopMenu');
         } else {
-=======
-    $('.mobile-menu-button').on('click', function(){
-        var mobileMenu=$('.navbar-lateral');	
-        if(mobileMenu.css('display')=='none'){
-            mobileMenu.fadeIn(300);
-        }else{
-            mobileMenu.fadeOut(300);
-        }
-    });
-    $('.desktop-menu-button').on('click', function(e){
-        e.preventDefault();
-        var NavLateral=$('.navbar-lateral'); 
-        var ContentPage=$('.content-page-container');   
-        if(NavLateral.hasClass('desktopMenu')){
-            NavLateral.removeClass('desktopMenu');
-            ContentPage.removeClass('desktopMenu');
-        }else{
->>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
             NavLateral.addClass('desktopMenu');
             ContentPage.addClass('desktopMenu');
         }
@@ -260,13 +241,8 @@ $(document).ready(function(){
         e.preventDefault();
         var LinkExitSystem=$(this).attr("data-href");
         swal({
-<<<<<<< HEAD
             title: "estas seguro?",
             text: "quieres salir del sistema y cerrar la sesion actual",
-=======
-            title: "¿Estás seguro?",
-            text: "Quieres salir del sistema y cerrar la sesión actual",
->>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
             type: "warning",
             showCancelButton: true,
             confirmButtonColor: "#5cb85c",
@@ -282,11 +258,7 @@ $(document).ready(function(){
         e.preventDefault();
         var LinkSearchBook=$(this).attr("data-href");
         swal({
-<<<<<<< HEAD
            title: "que libro estas buscando?",
-=======
-           title: "¿Qué libro estás buscando?",
->>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
            text: "Por favor escribe el nombre del libro",
            type: "input",   
            showCancelButton: true,
@@ -295,11 +267,7 @@ $(document).ready(function(){
            cancelButtonText: "Cancelar",
            confirmButtonText: "Buscar",
            confirmButtonColor: "#3598D9",
-<<<<<<< HEAD
            inputPlaceholder: "escribe aqui el nombre de libro" }, 
-=======
-           inputPlaceholder: "Escribe aquí el nombre de libro" }, 
->>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
       function(inputValue){
            if (inputValue === false) return false;  
 
@@ -316,14 +284,10 @@ $(document).ready(function(){
             backdrop: "static"
         });
     });
-<<<<<<< HEAD
     
 
 });
 
-=======
-});
->>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
 (function($){
     $(window).load(function(){
         $(".nav-lateral-scroll").mCustomScrollbar({
@@ -339,7 +303,6 @@ $(document).ready(function(){
             scrollButtons:{ enable: true }
         });
     });
-<<<<<<< HEAD
 })(jQuery);
 
 // funcion global para limpiar modales bloqueados
@@ -361,6 +324,3 @@ function limpiarModalesBloqueados() {
         });
     }
 }
-=======
-})(jQuery);
->>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264

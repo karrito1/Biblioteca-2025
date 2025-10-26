@@ -5,11 +5,7 @@ require_once "../models/MySQL.php";
 $mysql = new MySQL();
 $mysql->conectar();
 
-<<<<<<< HEAD
 $response = ["status" => "error", "message" => "solicitud invalida."];
-=======
-$response = ["status" => "error", "message" => "Solicitud inválida."];
->>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 

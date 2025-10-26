@@ -20,20 +20,12 @@ $(document).ready(function () {
           destroy: true,
         });
 
-<<<<<<< HEAD
         // aqui tu logica de botones editar
-=======
-        // Aquí tu lógica de botones Editar
->>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
       }
     );
   }
 
-<<<<<<< HEAD
   $("#btnLibros, #btnLibrosMenu").on("click", function (e) {
-=======
-  $("#btnLibros, #btnLibros").on("click", function (e) {
->>>>>>> e1a7a7d4b0d8393da743ce7a776d9116b6e3a264
     e.preventDefault();
     cargarTablaLibros();
   });
