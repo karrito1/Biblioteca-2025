@@ -16,7 +16,7 @@
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <label for="email" class="form-label">Correo electrónico:</label>
+                            <label for="email" class="form-label">Correo electronico:</label>
                             <input type="email" class="form-control form-control-sm" id="email" name="email" required>
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <label for="passwordd" class="form-label">Contraseña:</label>
+                            <label for="passwordd" class="form-label">Contrasena:</label>
                             <input type="password" class="form-control form-control-sm" id="passwordd" name="passwordd" required>
                         </div>
                     </div>
@@ -41,12 +41,12 @@
                     <!-- CONTACTO -->
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="telefono" class="form-label">Teléfono:</label>
+                            <label for="telefono" class="form-label">Telefono:</label>
                             <input type="text" class="form-control form-control-sm" id="telefono" name="telefono" required>
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <label for="direccion" class="form-label">Dirección:</label>
+                            <label for="direccion" class="form-label">Direccion:</label>
                             <input type="text" class="form-control form-control-sm" id="direccion" name="direccion" required>
                         </div>
                     </div>
@@ -64,13 +64,11 @@
                         </div>
                     </div>
 
-                    <!-- BOTÓN -->
+                    <!-- BOTON -->
                     <button type="submit" class="btn btn-success w-100" name="btn_registrar" value="ok">
                         Registrar
                     </button>
                 </form>
-
-
             </div>
         </div>
     </div>

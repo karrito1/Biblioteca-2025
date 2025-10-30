@@ -8,7 +8,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="titulo" class="form-label">Título</label>
+                        <label for="titulo" class="form-label">Titulo</label>
                         <input type="text" class="form-control" id="titulo" name="titulo" required>
                     </div>
                     <div class="mb-3">
@@ -20,7 +20,7 @@
                         <input type="text" class="form-control" id="isbn" name="isbn" required>
                     </div>
                     <div class="mb-3">
-                        <label for="categoria" class="form-label">Categoría</label>
+                        <label for="categoria" class="form-label">Categoria</label>
                         <input type="text" class="form-control" id="categoria" name="categoria" required>
                     </div>
                     <div class="mb-3">

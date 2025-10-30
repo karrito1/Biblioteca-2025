@@ -5,18 +5,15 @@ require_once("../models/MySQL.php");
 $baseDatos = new MySQL();
 $conexion = $baseDatos->conectar();
 
-//  Validar que la sesión este activa
 if (!isset($_SESSION['usuario_id'])) {
-    echo "<div class='alert alert-warning text-center mt-3'> No hay sesión activa. Por favor, inicia sesion.</div>";
+    echo "<div class='alert alert-warning text-center mt-3'> No hay sesion activa. Por favor, inicia sesion.</div>";
     exit;
 }
 
-$usuario_id = intval($_SESSION['usuario_id']); // Sanitizar ID del usuario
-$rol = isset($_SESSION['roles']) ? strtoupper(trim($_SESSION['roles'])) : ""; // Normalizamos el rol
+$usuario_id = intval($_SESSION['usuario_id']);
+$rol = isset($_SESSION['roles']) ? strtoupper(trim($_SESSION['roles'])) : "";
 
-//  Consulta segn el rol del usuario
 if ($rol === "ADMINISTRADOR") {
-    // El administrador ve todos los prestamos
     $query = "SELECT prestamos.id,
                      prestamos.fecha_prestamo,
                      prestamos.fecha_devolucion,
@@ -27,7 +24,6 @@ if ($rol === "ADMINISTRADOR") {
               LEFT JOIN usuarios ON prestamos.usuario_id = usuarios.id
               LEFT JOIN libros ON prestamos.libro_id = libros.id;";
 } else {
-    // Lclentes solo ven sus propios prstamos
     $query = "SELECT prestamos.id,
                      prestamos.fecha_prestamo,
                      prestamos.fecha_devolucion,
@@ -40,26 +36,24 @@ if ($rol === "ADMINISTRADOR") {
               WHERE usuarios.id = $usuario_id;";
 }
 
-//  Ejecutar la consulta
 $result = $baseDatos->efectuarConsulta($query);
-
 
 if (!$result) {
     die("<div class='alert alert-danger text-center mt-3'>
-            Error al obtener los preestamos: " . htmlspecialchars(mysqli_error($conexion)) . "
+            Error al obtener los prestamos: " . htmlspecialchars(mysqli_error($conexion)) . "
         </div>");
 }
 ?>
 
 <div class="card p-4 mb-5 shadow">
     <h3 class="mb-4">
-        <i class="zmdi zmdi-assignment"></i> Préstamos Registrados
+        <i class="zmdi zmdi-assignment"></i> Prestamos Registrados
     </h3>
 
     <?php if ($rol === "ADMINISTRADOR") { ?>
         <div class="mb-4">
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistrarPrestamo">
-                <i class="zmdi zmdi-assignment-check"></i> Registrar Préstamo
+                <i class="zmdi zmdi-assignment-check"></i> Registrar Prestamo
             </button>
         </div>
     <?php } ?>
@@ -68,8 +62,8 @@ if (!$result) {
         <table id="tablaPrestamos" class="table table-striped table-bordered">
             <thead class="table-dark text-center">
                 <tr>
-                    <th>Fecha Préstamo</th>
-                    <th>Fecha Devolución</th>
+                    <th>Fecha Prestamo</th>
+                    <th>Fecha Devolucion</th>
                     <th>Estado</th>
                     <th>Nombre</th>
                     <th>ISBN</th>
@@ -91,16 +85,16 @@ if (!$result) {
 
                                 switch (strtolower($estado)) {
                                     case 'activo':
-                                        $claseBoton = 'btn-success'; // verde
+                                        $claseBoton = 'btn-success';
                                         break;
                                     case 'devuelto':
-                                        $claseBoton = 'btn-secondary'; // gris
+                                        $claseBoton = 'btn-secondary';
                                         break;
                                     case 'retrasado':
-                                        $claseBoton = 'btn-danger'; // rojo
+                                        $claseBoton = 'btn-danger';
                                         break;
                                     default:
-                                        $claseBoton = 'btn-warning'; // amarillo por defecto
+                                        $claseBoton = 'btn-warning';
                                 }
                                 ?>
                                 <button class="btn btn-sm <?= $claseBoton ?>" disabled>

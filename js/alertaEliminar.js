@@ -6,7 +6,7 @@ document.addEventListener("click", function (e) {
   const id = button.dataset.id;
   if (!id) return;
 
-  // Cargar el modal de eliminación desde PHP
+  // Cargar el modal de eliminacion desde PHP
   fetch("/Biblioteca-2025/views/modales/modalEliminar.php?id=" + id)
     .then((res) => res.text())
     .then((html) => {
@@ -48,7 +48,7 @@ document.addEventListener("click", function (e) {
           .catch((err) => {
             console.error("Error:", err);
             Swal.fire(
-              "Ups!",
+              "Ups",
               "Ocurrio un error al procesar la eliminación.",
               "warning"
             );

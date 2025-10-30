@@ -28,7 +28,7 @@ $baseDatos->desconectar();
             <div class="modal-body">
                 <form id="formEditarLibro" action="/controllers/editarLibro.php" method="POST">
                     <div class="mb-3">
-                        <label class="form-label">Título:</label>
+                        <label class="form-label">Titulo:</label>
                         <input type="text" class="form-control" name="titulo" value="<?= htmlspecialchars($fila['titulo'] ?? '') ?>" required>
                     </div>
 
@@ -43,7 +43,7 @@ $baseDatos->desconectar();
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Categoría:</label>
+                        <label class="form-label">Categoria:</label>
                         <input type="text" class="form-control" name="categoria" value="<?= htmlspecialchars($fila['categoria'] ?? '') ?>" required>
                     </div>
 

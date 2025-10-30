@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const formData = new FormData(form);
     formData.append("btn_registrar", "ok");
 
-    // 💬 Confirmación antes de registrar
+    //  Confirmacin antes de registrar
     Swal.fire({
       title: "¿Confirmar registro?",
       text: "Se guardará un nuevo libro en el sistema.",

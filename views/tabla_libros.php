@@ -1,5 +1,5 @@
 <?php
-session_start(); // 👈 Asegúrate de tener la sesión iniciada
+session_start(); 
 
 require_once("../models/MySQL.php");
 
@@ -26,7 +26,7 @@ $result = $baseDatos->efectuarConsulta($query);
 
     <?php } elseif ($rol === "CLIENTE") { ?>
         <div class="mb-4">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistrarPrestamo">
                 <i class="zmdi zmdi-assignment"></i> Registrar préstamo
             </button>
         </div>

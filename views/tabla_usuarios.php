@@ -26,8 +26,8 @@ $result = $baseDatos->efectuarConsulta($query);
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Email</th>
-                    <th>Teléfono</th>
-                    <th>Dirección</th>
+                    <th>Telefono</th>
+                    <th>Direccion</th>
                     <th>Estado</th>
                     <th>Fecha Registro</th>
                     <th>Rol</th>
@@ -74,7 +74,7 @@ $result = $baseDatos->efectuarConsulta($query);
                             <button class="btn btn-primary btnEditar" data-id="<?= $fila['id'] ?>">
                                 Editar
                             </button>
-                            <!-- Botón que abre el modal -->
+                            <!-- Boton que abre el modal -->
                             <button class="btn btn-danger btnEliminar" data-id="<?= $fila['id'] ?>">
                                 Eliminar
                             </button>

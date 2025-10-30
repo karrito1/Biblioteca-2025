@@ -32,7 +32,7 @@ $baseDatos->desconectar();
                             <input type="text" class="form-control form-control-sm" name="nombre" value="<?= htmlspecialchars($fila['nombre'] ?? '') ?>" required>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label">Correo electrónico:</label>
+                            <label class="form-label">Correo electronico:</label>
                             <input type="email" class="form-control form-control-sm" name="email" value="<?= htmlspecialchars($fila['email'] ?? '') ?>" required>
                         </div>
                     </div>
@@ -47,18 +47,18 @@ $baseDatos->desconectar();
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label">Contraseña:</label>
+                            <label class="form-label">Contrasena:</label>
                             <input type="password" class="form-control form-control-sm" name="passwordd" placeholder="Dejar en blanco para no cambiar">
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label class="form-label">Teléfono:</label>
+                            <label class="form-label">Telefono:</label>
                             <input type="text" class="form-control form-control-sm" name="telefono" value="<?= htmlspecialchars($fila['telefono'] ?? '') ?>" required>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label">Dirección:</label>
+                            <label class="form-label">Direccion:</label>
                             <input type="text" class="form-control form-control-sm" name="direccion" value="<?= htmlspecialchars($fila['direccion'] ?? '') ?>" required>
                         </div>
                     </div>

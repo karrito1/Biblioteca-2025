@@ -5,15 +5,15 @@ require_once("../models/MySQL.php");
 $baseDatos = new MySQL();
 $conexion = $baseDatos->conectar();
 
-// Validar sesión
+// Validar sesion
 if (!isset($_SESSION['usuario_id']) || !isset($_SESSION['roles'])) {
-    die("Error: sesión no válida.");
+    die("Error: sesion no valida.");
 }
 
 $usuario_id = (int) $_SESSION['usuario_id'];
 $rol = strtoupper(trim($_SESSION['roles']));
 
-// Consulta según el rol
+// Consulta segun el rol
 if ($rol === "CLIENTE") {
     $query = " SELECT 
             reservas.id,
@@ -42,7 +42,7 @@ if ($rol === "CLIENTE") {
         ORDER BY reservas.fecha_reserva DESC;
     ";
 } else {
-    die("Error: rol no válido o no definido.");
+    die("Error: rol no valido o no definido.");
 }
 
 // Ejecutar la consulta
@@ -66,7 +66,7 @@ if (!$result) {
                     <th>Nombre</th>
                     <th>Fecha de Reserva</th>
                     <th>Estado</th>
-                    <th>Título</th>
+                    <th>Titulo</th>
                     <th>ISBN</th>
                     <?php if ($rol === "ADMINISTRADOR") { ?>
                         <th>Acciones</th>

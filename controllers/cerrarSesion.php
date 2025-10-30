@@ -9,4 +9,3 @@ echo json_encode([
   "message" => "Sesión cerrada correctamente."
 ]);
 exit;
-?>

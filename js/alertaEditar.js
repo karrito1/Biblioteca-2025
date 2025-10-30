@@ -30,7 +30,7 @@ document.addEventListener("click", function (e) {
               if (data.status === "success") {
                 Swal.fire("¡Éxito!", data.message, "success").then(() => {
                   modal.hide();
-                  location.reload(); // o actualizar tabla dinámicamente
+                  location.reload(); // o actualizar tabla dinamicamente
                 });
               } else {
                 Swal.fire("Error", data.message, "error");

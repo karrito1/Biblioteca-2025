@@ -7,7 +7,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca SENAP 2025 - Inicio de sesión</title>
+    <title>Biblioteca SENAP 2025 - Inicio de sesion</title>
     <link rel="shortcut icon" href="assets/icons/book.ico" type="image/x-icon">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -29,16 +29,15 @@ session_start();
 
             <div class="text-center mb-4">
                 <i class="zmdi zmdi-account-circle zmdi-hc-5x text-light"></i>
-                <h4 class="mt-3 text-light all-tittles">Inicia sesión con tu cuenta</h4>
+                <h4 class="mt-3 text-light all-tittles">Inicia sesion con tu cuenta</h4>
             </div>
 
             <?php if (isset($_GET['error']) && $_GET['error'] == 1): ?>
                 <div class="alert alert-danger text-center" role="alert">
-                    Email o contraseña incorrectos.
+                    Email o contrasena incorrectos.
                 </div>
             <?php endif; ?>
 
-            <!-- FORMULARIO LOGIN -->
             <form method="POST" action="./controllers/logicalogin.php" class="mb-3">
                 <div class="group-material-login mb-4">
                     <input type="email" class="material-login-control form-control form-control-lg" name="email"
@@ -49,7 +48,7 @@ session_start();
                 <div class="group-material-login mb-4">
                     <input type="password" class="material-login-control form-control form-control-lg" name="password"
                         required maxlength="70">
-                    <label><i class="zmdi zmdi-lock"></i> &nbsp; Contraseña</label>
+                    <label><i class="zmdi zmdi-lock"></i> &nbsp; Contrasena</label>
                 </div>
 
                 <div class="d-grid gap-3">
@@ -63,7 +62,6 @@ session_start();
                 </div>
             </form>
 
-            <!-- MODAL REGISTRO -->
             <div class="modal fade" id="registroModal" tabindex="-1" aria-labelledby="registroModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content" style="background-color: rgba(32, 29, 29, 0.95); color: white;">
@@ -74,7 +72,6 @@ session_start();
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                         </div>
 
-                        <!-- FORMULARIO DE REGISTRO -->
                         <form id="formRegistro" method="POST" action="./controllers/indexRegistro.php">
                             <div class="modal-body">
                                 <div class="mb-3">
@@ -83,22 +80,22 @@ session_start();
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="emailRegistro" class="form-label">Correo electrónico</label>
+                                    <label for="emailRegistro" class="form-label">Correo electronico</label>
                                     <input type="email" class="form-control form-control-lg" id="emailRegistro" name="email" required maxlength="70">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="telefono" class="form-label">Teléfono</label>
+                                    <label for="telefono" class="form-label">Telefono</label>
                                     <input type="text" class="form-control form-control-lg" id="telefono" name="telefono" maxlength="20">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="direccion" class="form-label">Dirección</label>
+                                    <label for="direccion" class="form-label">Direccion</label>
                                     <textarea class="form-control form-control-lg" id="direccion" name="direccion" rows="2" maxlength="255"></textarea>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="passwordRegistro" class="form-label">Contraseña</label>
+                                    <label for="passwordRegistro" class="form-label">Contrasena</label>
                                     <input type="password" class="form-control form-control-lg" id="passwordRegistro" name="passwordd" required maxlength="70">
                                 </div>
                             </div>
@@ -111,8 +108,6 @@ session_start();
                     </div>
                 </div>
             </div>
-
-            <!-- FIN MODAL -->
         </div>
     </div>
 
