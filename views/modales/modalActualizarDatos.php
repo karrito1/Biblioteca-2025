@@ -12,7 +12,7 @@
             <form id="formEditarUsuario" method="POST">
                 <div class="modal-body">
                     <!-- ID oculto -->
-                    <input type="hidden" name="id" id="id_usuario" value="<?= $_SESSION['id'] ?? '' ?>">
+                    <input type="hidden" name="id" id="id_usuario" value="<?= $_SESSION['usuario_id'] ?? '' ?>">
 
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre completo</label>

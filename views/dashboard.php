@@ -5,12 +5,12 @@ require_once("../models/MySQL.php");
 $baseDatos = new MySQL();
 $conexion = $baseDatos->conectar();
 
-// Validar sesion
+// Validar sesiOn
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: ../index.php?error=1");
     exit();
 } else {
-    // Datos de sesion
+    // Datos de sesiOn
     $usuario_id = $_SESSION['usuario_id'];
     $usuario_nombre = $_SESSION['email'];
     $usuario_rol = $_SESSION['roles'];
@@ -38,10 +38,13 @@ if (!isset($_SESSION['usuario_id'])) {
     $resultadoReservasCliente = $baseDatos->efectuarConsulta($consultaReservasCliente);
     $totalReservasCliente = mysqli_fetch_assoc($resultadoReservasCliente)['totalReservasCliente'];
 
-    // Consulta de prestamos activos
+    // Consulta de prEstamos activos
     $consultaPrestamos = "SELECT COUNT(*) as totalPrestamos FROM prestamos WHERE estado='activo'";
     $resultado3 = $baseDatos->efectuarConsulta($consultaPrestamos);
     $totalPrestamos = mysqli_fetch_assoc($resultado3)['totalPrestamos'];
+
+
+
 
     $consultaPrestamoscliente = "SELECT COUNT(*) as totalPrestamosClientes
                          FROM prestamos 
@@ -50,7 +53,7 @@ if (!isset($_SESSION['usuario_id'])) {
     $resultado5 = $baseDatos->efectuarConsulta($consultaPrestamoscliente);
     $totalPrestamosClientes = mysqli_fetch_assoc($resultado5)['totalPrestamosClientes'];
 
-    // Consulta de historial de prestamos devueltos
+    // Consulta de historial de prEstamos devueltos
     $consultahistorial = "SELECT COUNT(*) as totalHistorial FROM prestamos WHERE estado='devuelto'";
     $resultado4 = $baseDatos->efectuarConsulta($consultahistorial);
     $historialPrestamos = mysqli_fetch_assoc($resultado4)['totalHistorial'];
@@ -69,10 +72,10 @@ if (!isset($_SESSION['usuario_id'])) {
     <!-- ====== Metadatos SEO ====== -->
     <meta name="description"
         content="Biblioteca SENAP ofrece acceso a libros, recursos digitales y actividades culturales para fomentar el aprendizaje y la lectura.">
-    <meta name="keywords" content="biblioteca, educacion, lectura, libros digitales, cultura">
+    <meta name="keywords" content="biblioteca, educación, lectura, libros digitales, cultura">
     <meta name="author" content="Cristian Villa y Jhoan Morales">
 
-    <!-- ====== Icono ====== -->
+    <!-- ====== Ícono ====== -->
     <link rel="Shortcut Icon" type="image/x-icon" href="/Biblioteca-2025/assets/icons/book.ico" />
 
     <!-- ====== Bootstrap ====== -->
@@ -86,8 +89,8 @@ if (!isset($_SESSION['usuario_id'])) {
     <link rel="stylesheet" href="/Biblioteca-2025/css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="/Biblioteca-2025/css/style.css">
 
-    <!-- ====== Librerias JS externas ====== -->
-    <!-- jQuery debe ir antes que cualquier plugin que dependa de el -->
+    <!-- ====== Librerías JS externas ====== -->
+    <!-- jQuery debe ir antes que cualquier plugin que dependa de él -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
     <!-- Bootstrap (usa bundle que incluye Popper) -->
@@ -142,15 +145,20 @@ if (!isset($_SESSION['usuario_id'])) {
                         <li><a href="#" id="btnMisReservas"><i class="zmdi zmdi-timer"></i>&nbsp;&nbsp; Mis reservas</a></li>
                         <li><a href="#" id="btnPrestamos"><i class="zmdi zmdi-search"></i>&nbsp;&nbsp; Mis prestamos</a></li>
                         <li>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modalEditar">
-                                <i class="zmdi zmdi-account"></i>&nbsp;&nbsp; Mis datos
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modalEditarUsuario">
+                                <i class="zmdi zmdi-account-circle"></i>&nbsp;&nbsp; Mis datos
                             </a>
                         </li>
+
                     <?php } ?>
 
+
+
                     <li><a href="#" data-bs-toggle="modal" data-bs-target="#modalCerrarSesion">
-                            <i class="zmdi zmdi-power"></i>&nbsp;&nbsp; Cerrar sesion
+                            <i class="zmdi zmdi-power"></i>&nbsp;&nbsp; Cerrar sesión
                         </a></li>
+
+
                 </ul>
             </div>
         </div>
@@ -166,15 +174,17 @@ if (!isset($_SESSION['usuario_id'])) {
             </ul>
         </nav>
 
+
         <div class="container">
             <div class="page-header">
                 <h1 class="all-tittles">Panel de <small><?php echo ucfirst(strtolower($usuario_rol)); ?></small></h1>
             </div>
+
         </div>
-        <!-- tarjetas de roles -->
+        <!-- tarjetas de doles -->
         <section class="full-reset text-center" style="padding: 40px 0;">
             <?php if ($usuario_rol === 'ADMINISTRADOR') { ?>
-                <!-- tarjetas segun administrador -->
+                <!--tarjetas segun administrador -->
                 <article class="tile" id="btnUsuarios">
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-book"></i></div>
                     <div class="tile-name all-tittles">Usuarios registrados</div>
@@ -202,10 +212,10 @@ if (!isset($_SESSION['usuario_id'])) {
                 </article>
                 <article class="tile" id="">
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-calendar"></i></div>
-                    <div class="tile-name all-tittles">Historial de prestamos</div>
+                    <div class="tile-name all-tittles">Historial de préstamos</div>
                     <div class="tile-num full-reset"><?= $historialPrestamos ?></div>
                 </article>
-                <!-- tarjetas clientes -->
+                <!-- tarejtas clientes -->
             <?php } elseif ($usuario_rol === 'CLIENTE') { ?>
                 <article class="tile" id="btnLibrosMenu">
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-search"></i></div>
@@ -216,21 +226,22 @@ if (!isset($_SESSION['usuario_id'])) {
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-timer"></i></div>
                     <div class="tile-name all-tittles">Mis reservas</div>
                     <div class="tile-num full-reset"><?= $totalReservasCliente ?></div>
+
                 </article>
                 <article class="tile" id="btnPrestamos">
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-calendar"></i></div>
-                    <div class="tile-name all-tittles">Prestamos</div>
+                    <div class="tile-name all-tittles">prestamos</div>
                     <div class="tile-num full-reset"><?= $totalPrestamosClientes ?></div>
                 </article>
                 <article class="tile" id="">
                     <div class="tile-icon full-reset"><i class="zmdi zmdi-calendar"></i></div>
-                    <div class="tile-name all-tittles">Historial de prestamos</div>
+                    <div class="tile-name all-tittles">Historial de préstamos</div>
                     <div class="tile-num full-reset"><?= $historialPrestamos ?></div>
                 </article>
             <?php } ?>
         </section>
-
-        <div id="tablaUsuariosContainer" class="container" style="display:none; margin-top:20px;"></div>
+        <div id="tablaUsuariosContainer" class="container" style="display:none; margin-top:20px;">
+        </div>
         <div id="tablaLibrosContainer" class="container" style="display:none; margin-top:20px;"></div>
         <div id="tablaLibroscliente" class="container" style="display:none; margin-top:20px;"></div>
         <div id="tablaReservasCliente" class="container" style="display:none; margin-top:20px;"></div>
@@ -239,8 +250,8 @@ if (!isset($_SESSION['usuario_id'])) {
         <footer>
             © 2025 Biblioteca-2025 | Desarrollado por Cristian Villa y Jhoan Morales
         </footer>
-    </div>
 
+    </div>
     <div id="contenedorModal"></div>
     <!-- aca nos dirigimos a la carpeta de los modales -->
     <?php include __DIR__ . '/modales/modalRegistro.php'; ?>
@@ -251,6 +262,9 @@ if (!isset($_SESSION['usuario_id'])) {
     <?php include __DIR__ . '/modales/RegistrarPrestamo.php'; ?>
     <?php include __DIR__ . '/modales/modalActualizarDatos.php'; ?>
 
+
+
+
     <script src="/Biblioteca-2025/js/alertaCerrar.js"></script>
     <script src="/Biblioteca-2025/js/alertaRegistro.js"></script>
     <script src="/Biblioteca-2025/js/alertaEditar.js"></script>
@@ -258,12 +272,16 @@ if (!isset($_SESSION['usuario_id'])) {
     <script src="/Biblioteca-2025/js/alertaRegistroLibros.js"></script>
     <script src="/Biblioteca-2025/js/alertaEditarLibro.js.js"></script>
 
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/tabla_usuarios.js"></script>
     <script src="../js/tabla_libros.js"></script>
     <script src="../js/librosClientes.js"></script>
     <script src="../js/tablaReservas.js"></script>
     <script src="../js/tablaPrestamos.js"></script>
+
+
+
 </body>
 
 </html>
