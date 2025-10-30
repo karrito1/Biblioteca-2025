@@ -24,8 +24,8 @@
                                 <i class="zmdi zmdi-account"></i> Usuario
                             </label>
                             <input type="text" class="form-control" id="usuario_nombre"
-                                value="<?= htmlspecialchars($_SESSION['nombre'] ?? 'Usuario') ?>" disabled>
-                            <input type="hidden" name="usuario_id" value="<?= $_SESSION['id'] ?? '' ?>">
+                                value="<?= htmlspecialchars($_SESSION['email'] ?? 'Usuario') ?>" disabled>
+                            <input type="hidden" name="usuario_id" value="<?= $_SESSION['usuario_id'] ?? '' ?>">
                         </div>
 
                         <div class="col-md-6 mb-3">
@@ -69,9 +69,15 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const formPrestamo = document.getElementById('formRegistrarPrestamo');
+        const modalPrestamo = document.getElementById('modalRegistrarPrestamo');
+
+        if (modalPrestamo) {
+            modalPrestamo.addEventListener('show.bs.modal', function () {
+                cargarLibrosDisponibles();
+            });
+        }
 
         if (formPrestamo) {
-            cargarLibrosDisponibles();
 
             const fechaPrestamo = document.getElementById('fecha_prestamo');
             if (fechaPrestamo) {
@@ -91,43 +97,81 @@
 
                 const formData = new FormData(this);
 
-                fetch('/controllers/registrarPrestamo.php', {
+                fetch('/Biblioteca-2025/controllers/registrarPrestamo.php', {
                         method: 'POST',
                         body: formData
                     })
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            alert('Prestamo registrado exitosamente');
-                            location.reload();
+                            Swal.fire({
+                                icon: 'success',
+                                title: '¡Éxito!',
+                                text: data.message || 'Préstamo registrado exitosamente',
+                                showConfirmButton: false,
+                                timer: 1500
+                            }).then(() => {
+                                location.reload();
+                            });
                         } else {
-                            alert('Error: ' + data.message);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: data.message || 'Error al registrar el préstamo'
+                            });
                         }
                     })
                     .catch(error => {
                         console.error('Error:', error);
-                        alert('Error al procesar la solicitud');
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Error al procesar la solicitud'
+                        });
                     });
             });
         }
 
         function cargarLibrosDisponibles() {
-            fetch('/Biblioteca-2025/controllers/obtener_libros_disponibles.php')
-                .then(response => response.json())
-                .then(data => {
-                    const select = document.getElementById('libro_id');
-                    if (select) {
-                        select.innerHTML = '<option value="">Seleccione un libro</option>';
+            const select = document.getElementById('libro_id');
+            if (!select) return;
 
-                        data.forEach(libro => {
+            select.innerHTML = '<option value="">Cargando libros...</option>';
+            select.disabled = true;
+
+            fetch('/Biblioteca-2025/controllers/obtener_libros_disponibles.php')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error en la respuesta del servidor');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    select.innerHTML = '<option value="">Seleccione un libro</option>';
+                    
+                    if (data.success && Array.isArray(data.libros)) {
+                        data.libros.forEach(libro => {
                             const option = document.createElement('option');
                             option.value = libro.id;
-                            option.textContent = `${libro.titulo} - ${libro.autor} (Disponibles: ${libro.disponibilidad})`;
+                            option.textContent = `${libro.titulo} - ${libro.autor} (ISBN: ${libro.isbn})`;
                             select.appendChild(option);
                         });
+                    } else {
+                        throw new Error(data.message || 'Error al cargar los libros');
                     }
                 })
-                .catch(error => console.error('Error:', error));
+                .catch(error => {
+                    console.error('Error:', error);
+                    select.innerHTML = '<option value="">Error al cargar libros</option>';
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'No se pudieron cargar los libros disponibles'
+                    });
+                })
+                .finally(() => {
+                    select.disabled = false;
+                });
         }
     });
 </script>
