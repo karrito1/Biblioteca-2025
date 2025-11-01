@@ -14,6 +14,8 @@ if (!isset($_SESSION['usuario_id'])) {
     $usuario_id = $_SESSION['usuario_id'];
     $usuario_nombre = $_SESSION['email'];
     $usuario_rol = $_SESSION['roles'];
+    // Normalizar rol para que los modales y vistas puedan usar una variable consistente
+    $rol = isset($usuario_rol) ? strtoupper(trim($usuario_rol)) : "";
 
     // Consulta de usuarios registrados
     $consultadoUsuarios = "SELECT COUNT(*) as totalUsuarios FROM usuarios";
@@ -261,6 +263,8 @@ if (!isset($_SESSION['usuario_id'])) {
     <?php include __DIR__ . '/modales/modalEditarLibro.php'; ?>
     <?php include __DIR__ . '/modales/RegistrarPrestamo.php'; ?>
     <?php include __DIR__ . '/modales/modalActualizarDatos.php'; ?>
+    <?php include __DIR__ . '/modales/registrarReserva.php'; ?>
+    
 
 
 

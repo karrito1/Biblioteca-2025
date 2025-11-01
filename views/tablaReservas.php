@@ -47,18 +47,17 @@ if ($rol === "CLIENTE") {
 
 // Ejecutar la consulta
 $result = $baseDatos->efectuarConsulta($query);
-
-// Verificar errores
-if (!$result) {
-    die("Error en la consulta: " . mysqli_error($conexion));
-}
 ?>
 
 <div class="card p-4 mb-5 shadow">
     <h3 class="mb-4"><i class="zmdi zmdi-calendar"></i>
         <?= $rol === "ADMINISTRADOR" ? "Todas las Reservas" : "Mis Reservas" ?>
+
     </h3>
 
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formRegistrarReserva">
+        <i class="zmdi zmdi-assignment-check"></i> Registrar Reserva
+    </button>
     <div class="table-responsive">
         <table id="tablareservas" class="table table-striped table-bordered">
             <thead class="table-dark text-center">
