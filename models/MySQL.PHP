@@ -30,7 +30,7 @@ class MySQL
     // Desconectar
     public function desconectar()
     {
-        if ($this->conexion) {   // Verifica que exista la conexión
+        if ($this->conexion) {   // Verifica que exista la conexion
             $this->conexion->close();
             $this->conexion = null; // Evita cerrarla de nuevo
         }
@@ -48,7 +48,7 @@ class MySQL
         return $resultado;
     }
 
-    // Preparar consultas seguras (prepared statements)
+    // Preparar consultas seguras 
     public function preparar($consulta)
     {
         return $this->conexion->prepare($consulta);

@@ -264,7 +264,7 @@ if (!isset($_SESSION['usuario_id'])) {
     <?php include __DIR__ . '/modales/RegistrarPrestamo.php'; ?>
     <?php include __DIR__ . '/modales/modalActualizarDatos.php'; ?>
     <?php include __DIR__ . '/modales/registrarReserva.php'; ?>
-    
+
 
 
 
@@ -274,7 +274,10 @@ if (!isset($_SESSION['usuario_id'])) {
     <script src="/Biblioteca-2025/js/alertaEditar.js"></script>
     <script src="/Biblioteca-2025/js/alertaEliminar.js"></script>
     <script src="/Biblioteca-2025/js/alertaRegistroLibros.js"></script>
-    <script src="/Biblioteca-2025/js/alertaEditarLibro.js.js"></script>
+    <script src="/Biblioteca-2025/js/alertaEditarLibro.js"></script>
+    <script src="/Biblioteca-2025/js/alertaDatosCLientes.js"></script>
+    <script src="/Biblioteca-2025/js/alertaPrestamolibros.js"></script>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

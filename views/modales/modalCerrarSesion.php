@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div class="modal-body text-center">
-                <p class="mb-3 fs-5">¿Estás seguro de que deseas cerrar sesión?</p>
+                <p class="mb-3 fs-5">¿Estás seguro de que deseas cerrar sesion?</p>
                 <i class="zmdi zmdi-power text-danger" style="font-size: 3rem;"></i>
             </div>
             <div class="modal-footer justify-content-center">

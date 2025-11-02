@@ -73,3 +73,78 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const formReserva = document.getElementById('formRegistrarReserva');
+        const selectLibro = document.getElementById('libro_id');
+
+        // Cargar libros cuando se abre el modal
+        const modalReserva = document.getElementById('formRegistrarReserva');
+        modalReserva.addEventListener('show.bs.modal', function() {
+            selectLibro.innerHTML = '<option value="">Cargando libros...</option>';
+
+            fetch('/Biblioteca-2025/controllers/obtener_libros_disponibles.php')
+                .then(res => res.json())
+                .then(data => {
+                    selectLibro.innerHTML = '<option value="">Seleccione un libro</option>';
+                    if (data.success && Array.isArray(data.libros)) {
+                        data.libros.forEach(libro => {
+                            const option = document.createElement('option');
+                            option.value = libro.id;
+                            option.textContent = `${libro.titulo} - ${libro.autor}`;
+                            selectLibro.appendChild(option);
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'No se pudieron cargar los libros'
+                        });
+                    }
+                })
+                .catch(err => {
+                    console.error('Error:', err);
+                    selectLibro.innerHTML = '<option value="">Error al cargar</option>';
+                });
+        });
+
+        // Enviar formulario
+        formReserva.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+
+            fetch('/Biblioteca-2025/controllers/registrarReserva.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Exito',
+                            text: data.message || 'Reserva registrada correctamente',
+                            timer: 1500,
+                            showConfirmButton: false
+                        }).then(() => {
+                            location.reload();
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: data.message || 'No se pudo registrar la reserva'
+                        });
+                    }
+                })
+                .catch(err => {
+                    console.error('Error:', err);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Error al procesar la solicitud'
+                    });
+                });
+        });
+    });
+</script>
