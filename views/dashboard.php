@@ -10,14 +10,6 @@ validarSesion();
 $baseDatos = new MySQL();
 $baseDatos->conectar();
 
-<<<<<<< Updated upstream
-// Obtener estadisticas y datos del usuario
-$stats = obtenerEstadisticasDashboard($baseDatos);
-$usuarioInfo = obtenerInfoUsuario();
-$usuario_nombre = $usuarioInfo['nombre'];
-$usuario_rol = $usuarioInfo['rol'];
-
-=======
 // validar sesion
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: ../index.php?error=1");
@@ -71,7 +63,6 @@ if (!isset($_SESSION['usuario_id'])) {
     $resultado4 = $baseDatos->efectuarConsulta($consultahistorial);
     $historialPrestamos = mysqli_fetch_assoc($resultado4)['totalHistorial'];
 }
->>>>>>> Stashed changes
 ?>
 
 <!DOCTYPE html>
@@ -88,13 +79,8 @@ if (!isset($_SESSION['usuario_id'])) {
     <meta name="keywords" content="biblioteca, educacion, lectura, libros digitales, cultura">
     <meta name="author" content="Cristian Villa y Jhoan Morales">
 
-<<<<<<< Updated upstream
-    <!-- ====== icono ====== -->
-    <link rel="icon" type="image/svg+xml" href="/Biblioteca-2025/assets/icons/book.svg" />
-=======
     <!-- icono -->
     <link rel="Shortcut Icon" type="image/x-icon" href="/Biblioteca-2025/assets/icons/book.ico" />
->>>>>>> Stashed changes
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -102,40 +88,19 @@ if (!isset($_SESSION['usuario_id'])) {
     <!-- datatables -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 
-<<<<<<< Updated upstream
-    <!-- ====== Iconos y estilos personalizados ====== -->
-    <!-- ====== Iconos y estilos personalizados ====== -->
-=======
     <!-- iconos y estilos personalizados -->
->>>>>>> Stashed changes
     <link rel="stylesheet" href="/Biblioteca-2025/css/material-design-iconic-font.min.css">
     <link rel="stylesheet" href="/Biblioteca-2025/css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="/Biblioteca-2025/css/style.css">
     
     <!-- ====== Estilos para legibilidad con fondo blanco ====== -->
 
-<<<<<<< Updated upstream
-    <link rel="stylesheet" href="/Biblioteca-2025/css/blue-admin-theme.css">
-    <!-- jquery debe ir antes que cualquier plugin que dependa de el -->
-=======
     <!-- librerias js externas -->
->>>>>>> Stashed changes
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<<<<<<< Updated upstream
-    <!-- Scrollbar -->
-    <script src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
-
-    <!-- Script principal del sistema -->
-    <script src="../js/main.js"></script>
-=======
     <script src="/Biblioteca-2025/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="/Biblioteca-2025/js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.40/jspdf.plugin.autotable.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.min.js"></script>
->>>>>>> Stashed changes
 </head>
 
 <body>
@@ -159,13 +124,6 @@ if (!isset($_SESSION['usuario_id'])) {
             <div class="nav-lateral-divider full-reset"></div>
 
             <div class="full-reset nav-lateral-list-menu">
-<<<<<<< Updated upstream
-                <?php echo generarMenuLateral($usuario_rol); ?>
-            </div>
-        </div>
-    </div>
-    <!-- CONTENIDO CENTRAL-->
-=======
                 <ul class="list-unstyled">
                     <li><a href="/Biblioteca-2025/views/dashboard.php"><i class="zmdi zmdi-home"></i>&nbsp;&nbsp; Inicio</a></li>
 
@@ -199,7 +157,6 @@ if (!isset($_SESSION['usuario_id'])) {
         </div>
     </div>
     <!-- ======= contenido central ======= -->
->>>>>>> Stashed changes
     <div class="content-page-container full-reset custom-scroll-containers">
         <nav class="navbar-user-top full-reset">
             <ul class="list-unstyled full-reset">
@@ -223,9 +180,6 @@ if (!isset($_SESSION['usuario_id'])) {
         </div>
         <!-- tarjetas del dashboard -->
         <section class="full-reset text-center" style="padding: 40px 0;">
-<<<<<<< Updated upstream
-            <?php echo generarTarjetasDashboard($usuario_rol, $stats); ?>
-=======
             <?php if ($usuario_rol === 'ADMINISTRADOR') { ?>
                 <!-- tarjetas segun administrador -->
                 <article class="tile" id="btnUsuarios">
@@ -282,27 +236,15 @@ if (!isset($_SESSION['usuario_id'])) {
                     <div class="tile-num full-reset"><?= $historialPrestamos ?></div>
                 </article>
             <?php } ?>
->>>>>>> Stashed changes
         </section>
         <div id="tablaUsuariosContainer" class="container-fluid" style="display:none; margin-top:20px; min-height: calc(100vh - 250px);">
         </div>
-<<<<<<< Updated upstream
-        <div id="tablaLibrosContainer" class="container-fluid" style="display:none; margin-top:20px; min-height: calc(100vh - 250px);"></div>
-        <div id="tablaPrestamosContainer" class="container-fluid" style="display:none; margin-top:20px; min-height: calc(100vh - 250px);"></div>
-        <div id="tablaReservasContainer" class="container-fluid" style="display:none; margin-top:20px; min-height: calc(100vh - 250px);"></div>
-        <div id="tablaReportesContainer" class="container-fluid" style="display:none; margin-top:20px; min-height: calc(100vh - 250px);"></div>
-        <div id="tablaInventarioContainer" class="container-fluid" style="display:none; margin-top:20px; min-height: calc(100vh - 250px);"></div>
-        <div id="tablaLibroscliente" class="container-fluid" style="display:none; margin-top:20px; min-height: calc(100vh - 250px);"></div>
-        <div id="tablaReservasCliente" class="container-fluid" style="display:none; margin-top:20px; min-height: calc(100vh - 250px);"></div>
-        <div id="tablaMisPrestamosContainer" class="container-fluid" style="display:none; margin-top:20px; min-height: calc(100vh - 250px);"></div>
-=======
         <div id="tablaLibrosContainer" class="container" style="display:none; margin-top:20px;"></div>
         <div id="tablaLibroscliente" class="container" style="display:none; margin-top:20px;"></div>
         <div id="tablaReservasCliente" class="container" style="display:none; margin-top:20px;"></div>
         <div id="tablaPrestamosContainer" class="container" style="display:none; margin-top:20px;"></div>
         <div id="reportesContainer" class="container" style="display:none; margin-top:20px;"></div>
         <div id="historialContainer" class="container" style="display:none; margin-top:20px;"></div>
->>>>>>> Stashed changes
 
         <footer>
             © 2025 Biblioteca-2025 | Desarrollado por Cristian Villa y Jhoan Morales
@@ -333,11 +275,6 @@ if (!isset($_SESSION['usuario_id'])) {
     <script src="../js/tabla_reportes.js"></script>
     <script src="../js/tabla_inventario.js"></script>
     <script src="../js/librosClientes.js"></script>
-<<<<<<< Updated upstream
-    <script src="../js/reservasClientes.js"></script>
-    <script src="../js/prestamosClientes.js"></script>
-    <script src="../js/dashboard.js"></script>
-=======
     <script src="../js/tablaReservas.js"></script>
     <script src="../js/tablaPrestamos.js"></script>
     <script src="../js/reportesDinamico.js"></script>
@@ -345,7 +282,6 @@ if (!isset($_SESSION['usuario_id'])) {
 
 
 
->>>>>>> Stashed changes
 </body>
 
 </html>

@@ -1,21 +1,11 @@
 <?php
-<<<<<<< Updated upstream
 class MySQL {
     private $config = [
         'host' => "127.0.0.1",
         'user' => "root", 
         'pass' => "",
-        'db' => "biblioteca"
+        'db' => "biblioteca20250"
     ];
-=======
-class MySQL
-{
-    private $ipServidor = "127.0.0.1";
-    private $usuarioBase = "root";
-    private $contrasena = "";
-    private $nombreBaseDatos = "biblioteca20250";
-
->>>>>>> Stashed changes
     private $conexion;
 
     public function conectar() {
