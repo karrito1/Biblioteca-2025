@@ -1,15 +1,12 @@
 $(document).ready(function () {
   function cargarTablaLibros() {
-    // Ocultar tabla de usuarios
     $("#tablaUsuariosContainer").hide();
 
-    // Limpiar contenedor y destruir DataTable si existe
     if ($.fn.DataTable.isDataTable("#tablalibros")) {
       $("#tablalibros").DataTable().destroy();
     }
     $("#tablaLibrosContainer").empty();
 
-    // Cargar tabla
     $("#tablaLibrosContainer").load(
       "/Biblioteca-2025/views/tabla_libros.php",
       function () {

@@ -278,6 +278,11 @@ if (!isset($_SESSION['usuario_id'])) {
     <script src="/Biblioteca-2025/js/alertaDatosCLientes.js"></script>
     <script src="/Biblioteca-2025/js/alertaPrestamolibros.js"></script>
 
+    <script src="/Biblioteca-2025/js/alertaReservarLibros.js"></script>
+    <script src="/Biblioteca-2025/js/alertaEliminarLibro.js"></script>
+
+
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

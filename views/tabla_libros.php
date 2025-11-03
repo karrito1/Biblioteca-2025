@@ -19,9 +19,11 @@ $result = $baseDatos->efectuarConsulta($query);
 
     <?php if ($rol === "ADMINISTRADOR") { ?>
         <div class="mb-4">
-            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="">
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalRegistrarLibro">
                 <i class="zmdi zmdi-plus"></i> Nuevo libro
             </button>
+
+
         </div>
 
     <?php } elseif ($rol === "CLIENTE") { ?>
@@ -65,6 +67,7 @@ $result = $baseDatos->efectuarConsulta($query);
                                 <button class="btn btn-primary btnEditarLibro" data-id="<?= $fila['id'] ?>">
                                     <i class="zmdi zmdi-edit"></i>
                                 </button>
+
                                 <button class="btn btn-danger btnEliminarLibro" data-id="<?= $fila['id'] ?>">
                                     <i class="zmdi zmdi-delete"></i>
                                 </button>
