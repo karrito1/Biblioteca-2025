@@ -1,37 +1,19 @@
 <?php
 require_once("../models/MySQL.php");
 
-header("Content-Type: application/json; charset=utf-8");
-
 $baseDatos = new MySQL();
 $conexion = $baseDatos->conectar();
 
-try {
-    $query = "SELECT id, titulo, autor, isbn, disponibilidad 
-              FROM libros 
-              WHERE disponibilidad = 'disponible'
-              ORDER BY titulo ASC";
+// Consulta para traer libros disponibles
+$consulta = "SELECT id, titulo FROM libros WHERE disponibilidad = 'disponible'";
 
-    $resultado = $baseDatos->efectuarConsulta($query);
+$resultado = $baseDatos->efectuarConsulta($consulta);
 
-    if (!$resultado) {
-        throw new Exception("Error al consultar los libros");
-    }
+$libros = array();
 
-    $libros = [];
-    while ($fila = mysqli_fetch_assoc($resultado)) {
-        $libros[] = $fila;
-    }
-
-    echo json_encode([
-        'success' => true,
-        'libros' => $libros
-    ]);
-} catch (Exception $e) {
-    echo json_encode([
-        'success' => false,
-        'message' => "Error: " . $e->getMessage()
-    ]);
-} finally {
-    $baseDatos->desconectar();
+// Convertir resultados a JSON
+while ($row = mysqli_fetch_assoc($resultado)) {
+    $libros[] = $row;
 }
+
+echo json_encode(["libros" => $libros]);

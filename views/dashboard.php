@@ -137,8 +137,8 @@ if (!isset($_SESSION['usuario_id'])) {
                         <li><a href="#" id="btnLibrosMenu"><i class="zmdi zmdi-calendar"></i>&nbsp;&nbsp; Registro de libros</a></li>
                         <li><a href="#" id="btnMisReservas"><i class="zmdi zmdi-trending-up"></i>&nbsp;&nbsp; Reservas</a></li>
                         <li><a href="#" id="btnPrestamos"><i class="zmdi zmdi-trending-up"></i>&nbsp;&nbsp; Prestamos</a></li>
-                        <li><a href="/Biblioteca-2025/views/report.php"><i class="zmdi zmdi-trending-up"></i>&nbsp;&nbsp; Reportes (PDF/Excel)</a></li>
-                        <li><a href="/Biblioteca-2025/views/book.php"><i class="zmdi zmdi-book"></i>&nbsp;&nbsp; Inventario</a></li>
+                        <li><a href="#"><i class="zmdi zmdi-trending-up"></i>&nbsp;&nbsp; Reportes (PDF/Excel)</a></li>
+                        <li><a href="#" id="btnInventario"><i class="zmdi zmdi-book"></i>&nbsp;&nbsp; Inventario</a></li>
 
 
                     <?php } elseif ($usuario_rol === 'CLIENTE') { ?>
@@ -217,6 +217,11 @@ if (!isset($_SESSION['usuario_id'])) {
                     <div class="tile-name all-tittles">Historial de préstamos</div>
                     <div class="tile-num full-reset"><?= $historialPrestamos ?></div>
                 </article>
+                <article class="tile" id="btnInventario">
+                    <div class="tile-icon full-reset"><i class="zmdi zmdi-calendar"></i></div>
+                    <div class="tile-name all-tittles">Inventario</div>
+                    <div class="tile-num full-reset"></div>
+                </article>
                 <!-- tarejtas clientes -->
             <?php } elseif ($usuario_rol === 'CLIENTE') { ?>
                 <article class="tile" id="btnLibrosMenu">
@@ -263,7 +268,10 @@ if (!isset($_SESSION['usuario_id'])) {
     <?php include __DIR__ . '/modales/modalEditarLibro.php'; ?>
     <?php include __DIR__ . '/modales/RegistrarPrestamo.php'; ?>
     <?php include __DIR__ . '/modales/modalActualizarDatos.php'; ?>
+    <?php include __DIR__ . '/modales/editarPrestamo.php'; ?>
     <?php include __DIR__ . '/modales/registrarReserva.php'; ?>
+
+
 
 
 
@@ -277,9 +285,12 @@ if (!isset($_SESSION['usuario_id'])) {
     <script src="/Biblioteca-2025/js/alertaEditarLibro.js"></script>
     <script src="/Biblioteca-2025/js/alertaDatosCLientes.js"></script>
     <script src="/Biblioteca-2025/js/alertaPrestamolibros.js"></script>
-
-    <script src="/Biblioteca-2025/js/alertaReservarLibros.js"></script>
     <script src="/Biblioteca-2025/js/alertaEliminarLibro.js"></script>
+    <script src="/Biblioteca-2025/js/alertaEditarPrestamo.js"></script>
+    <script src="/Biblioteca-2025/js/alertaElimnarPrestamo.js"></script>
+    <script src="/Biblioteca-2025/js/registrarReserva.js"></script>
+
+
 
 
 
@@ -291,6 +302,7 @@ if (!isset($_SESSION['usuario_id'])) {
     <script src="../js/librosClientes.js"></script>
     <script src="../js/tablaReservas.js"></script>
     <script src="../js/tablaPrestamos.js"></script>
+
 
 
 

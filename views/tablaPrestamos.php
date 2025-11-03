@@ -107,12 +107,13 @@ if (!$result) {
 
                             <?php if ($rol === "ADMINISTRADOR") { ?>
                                 <td class="text-center">
-                                    <button class="btn btn-primary btnEditar" data-id="<?= $fila['id'] ?>">
-                                        <i class="zmdi zmdi-edit"></i> Editar
+                                    <button class="btn btn-primary btnEditarPrestamo" data-id="<?= $fila['id'] ?>">
+                                        <i class="zmdi zmdi-edit"></i>
                                     </button>
-                                    <button class="btn btn-danger btnEliminar" data-id="<?= $fila['id'] ?>">
-                                        <i class="zmdi zmdi-delete"></i> Eliminar
+                                    <button class="btn btn-danger btnEliminarPrestamo" data-id="<?= $fila['id'] ?>">
+                                        <i class="zmdi zmdi-delete"></i>
                                     </button>
+
                                 </td>
                             <?php } ?>
                         </tr>

@@ -55,9 +55,10 @@ $result = $baseDatos->efectuarConsulta($query);
 
     </h3>
 
-    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formRegistrarReserva">
-        <i class="zmdi zmdi-assignment-check"></i> Registrar Reserva
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistrarReserva">
+        <i class="zmdi zmdi-calendar-check"></i> Registrar Reserva
     </button>
+
     <div class="table-responsive">
         <table id="tablareservas" class="table table-striped table-bordered">
             <thead class="table-dark text-center">
