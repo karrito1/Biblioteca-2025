@@ -137,7 +137,7 @@ if (!isset($_SESSION['usuario_id'])) {
                         <li><a href="#" id="btnLibrosMenu"><i class="zmdi zmdi-calendar"></i>&nbsp;&nbsp; Registro de libros</a></li>
                         <li><a href="#" id="btnMisReservas"><i class="zmdi zmdi-trending-up"></i>&nbsp;&nbsp; Reservas</a></li>
                         <li><a href="#" id="btnPrestamos"><i class="zmdi zmdi-trending-up"></i>&nbsp;&nbsp; Prestamos</a></li>
-                        <li><a href="#"><i class="zmdi zmdi-trending-up"></i>&nbsp;&nbsp; Reportes (PDF/Excel)</a></li>
+                        <li><a href=""><i class=" zmdi zmdi-trending-up"></i>&nbsp;&nbsp; Reportes (PDF/Excel)</a></li>
                         <li><a href="#" id="btnInventario"><i class="zmdi zmdi-book"></i>&nbsp;&nbsp; Inventario</a></li>
 
 
@@ -270,6 +270,10 @@ if (!isset($_SESSION['usuario_id'])) {
     <?php include __DIR__ . '/modales/modalActualizarDatos.php'; ?>
     <?php include __DIR__ . '/modales/editarPrestamo.php'; ?>
     <?php include __DIR__ . '/modales/registrarReserva.php'; ?>
+    <?php include __DIR__ . '/modales/editarReserva.php'; ?>
+    <?php include __DIR__ . '/modales/eliminarReserva.php'; ?>
+
+
 
 
 
@@ -289,6 +293,9 @@ if (!isset($_SESSION['usuario_id'])) {
     <script src="/Biblioteca-2025/js/alertaEditarPrestamo.js"></script>
     <script src="/Biblioteca-2025/js/alertaElimnarPrestamo.js"></script>
     <script src="/Biblioteca-2025/js/registrarReserva.js"></script>
+    <script src="/Biblioteca-2025/js/editarReserva.js"></script>
+    <script src="/Biblioteca-2025/js/eliminarReservas.js"></script>
+    <script src="/Biblioteca-2025/js/convertirPrestamo.js"></script>
 
 
 
@@ -302,6 +309,7 @@ if (!isset($_SESSION['usuario_id'])) {
     <script src="../js/librosClientes.js"></script>
     <script src="../js/tablaReservas.js"></script>
     <script src="../js/tablaPrestamos.js"></script>
+
 
 
 
