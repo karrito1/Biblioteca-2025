@@ -52,9 +52,9 @@ if (!$result) {
 
     <?php if ($rol === "ADMINISTRADOR") { ?>
         <div class="mb-4">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistrarPrestamo">
+            <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistrarPrestamo">
                 <i class="zmdi zmdi-assignment-check"></i> Registrar Prestamo
-            </button>
+            </button> -->
         </div>
     <?php } ?>
 

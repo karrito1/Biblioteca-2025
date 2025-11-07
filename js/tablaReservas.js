@@ -1,35 +1,38 @@
 $(document).ready(function () {
-  function cargarTablaReservas() {
-    // Ocultar otras secciones si las tienes
-    $("#tablaUsuariosContainer").hide();
-    $("#tablaLibroscliente").hide();
-    $("#tablaPrestamosContainer").hide();
-    $("#tablaLibrosContainer").hide();
+  function mostrarContenedor(id) {
+    $(".contenedor-tabla").hide(); // Oculta todos los contenedores
+    $("#" + id).show(); // Muestra el que necesito
+    $("html, body").animate({ scrollTop: 0 }, "slow"); // Sube al inicio
+  }
 
-    // Limpiar contenedor y destruir DataTable si existe
+  function cargarTablaReservas() {
+    mostrarContenedor("tablaReservasCliente");
+
+    // Si ya existe DataTable, destruirlo antes de recargar
     if ($.fn.DataTable.isDataTable("#tablareservas")) {
       $("#tablareservas").DataTable().destroy();
     }
+
+    // Limpiar tabla antes de volver a cargar
     $("#tablaReservasCliente").empty();
 
-    // Cargar tabla de reservas desde PHP
+    // Cargar tabla desde la vista PHP
     $("#tablaReservasCliente").load(
       "/Biblioteca-2025/views/tablaReservas.php",
       function () {
-        $("#tablaReservasCliente").slideDown(400);
-
-        // Inicializar DataTable
+        // Inicializar DataTable con scroll habilitado
         $("#tablareservas").DataTable({
           language: { url: "/Biblioteca-2025/js/es-ES.json" },
           destroy: true,
-          responsive: true,
+          scrollX: true, 
+          responsive: false, 
         });
       }
     );
   }
 
-  // Cuando el cliente hace clic en el botón “Mis Reservas”
-  $("#btnMisReservas,#btnMisReservas").on("click", function (e) {
+  // Evento del botón “Mis Reservas”
+  $("#btnMisReservas").on("click", function (e) {
     e.preventDefault();
     cargarTablaReservas();
   });

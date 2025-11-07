@@ -1,31 +1,37 @@
 $(document).ready(function () {
-  function cargarTablaUsuarios() {
-    // Ocultar tabla de libros
-    $("#tablaLibrosContainer").hide();
-    $("#tablaReservasCliente").hide();
-    $("#tablaPrestamosContainer").hide();
+  function mostrarContenedor(id) {
+    $(".contenedor-tabla").hide(); // Oculta todos los contenedores
+    $("#" + id).show(); // Muestra solo este
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+  }
 
-    // Limpiar contenedor y destruir DataTable si existe
+  function cargarTablaUsuarios() {
+    mostrarContenedor("tablaUsuariosContainer");
+
+    // Si DataTable ya existe → destruir antes de recargar
     if ($.fn.DataTable.isDataTable("#tablausuarios")) {
       $("#tablausuarios").DataTable().destroy();
     }
+
+    // Limpiar contenedor
     $("#tablaUsuariosContainer").empty();
 
-    // Cargar tabla
+    // Cargar la vista PHP
     $("#tablaUsuariosContainer").load(
       "/Biblioteca-2025/views/tabla_usuarios.php",
       function () {
-        $("#tablaUsuariosContainer").slideDown(400);
-
+        
         $("#tablausuarios").DataTable({
           language: { url: "/Biblioteca-2025/js/es-ES.json" },
           destroy: true,
+          scrollX: true, 
+          responsive: false, 
         });
       }
     );
   }
 
-  $("#btnUsuarios, #btnUsuarios").on("click", function (e) {
+  $("#btnUsuarios").on("click", function (e) {
     e.preventDefault();
     cargarTablaUsuarios();
   });

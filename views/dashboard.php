@@ -247,12 +247,11 @@ if (!isset($_SESSION['usuario_id'])) {
                 </article>
             <?php } ?>
         </section>
-        <div id="tablaUsuariosContainer" class="container" style="display:none; margin-top:20px;">
-        </div>
-        <div id="tablaLibrosContainer" class="container" style="display:none; margin-top:20px;"></div>
-        <div id="tablaLibroscliente" class="container" style="display:none; margin-top:20px;"></div>
-        <div id="tablaReservasCliente" class="container" style="display:none; margin-top:20px;"></div>
-        <div id="tablaPrestamosContainer" class="container" style="display:none; margin-top:20px;"></div>
+        <div id="tablaUsuariosContainer" class="contenedor-tabla"></div>
+        <div id="tablaLibrosContainer" class="contenedor-tabla"></div>
+        <div id="tablaLibroscliente" class="contenedor-tabla"></div>
+        <div id="tablaReservasCliente" class="contenedor-tabla"></div>
+        <div id="tablaPrestamosContainer" class="contenedor-tabla"></div>
 
         <footer>
             © 2025 Biblioteca-2025 | Desarrollado por Cristian Villa y Jhoan Morales

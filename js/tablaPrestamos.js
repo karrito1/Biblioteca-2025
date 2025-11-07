@@ -1,33 +1,40 @@
 $(document).ready(function () {
-  function cargarTablaPrestamos() {
-    // Ocultar tabla de usuarios
-    $("#tablaUsuariosContainer").hide();
-    $("#tablaReservasCliente").hide();
-    $("#tablaLibroscliente").hide();
 
-    // Limpiar contenedor y destruir DataTable si existe
+  function mostrarContenedor(id) {
+    $(".contenedor-tabla").hide();   // Oculta TODO
+    $("#" + id).show();              // Muestra este contenedor
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+  }
+
+  function cargarTablaPrestamos() {
+    mostrarContenedor("tablaPrestamosContainer");
+
+    // Si ya existe DataTable → destruirla
     if ($.fn.DataTable.isDataTable("#tablaPrestamos")) {
       $("#tablaPrestamos").DataTable().destroy();
     }
+
+    // Limpiar contenedor
     $("#tablaPrestamosContainer").empty();
 
-    // Cargar tabla
+    // Cargar la vista PHP
     $("#tablaPrestamosContainer").load(
       "/Biblioteca-2025/views/tablaPrestamos.php",
       function () {
-        $("#tablaPrestamosContainer").slideDown(400);
 
         $("#tablaPrestamos").DataTable({
           language: { url: "/Biblioteca-2025/js/es-ES.json" },
           destroy: true,
+          scrollX: true,  
+          responsive: false
         });
 
-        // Aquí tu lógica de botones Editar o Eliminar
       }
     );
   }
 
-  $("#btnPrestamos, #btnPrestamos").on("click", function (e) {
+  // Evento de click
+  $("#btnPrestamos").on("click", function (e) {
     e.preventDefault();
     cargarTablaPrestamos();
   });

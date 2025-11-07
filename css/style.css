@@ -193,13 +193,13 @@ label {
   cursor: pointer;
 }
 select.material-control-login {
-  -ms-appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
+  appearance: none; /* ✅ reemplaza las que daban warning (-ms-, -webkit-) */
   background: rgba(5, 53, 63, 0.7)
-    url(../assets/icons/SelectMaterialIndicator-white.png) no-repeat scroll
-    right 0.75rem center / 13px 8px;
+    url("../assets/icons/SelectMaterialIndicator-white.png") no-repeat right
+    0.75rem center / 13px 8px;
+  padding-right: 35px; /* ✅ deja espacio para el ícono */
 }
+
 select.material-control-login:hover {
   cursor: pointer;
 }
@@ -276,7 +276,7 @@ select.material-control-login:hover {
 }
 .navbar-user-top > ul > li {
   display: inline-block;
-  float: right;
+  font-size: 18px;
   color: rgba(240, 10, 10, 0.4);
   height: 55px;
   margin: 0 12px;
@@ -458,13 +458,6 @@ select.material-control {
   border-bottom: 1px solid #5264ae;
 }
 select.material-control,
-select.no-style {
-  -ms-appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  background: #fff url(../assets/icons/SelectMaterialIndicator.png) no-repeat
-    scroll right 0.75rem center / 9px 13px;
-}
 select.material-control:hover,
 select.no-style {
   cursor: pointer;
@@ -753,4 +746,21 @@ input.material-control:focus ~ .highlight {
 
 /* col-lg */
 @media (min-width: 1200px) {
+}
+/* Contenedor unificado para todas las tablas del dashboard */
+.contenedor-tabla {
+  display: none;
+  margin-top: 25px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-height: 70vh;
+  overflow-y: auto;
+  box-shadow: 0px 5px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* Para evitar que el DataTable se expanda de más */
+table.dataTable {
+  width: 100% !important;
 }
