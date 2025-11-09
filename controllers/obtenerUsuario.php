@@ -1,43 +1,41 @@
 <?php
+header("Content-Type: application/json; charset=utf-8");
 session_start();
-
 include_once "../models/MySQL.php";
 
-$respuesta = ["success" => false, "message" => "No se pudo obtener la información del usuario."];
+$response = ["success" => false, "message" => "No se pudo obtener el usuario."];
 
-if (isset($_SESSION["usuario_id"])) {
-    try {
-        $baseDatos = new MySQL();
-        $conexion = $baseDatos->conectar();
-
-        $idUsuario = intval($_SESSION["usuario_id"]);
-
-        $consulta = "SELECT id, nombre, email, telefono, direccion 
-                     FROM usuarios 
-                     WHERE id = ?";
-
-        $datosConsulta = $conexion->prepare($consulta);
-        $datosConsulta->bind_param("i", $idUsuario);
-        $datosConsulta->execute();
-        $resultado = $datosConsulta->get_result();
-
-        if ($resultado && $fila = $resultado->fetch_assoc()) {
-            $respuesta = [
-                "success" => true,
-                "usuario" => $fila
-            ];
-        } else {
-            $respuesta = ["success" => false, "message" => "Usuario no encontrado."];
-        }
-
-        $datosConsulta->close();
-        $baseDatos->desconectar();
-    } catch (Exception $e) {
-        $respuesta = ["success" => false, "message" => $e->getMessage()];
-    }
-} else {
-    $respuesta = ["success" => false, "message" => "Sesion no iniciada."];
+if (!isset($_SESSION["usuario_id"])) {
+    $response["message"] = "Sesión no iniciada.";
+    echo json_encode($response);
+    exit;
 }
 
-header('Content-Type: application/json; charset=utf-8');
-echo json_encode($respuesta);
+try {
+    $id = intval($_SESSION["usuario_id"]);
+    $db = new MySQL();
+    $conexion = $db->conectar();
+
+    $query = "SELECT nombre, email, telefono, direccion FROM usuarios WHERE id = ?";
+    $stmt = $conexion->prepare($query);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+
+    if ($resultado->num_rows > 0) {
+        $usuario = $resultado->fetch_assoc();
+        $response = [
+            "success" => true,
+            "usuario" => $usuario
+        ];
+    } else {
+        $response["message"] = "Usuario no encontrado.";
+    }
+
+    $stmt->close();
+    $db->desconectar();
+} catch (Exception $e) {
+    $response["message"] = $e->getMessage();
+}
+
+echo json_encode($response, JSON_UNESCAPED_UNICODE);

@@ -25,15 +25,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $sql = "INSERT INTO usuarios (nombre, email, telefono, direccion, passwordd, Roles, estado) 
                 VALUES ('$nombre', '$email', '$telefono', '$direccion', '$password_hash', '$rol', '$estado')";
 
-        if ($baseDatos->efectuarConsulta($sql)) {
-
-            header("Location: ../index.php?registro=ok");
-            exit;
-        } else {
-            // Error en la BD
-            header("Location: ../index.php?registro=error");
-            exit;
+        try {
+            if ($baseDatos->efectuarConsulta($sql)) {
+                header("Location: ../index.php?registro=ok");
+                exit;
+            } else {
+                header("Location: ../index.php?registro=error");
+                exit;
+            }
+        } catch (mysqli_sql_exception $e) {
+            // Si el error contiene "Duplicate entry", es un correo duplicado
+            if (strpos($e->getMessage(), "Duplicate entry") !== false) {
+                header("Location: ../index.php?registro=duplicado");
+                exit;
+            } else {
+                // Otro error de base de datos
+                header("Location: ../index.php?registro=error");
+                exit;
+            }
         }
+
     } else {
         // Faltan datos obligatorios
         header("Location: ../index.php?registro=faltan");
@@ -42,3 +53,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 $baseDatos->desconectar();
+?>

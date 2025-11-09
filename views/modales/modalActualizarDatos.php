@@ -16,27 +16,27 @@
 
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre completo</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        <input type="text" class="form-control" id="nombreCliente" name="nombreCliente" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Correo electronico</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        <input type="email" class="form-control" id="emailCliente" name="emailCliente" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Telefono</label>
-                        <input type="text" class="form-control" id="telefono" name="telefono">
+                        <input type="text" class="form-control" id="telefonoCliente" name="telefonoCliente">
                     </div>
 
                     <div class="mb-3">
                         <label for="direccion" class="form-label">Direccion</label>
-                        <textarea class="form-control" id="direccion" name="direccion" rows="2"></textarea>
+                        <textarea class="form-control" id="direccionCliente" name="direccionCliente" rows="2"></textarea>
                     </div>
 
                     <div class="mb-3">
                         <label for="passwordd" class="form-label">Nueva contrasena (opcional)</label>
-                        <input type="password" class="form-control" id="passwordd" name="passwordd">
+                        <input type="password" class="form-control" id="passworddCliente" name="passworddCliente">
                     </div>
                 </div>
 
@@ -48,3 +48,39 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const modalEditar = document.getElementById("modalEditarUsuario");
+
+        modalEditar.addEventListener("show.bs.modal", function() {
+            fetch("/Biblioteca-2025/controllers/obtenerUsuario.php")
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById("nombreCliente").value = data.usuario.nombre;
+                        document.getElementById("emailCliente").value = data.usuario.email;
+                        document.getElementById("telefonoCliente").value = data.usuario.telefono || "";
+                        document.getElementById("direccionCliente").value = data.usuario.direccion || "";
+                    } else {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Error",
+                            text: data.message,
+                            background: "#202020",
+                            color: "#fff",
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error("Error al obtener usuario:", error);
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: "Error al cargar los datos del usuario.",
+                        background: "#202020",
+                        color: "#fff",
+                    });
+                });
+        });
+    });
+</script>

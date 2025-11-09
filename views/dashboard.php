@@ -292,7 +292,6 @@ if (!isset($_SESSION['usuario_id'])) {
     <script src="/Biblioteca-2025/js/alertaEditarPrestamo.js"></script>
     <script src="/Biblioteca-2025/js/alertaElimnarPrestamo.js"></script>
     <script src="/Biblioteca-2025/js/registrarReserva.js"></script>
-    <script src="/Biblioteca-2025/js/editarReserva.js"></script>
     <script src="/Biblioteca-2025/js/eliminarReservas.js"></script>
     <script src="/Biblioteca-2025/js/convertirPrestamo.js"></script>
 
