@@ -137,7 +137,6 @@ if (!isset($_SESSION['usuario_id'])) {
                         <li><a href="#" id="btnLibrosMenu"><i class="zmdi zmdi-calendar"></i>&nbsp;&nbsp; Registro de libros</a></li>
                         <li><a href="#" id="btnMisReservas"><i class="zmdi zmdi-trending-up"></i>&nbsp;&nbsp; Reservas</a></li>
                         <li><a href="#" id="btnPrestamos"><i class="zmdi zmdi-trending-up"></i>&nbsp;&nbsp; Prestamos</a></li>
-                        <li><a href=""><i class=" zmdi zmdi-trending-up"></i>&nbsp;&nbsp; Reportes (PDF/Excel)</a></li>
                         <li><a href="#" id="btnInventario"><i class="zmdi zmdi-book"></i>&nbsp;&nbsp; Inventario</a></li>
 
 
@@ -252,6 +251,7 @@ if (!isset($_SESSION['usuario_id'])) {
         <div id="tablaLibroscliente" class="contenedor-tabla"></div>
         <div id="tablaReservasCliente" class="contenedor-tabla"></div>
         <div id="tablaPrestamosContainer" class="contenedor-tabla"></div>
+        <div id="tablaInventarioContainer" class="contenedor-tabla"></div>
 
         <footer>
             © 2025 Biblioteca-2025 | Desarrollado por Cristian Villa y Jhoan Morales
@@ -307,6 +307,7 @@ if (!isset($_SESSION['usuario_id'])) {
     <script src="../js/librosClientes.js"></script>
     <script src="../js/tablaReservas.js"></script>
     <script src="../js/tablaPrestamos.js"></script>
+    <script src="../js/tablaInventario.js"></script>
 
 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-11-2025 a las 22:04:18
+-- Tiempo de generación: 11-11-2025 a las 03:37:40
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -35,21 +35,22 @@ CREATE TABLE `libros` (
   `categoria` varchar(100) DEFAULT NULL,
   `cantidad` int(11) NOT NULL DEFAULT 1,
   `disponibilidad` enum('disponible','prestado','no disponible') NOT NULL DEFAULT 'disponible',
-  `fecha_registro` timestamp NOT NULL DEFAULT current_timestamp()
+  `fecha_registro` timestamp NOT NULL DEFAULT current_timestamp(),
+  `prestados` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `libros`
 --
 
-INSERT INTO `libros` (`id`, `titulo`, `autor`, `isbn`, `categoria`, `cantidad`, `disponibilidad`, `fecha_registro`) VALUES
-(1, 'Cien Años de Soledadg', 'Gabriel García Márquez', '9780307474728', 'Novela', 3, 'prestado', '2025-10-05 23:49:07'),
-(2, 'El Principito', 'Antoine de Saint-Exupéry', '9780156012195412', 'Infantil', 3, 'prestado', '2025-10-05 23:49:07'),
-(3, 'los camios', 'lalalla', '45255', 'infantil', 50, 'prestado', '2025-10-21 06:37:31'),
-(4, 'ñaca', 'dsadadsdsa', 'sddsdsaasd3232324', 'infantil', 45, 'disponible', '2025-10-21 06:45:30'),
-(5, 'el moan', 'camilo', '125212', 'miedo', 52, 'prestado', '2025-10-21 14:27:34'),
-(6, 'ñacadsfdsfds', 'dsadadsdsa', 'fdgfgfdg3343', 'infantil', 50, 'disponible', '2025-10-24 11:58:12'),
-(7, 'xzcczxzccxz', 'ccac', '854474', 'miedo', 5, 'disponible', '2025-10-26 04:02:19');
+INSERT INTO `libros` (`id`, `titulo`, `autor`, `isbn`, `categoria`, `cantidad`, `disponibilidad`, `fecha_registro`, `prestados`) VALUES
+(2, 'El Principito', 'Antoine de Saint-Exupéry', '9780156012195412', 'Infantil', 0, 'no disponible', '2025-10-05 23:49:07', 2),
+(3, 'los camios', 'lalalla', '45255', 'infantil', 49, 'disponible', '2025-10-21 06:37:31', 1),
+(4, 'ñaca', 'dsadadsdsa', 'sddsdsaasd3232324', 'infantil', 455, 'disponible', '2025-10-21 06:45:30', 0),
+(5, 'el moan', 'camilo', '125212', 'miedo', 523, 'disponible', '2025-10-21 14:27:34', 0),
+(6, 'ñacadsfdsfds', 'dsadadsdsa', 'fdgfgfdg3343', 'infantil', 50, 'disponible', '2025-10-24 11:58:12', 0),
+(7, 'xzcczxzccxz', 'ccac', '854474', 'miedo', 5, 'disponible', '2025-10-26 04:02:19', 0),
+(8, 'los sapos', 'eddssd', 'dsdsdsds', 'dddfdfdf', 522, 'disponible', '2025-11-03 06:47:56', 1);
 
 -- --------------------------------------------------------
 
@@ -71,12 +72,17 @@ CREATE TABLE `prestamos` (
 --
 
 INSERT INTO `prestamos` (`id`, `usuario_id`, `libro_id`, `fecha_prestamo`, `fecha_devolucion`, `estado`) VALUES
-(1, 2, 2, '2025-10-05 23:49:07', '2025-10-20', 'activo'),
-(7, 2, 1, '2025-10-11 00:00:00', '2025-10-20', 'devuelto'),
-(8, 2, 1, '2025-10-11 00:00:00', '2025-10-20', 'activo'),
-(10, 2, 1, '2025-10-30 05:00:00', '2025-11-05', 'activo'),
-(12, 1, 2, '2025-11-09 05:00:00', '2025-11-12', 'activo'),
-(13, 1, 5, '2025-11-02 05:00:00', '2025-11-04', 'activo');
+(16, 1, 4, '2025-11-08 05:00:00', '2025-11-11', 'activo'),
+(18, 2, 4, '2025-11-04 05:00:00', '2025-11-11', 'activo'),
+(19, 2, 7, '2025-11-07 05:00:00', '2025-11-14', 'activo'),
+(20, 1, 4, '2025-11-07 05:00:00', '2025-11-14', 'activo'),
+(21, 1, 4, '2025-11-07 05:00:00', '2025-11-14', 'activo'),
+(22, 1, 5, '2025-11-07 05:00:00', '2025-11-14', 'activo'),
+(23, 2, 6, '2025-11-11 05:00:00', '2025-11-18', 'activo'),
+(24, 1, 8, '2025-11-11 05:00:00', '2025-11-18', 'activo'),
+(25, 1, 2, '2025-11-11 05:00:00', '2025-11-18', 'activo'),
+(26, 1, 2, '2025-11-11 05:00:00', '2025-11-18', 'activo'),
+(27, 1, 3, '2025-11-11 05:00:00', '2025-11-18', 'activo');
 
 -- --------------------------------------------------------
 
@@ -97,8 +103,14 @@ CREATE TABLE `reservas` (
 --
 
 INSERT INTO `reservas` (`id`, `usuario_id`, `libro_id`, `fecha_reserva`, `estado`) VALUES
-(1, 1, 1, '2025-10-05 23:49:07', 'Pendiente'),
-(2, 2, 2, '2025-10-22 12:19:40', 'Pendiente');
+(6, 1, 4, '2025-11-02 05:00:00', ''),
+(8, 2, 7, '2025-11-03 05:00:00', ''),
+(10, 1, 4, '2025-11-03 05:00:00', ''),
+(12, 2, 6, '2025-11-09 05:00:00', ''),
+(13, 1, 8, '2025-11-10 05:00:00', ''),
+(14, 1, 2, '2025-11-10 05:00:00', ''),
+(15, 1, 2, '2025-11-10 05:00:00', ''),
+(17, 1, 3, '2025-11-10 05:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -123,8 +135,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `email`, `telefono`, `direccion`, `estado`, `fecha_registro`, `Roles`, `passwordd`) VALUES
-(1, 'Ana', 'ana@example.com', '3001112233', 'Calle 10 #12-45', 'activo', '2025-10-08 00:00:00', 'ADMINISTRADOR', '$2y$10$hki6WVYEVKr9F9I1YIy6MuNqPURfjo4etdqiHFxZYDBI0g84iiy4K'),
-(2, 'Carlos Perez', 'carlo5255s@example.com', '32025555', 'Calle 10 #12-45', 'activo', '2025-10-05 00:00:00', 'CLIENTE', '$2y$10$dV.aICMdj0jlvAEWVVCqZeF4KqZpH7D0.z7ne62nlPljEU1hiWEoS');
+(1, 'Ana', 'kamilovilla554@hotmail.com', '3001112233', 'Calle 10 #12-45', 'activo', '2025-10-07 05:00:00', 'ADMINISTRADOR', '$2y$10$14kqyK.fbXVP7eM9qU.UTeQwHGzlDoTEOxrl7K7UC98rDccEuOcjS'),
+(2, 'crisitian villa c', 'carlo5255s@example.com', 'fddfgfdgfg', 'Calle 10 #12-45', 'activo', '2025-10-05 00:00:00', 'CLIENTE', '$2y$10$lFY2MChnku/oW8MTRFeOYu81SmOlU39JK9en8zSTG8QtP4UcHzbJm'),
+(25, 'rfddgfd', 'cjose5255s@example.com', 'fddfgfdgfg', 'dsdfdsdf', 'activo', '2025-11-03 01:57:22', 'cliente', '$2y$10$qpz.Upo0DZO9CRSNAlfJ6eFJxkspMt2BhG/AW9ubIwJd8I9mPt.Va'),
+(29, 'juan', 'juan@hotmai.com', '315', 'Calle 10 #12-45', 'activo', '2025-11-09 15:07:57', 'cliente', '$2y$10$bjRUDSV.DaZ.LLtJs6uIK.MAntFAzeBftzHT5Z3s3CyaL5ExA0Yzi');
 
 --
 -- Índices para tablas volcadas
@@ -168,25 +182,25 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `prestamos`
 --
 ALTER TABLE `prestamos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Restricciones para tablas volcadas
