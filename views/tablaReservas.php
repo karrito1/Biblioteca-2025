@@ -98,10 +98,6 @@ $result = $baseDatos->efectuarConsulta($query);
                                     <button class="btn btn-success btn-sm convertir-prestamo-btn" data-id="<?= $fila['id'] ?>">
                                         <i class="zmdi zmdi-book"></i> Convertir en prestamo
                                     </button>
-
-
-
-
                                 </td>
                             <?php } ?>
                         </tr>

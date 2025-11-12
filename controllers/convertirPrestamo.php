@@ -73,7 +73,7 @@ try {
     $mail->Password = 'xkux owcf zrli yump';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
-    $mail->setFrom($correoUsuario, 'Biblioteca 2025');
+    $mail->setFrom('senabibiloteca73@gmail.com', 'Biblioteca 2025');
     $mail->addAddress($correoUsuario, $nombreUsuario);
     $mail->isHTML(true);
     $mail->Subject = 'Prestamo creado a partir de reserva';
