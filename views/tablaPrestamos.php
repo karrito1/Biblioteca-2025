@@ -108,11 +108,25 @@ if (!$result) {
                             <?php if ($rol === "ADMINISTRADOR") { ?>
                                 <td class="text-center">
                                     <button class="btn btn-primary btnEditarPrestamo" data-id="<?= $fila['id'] ?>">
-                                        <i class="zmdi zmdi-edit"></i>
+                                        <span class="material-symbols-outlined">
+                                            edit_document
+                                        </span>
                                     </button>
                                     <button class="btn btn-danger btnEliminarPrestamo" data-id="<?= $fila['id'] ?>">
-                                        <i class="zmdi zmdi-delete"></i>
+                                        <span class="material-symbols-outlined">
+                                            contract_delete
+                                        </span>
                                     </button>
+                                    <a href="../reports/pdf_prestamos.php" class="btn btn-danger" target="_blank">
+                                        <span class="material-symbols-outlined">
+                                            picture_as_pdf
+                                        </span>
+                                    </a>
+
+                                    <a href="../reports/excel_prestamos.php" class="btn btn-success">
+                                        <i class="zmdi zmdi-file-excel"></i> Exportar Excel
+                                    </a>
+
 
                                 </td>
                             <?php } ?>

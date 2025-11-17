@@ -81,6 +81,16 @@ $result = $baseDatos->efectuarConsulta($query);
                                     person_remove
                                 </span>
                             </button>
+                            <a href="../reports/pdf_usuarios.php" class="btn btn-danger" target="_blank">
+                                <span class="material-symbols-outlined">
+                                    picture_as_pdf
+                                </span>
+                            </a>
+
+                            <a href="../reports/excel_usuarios.php" class="btn btn-success">
+                                <i class="zmdi zmdi-file-excel"></i> Exportar Excel
+                            </a>
+
 
                         </td>
                     </tr>

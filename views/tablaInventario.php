@@ -37,6 +37,7 @@ $result = mysqli_query($conexion, $query);
                     <th>Prestados</th>
                     <th>Reservados</th>
                     <th>Disponibles</th>
+                    <th>acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,6 +51,18 @@ $result = mysqli_query($conexion, $query);
                         <td><?= $fila['prestados'] ?></td>
                         <td><?= $fila['reservados'] ?></td>
                         <td><?= max($fila['disponibles'], 0) ?></td>
+                        <td>
+                            <a href="../reports/pdf_inventario.php" class="btn btn-danger" target="_blank">
+                                <span class="material-symbols-outlined">
+                                    picture_as_pdf
+                                </span>
+                            </a>
+
+                            <a href="../reports/excel_inventario.php" class="btn btn-success">
+                                <i class="zmdi zmdi-file-excel"></i> Exportar Excel
+                            </a>
+
+
                     </tr>
                 <?php } ?>
             </tbody>

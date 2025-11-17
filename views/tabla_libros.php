@@ -77,6 +77,16 @@ $result = $baseDatos->efectuarConsulta($query);
                                         bookmark_remove
                                     </span>
                                 </button>
+                                <a href="../reports/pdf_libros.php" class="btn btn-danger" target="_blank">
+                                    <span class="material-symbols-outlined">
+                                        picture_as_pdf
+                                    </span>
+                                </a>
+
+                                <a href="../reports/excel_libros.php" class="btn btn-success">
+                                    <i class="zmdi zmdi-file-text"></i> Excel
+                                </a>
+
                             </td>
                         <?php } ?>
                     </tr>

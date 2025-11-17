@@ -102,6 +102,16 @@ $result = $baseDatos->efectuarConsulta($query);
                                     <button class="btn btn-success btn-accion convertir-prestamo-btn" data-id="<?= $fila['id'] ?>">
                                         <i class="zmdi zmdi-book"></i>
                                     </button>
+                                    <a href="../reports/pdf_reservas.php" class="btn btn-danger" target="_blank">
+                                        <span class="material-symbols-outlined">
+                                            picture_as_pdf
+                                        </span>
+                                    </a>
+
+                                    <a href="../reports/excel_reservas.php" class="btn btn-success">
+                                        <i class="bi bi-file-excel"></i> Exportar Excel
+                                    </a>
+
 
                                 </td>
                             <?php } ?>
