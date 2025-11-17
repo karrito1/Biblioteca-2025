@@ -72,11 +72,14 @@ $result = $baseDatos->efectuarConsulta($query);
                         <td><?= htmlspecialchars($fila['Roles']) ?></td>
                         <td class="text-center">
                             <button class="btn btn-primary btnEditar" data-id="<?= $fila['id'] ?>">
-                                Editar
+                                <span class="material-symbols-outlined">manage_accounts</span>
                             </button>
+
                             <!-- Boton que abre el modal -->
                             <button class="btn btn-danger btnEliminar" data-id="<?= $fila['id'] ?>">
-                                Eliminar
+                                <span class="material-symbols-outlined">
+                                    person_remove
+                                </span>
                             </button>
 
                         </td>

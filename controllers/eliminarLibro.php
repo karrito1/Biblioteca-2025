@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $db->desconectar();
     } else {
-        $response = ["status" => "error", "message" => "ID de libro inválido."];
+        $response = ["status" => "error", "message" => "ID de libro invalido."];
     }
 }
 

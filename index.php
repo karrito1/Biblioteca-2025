@@ -171,6 +171,76 @@ session_start();
             });
         </script>
     <?php endif; ?>
+    <?php if (isset($_GET["login"])): ?>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+
+                <?php if ($_GET["login"] === "ok"): ?>
+                    Swal.fire({
+                        icon: "success",
+                        title: "Bienvenido",
+                        text: "Inicio de sesion correcto",
+                        background: "#1e1e1e",
+                        color: "#fff",
+                        confirmButtonColor: "#3085d6"
+                    });
+
+                <?php elseif ($_GET["login"] === "incorrecto"): ?>
+                    Swal.fire({
+                        icon: "error",
+                        title: "Contrasena incorrecta",
+                        text: "La contrasena no coincide.",
+                        background: "#1e1e1e",
+                        color: "#fff",
+                        confirmButtonColor: "#d33"
+                    });
+
+                <?php elseif ($_GET["login"] === "noexiste"): ?>
+                    Swal.fire({
+                        icon: "warning",
+                        title: "Usuario no encontrado",
+                        text: "No existe una cuenta con ese correo.",
+                        background: "#1e1e1e",
+                        color: "#fff",
+                        confirmButtonColor: "#f0ad4e"
+                    });
+
+                <?php elseif ($_GET["login"] === "inactivo"): ?>
+                    Swal.fire({
+                        icon: "info",
+                        title: "Usuario inactivo",
+                        text: "Tu cuenta no esta activa.",
+                        background: "#1e1e1e",
+                        color: "#fff",
+                        confirmButtonColor: "#00bcd4"
+                    });
+
+                <?php elseif ($_GET["login"] === "rol"): ?>
+                    Swal.fire({
+                        icon: "error",
+                        title: "Acceso denegado",
+                        text: "Rol no autorizado.",
+                        background: "#1e1e1e",
+                        color: "#fff",
+                        confirmButtonColor: "#d33"
+                    });
+
+                <?php elseif ($_GET["login"] === "nopermitido"): ?>
+                    Swal.fire({
+                        icon: "error",
+                        title: "Acceso no permitido",
+                        text: "No puedes entrar ahi.",
+                        background: "#1e1e1e",
+                        color: "#fff",
+                        confirmButtonColor: "#d33"
+                    });
+
+                <?php endif; ?>
+
+            });
+        </script>
+    <?php endif; ?>
+
 
 
 

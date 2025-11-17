@@ -1,0 +1,15 @@
+.btn-accion {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border-radius: 8px; /* opcional */
+}
+
+.btn-accion .material-symbols-outlined,
+.btn-accion .zmdi {
+  font-size: 24px;
+  line-height: 1;
+}

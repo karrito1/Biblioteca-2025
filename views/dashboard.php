@@ -79,6 +79,9 @@ if (!isset($_SESSION['usuario_id'])) {
 
     <!-- ====== Ícono ====== -->
     <link rel="Shortcut Icon" type="image/x-icon" href="/Biblioteca-2025/assets/icons/book.ico" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="../assets/css/estilosBotones.css" />
+
 
     <!-- ====== Bootstrap ====== -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -152,12 +155,15 @@ if (!isset($_SESSION['usuario_id'])) {
                         </li>
 
                     <?php } ?>
+                    <li>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#modalCerrarSesion">
+                            <span class="material-symbols-outlined" style="font-size: 20px; vertical-align: middle;">
+                                logout
+                            </span>
+                            &nbsp;&nbsp; Cerrar sesion
+                        </a>
+                    </li>
 
-
-
-                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#modalCerrarSesion">
-                            <i class="zmdi zmdi-power"></i>&nbsp;&nbsp; Cerrar sesión
-                        </a></li>
 
 
                 </ul>

@@ -19,8 +19,10 @@ $result = $baseDatos->efectuarConsulta($query);
 
     <?php if ($rol === "ADMINISTRADOR") { ?>
         <div class="mb-4">
-            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalRegistrarLibro">
-                <i class="zmdi zmdi-plus"></i> Nuevo libro
+            <button class="btn btn-primary btn-accion" data-bs-toggle="modal" data-bs-target="#modalRegistrarLibro">
+                <span class="material-symbols-outlined">
+                    bookmark_add
+                </span>
             </button>
 
 
@@ -65,11 +67,15 @@ $result = $baseDatos->efectuarConsulta($query);
                         <?php if ($rol === "ADMINISTRADOR") { ?>
                             <td class="text-center">
                                 <button class="btn btn-primary btnEditarLibro" data-id="<?= $fila['id'] ?>">
-                                    <i class="zmdi zmdi-edit"></i>
+                                    <span class="material-symbols-outlined">
+                                        bookmark_added
+                                    </span>
                                 </button>
 
                                 <button class="btn btn-danger btnEliminarLibro" data-id="<?= $fila['id'] ?>">
-                                    <i class="zmdi zmdi-delete"></i>
+                                    <span class="material-symbols-outlined">
+                                        bookmark_remove
+                                    </span>
                                 </button>
                             </td>
                         <?php } ?>

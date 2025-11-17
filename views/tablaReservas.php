@@ -57,7 +57,9 @@ $result = $baseDatos->efectuarConsulta($query);
     </h3>
 
     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistrarReserva">
-        <i class="zmdi zmdi-calendar-check"></i> Registrar Reserva
+        <span class="material-symbols-outlined">
+            add_card
+        </span>
     </button>
 
     <div class="table-responsive mt-3">
@@ -89,15 +91,18 @@ $result = $baseDatos->efectuarConsulta($query);
                             <td><?= htmlspecialchars($fila['isbn']) ?></td>
                             <?php if ($rol === "ADMINISTRADOR") { ?>
                                 <td>
-                                    <button class="btn btn-primary editar-reserva-btn" data-id="<?= $fila['id'] ?>">
-                                        Editar Reserva
+                                    <button class="btn btn-primary btn-accion editar-reserva-btn" data-id="<?= $fila['id'] ?>">
+                                        <span class="material-symbols-outlined">edit_calendar</span>
                                     </button>
-                                    <button class="btn btn-danger btn-sm eliminar-reserva-btn" data-id="<?= $fila['id'] ?>">
-                                        <i class="zmdi zmdi-delete"></i> Eliminar
+
+                                    <button class="btn btn-danger btn-accion eliminar-reserva-btn" data-id="<?= $fila['id'] ?>">
+                                        <span class="material-symbols-outlined">free_cancellation</span>
                                     </button>
-                                    <button class="btn btn-success btn-sm convertir-prestamo-btn" data-id="<?= $fila['id'] ?>">
-                                        <i class="zmdi zmdi-book"></i> Convertir en prestamo
+
+                                    <button class="btn btn-success btn-accion convertir-prestamo-btn" data-id="<?= $fila['id'] ?>">
+                                        <i class="zmdi zmdi-book"></i>
                                     </button>
+
                                 </td>
                             <?php } ?>
                         </tr>

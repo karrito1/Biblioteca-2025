@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $fechaRegistro = htmlspecialchars($_POST["fecha_registro"]);
         $roles         = htmlspecialchars(trim($_POST["Roles"]));
 
-        // Si se envía una nueva contraseña, se actualiza el hash
+        // Si se envia una nueva contraseña, se actualiza el hash
         $passwordPlano = isset($_POST["passwordd"]) && !empty($_POST["passwordd"])
             ? password_hash($_POST["passwordd"], PASSWORD_BCRYPT)
             : null;
