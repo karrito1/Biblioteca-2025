@@ -14,6 +14,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Validar campos obligatorios
     if (!empty($nombre) && !empty($email) && !empty($passwordd)) {
+
+        // Validar que no haya caracteres especiales
+        if (!preg_match("/^[a-zA-Z0-9\s]+$/", $nombre)) {
+            header("Location: ../index.php?registro=error_nombre");
+            exit;
+        }
+        if (!preg_match("/^[a-zA-Z0-9\s]+$/", $direccion)) {
+            header("Location: ../index.php?registro=error_direccion");
+            exit;
+        }
+        if (!empty($telefono) && !preg_match("/^[0-9]+$/", $telefono)) {
+            header("Location: ../index.php?registro=error_telefono");
+            exit;
+        }
+
         // Rol por defecto y estado activo
         $rol = "cliente";
         $estado = "activo";
@@ -34,12 +49,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 exit;
             }
         } catch (mysqli_sql_exception $e) {
-            // Si el error contiene "Duplicate entry", es un correo duplicado
             if (strpos($e->getMessage(), "Duplicate entry") !== false) {
                 header("Location: ../index.php?registro=duplicado");
                 exit;
             } else {
-                // Otro error de base de datos
                 header("Location: ../index.php?registro=error");
                 exit;
             }

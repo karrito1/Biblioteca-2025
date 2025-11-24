@@ -117,60 +117,91 @@ session_start();
     <script src="js/main.js"></script>
 
     <?php if (isset($_GET["registro"])): ?>
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                <?php if ($_GET["registro"] === "ok"): ?>
-                    Swal.fire({
-                        icon: "success",
-                        title: "Registro exitoso",
-                        text: "Tu cuenta se creó correctamente.",
-                        background: "#1e1e1e",
-                        color: "#fff",
-                        confirmButtonColor: "#3085d6"
-                    });
-
-                <?php elseif ($_GET["registro"] === "duplicado"): ?>
-                    Swal.fire({
-                        icon: "warning",
-                        title: "Correo ya registrado",
-                        html: `
-                        <p style="font-size: 1rem; color: #ddd;">
-                            El correo ingresado ya está en uso.
-                        </p>
-                        <p style="color: #aaa; margin-top: 8px;">
-                            ¿Ya tienes cuenta?
-                          
-                        </p>
-                    `,
-                        background: "linear-gradient(145deg, #1c1c1c, #252525)",
-                        color: "#fff",
-                        confirmButtonText: "Entendido",
-                        confirmButtonColor: "#00bcd4"
-                    });
-
-                <?php elseif ($_GET["registro"] === "faltan"): ?>
-                    Swal.fire({
-                        icon: "warning",
-                        title: "Campos incompletos",
-                        text: "Por favor completa todos los campos.",
-                        background: "#1e1e1e",
-                        color: "#fff",
-                        confirmButtonColor: "#f0ad4e"
-                    });
-
-                <?php elseif ($_GET["registro"] === "error"): ?>
-                    Swal.fire({
-                        icon: "error",
-                        title: "Error al registrar",
-                        text: "Ocurrió un problema en la base de datos.",
-                        background: "#1e1e1e",
-                        color: "#fff",
-                        confirmButtonColor: "#d33"
-                    });
-                <?php endif; ?>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        <?php if ($_GET["registro"] === "ok"): ?>
+            Swal.fire({
+                icon: "success",
+                title: "Registro exitoso",
+                text: "Tu cuenta se creó correctamente.",
+                background: "#1e1e1e",
+                color: "#fff",
+                confirmButtonColor: "#3085d6"
             });
-        </script>
-    <?php endif; ?>
+
+        <?php elseif ($_GET["registro"] === "duplicado"): ?>
+            Swal.fire({
+                icon: "warning",
+                title: "Correo ya registrado",
+                html: `
+                    <p style="font-size: 1rem; color: #ddd;">
+                        El correo ingresado ya está en uso.
+                    </p>
+                    <p style="color: #aaa; margin-top: 8px;">
+                        ¿Ya tienes cuenta?
+                    </p>
+                `,
+                background: "linear-gradient(145deg, #1c1c1c, #252525)",
+                color: "#fff",
+                confirmButtonText: "Entendido",
+                confirmButtonColor: "#00bcd4"
+            });
+
+        <?php elseif ($_GET["registro"] === "faltan"): ?>
+            Swal.fire({
+                icon: "warning",
+                title: "Campos incompletos",
+                text: "Por favor completa todos los campos.",
+                background: "#1e1e1e",
+                color: "#fff",
+                confirmButtonColor: "#f0ad4e"
+            });
+
+        <?php elseif ($_GET["registro"] === "error"): ?>
+            Swal.fire({
+                icon: "error",
+                title: "Error al registrar",
+                text: "Ocurrió un problema en la base de datos.",
+                background: "#1e1e1e",
+                color: "#fff",
+                confirmButtonColor: "#d33"
+            });
+
+        <?php elseif ($_GET["registro"] === "error_nombre"): ?>
+            Swal.fire({
+                icon: "warning",
+                title: "Nombre inválido",
+                text: "El nombre no puede contener caracteres especiales.",
+                background: "#1e1e1e",
+                color: "#fff",
+                confirmButtonColor: "#f0ad4e"
+            });
+
+        <?php elseif ($_GET["registro"] === "error_direccion"): ?>
+            Swal.fire({
+                icon: "warning",
+                title: "Dirección inválida",
+                text: "La dirección no puede contener caracteres especiales.",
+                background: "#1e1e1e",
+                color: "#fff",
+                confirmButtonColor: "#f0ad4e"
+            });
+
+        <?php elseif ($_GET["registro"] === "error_telefono"): ?>
+            Swal.fire({
+                icon: "warning",
+                title: "Teléfono inválido",
+                text: "El teléfono solo puede contener números.",
+                background: "#1e1e1e",
+                color: "#fff",
+                confirmButtonColor: "#f0ad4e"
+            });
+
+        <?php endif; ?>
+    });
+</script>
+<?php endif; ?>
+
     <?php if (isset($_GET["login"])): ?>
         <script>
             document.addEventListener("DOMContentLoaded", () => {

@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const formData = new FormData(form);
     formData.append("btn_registrar", "ok");
 
-    // 💬 Confirmación antes de registrar
     Swal.fire({
       title: "¿Confirmar registro?",
       text: "Se guardará un nuevo usuario en el sistema.",
@@ -39,7 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             form.reset();
-            const modalElement = document.getElementById("modalRegistrarUsuario");
+            const modalElement = document.getElementById(
+              "modalRegistrarUsuario"
+            );
             const modal = bootstrap.Modal.getInstance(modalElement);
             if (modal) modal.hide();
             setTimeout(() => location.reload(), 1800);
@@ -65,4 +66,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
