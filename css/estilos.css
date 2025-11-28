@@ -160,3 +160,115 @@ body {
     font-size: 1rem;
   }
 }
+/* =============================
+    ESTILO MODERNO OSCURO
+============================= */
+body {
+  background: #1e1e2e;
+  font-family: "Inter", sans-serif;
+  color: white;
+}
+
+.navbar-lateral {
+  background: #242437;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.nav-lateral-list-menu ul li a {
+  color: #ddd;
+  padding: 14px 25px;
+  display: block;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.nav-lateral-list-menu ul li a:hover {
+  background: #32324a;
+  color: #00aeef;
+}
+
+/* TARJETAS */
+.tile {
+  width: 260px;
+  height: 155px;
+  margin: 25px;
+  background: #2a2a3c;
+  border-radius: 18px;
+  padding: 20px;
+  display: inline-block;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s, background 0.3s;
+}
+
+.tile:hover {
+  transform: translateY(-6px);
+  background: #3a3a4f;
+}
+
+.tile-icon {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+.tile-name {
+  font-size: 15px;
+  color: #bbb;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.tile-num {
+  font-size: 32px;
+  font-weight: bold;
+  color: #00aeef;
+}
+
+/* NAV SUPERIOR */
+.navbar-user-top {
+  background: #242437;
+  border-bottom: 2px solid #000;
+}
+
+.navbar-user-top i {
+  color: #00aeef;
+}
+
+footer {
+  margin-top: 40px;
+  padding: 10px 0;
+  background: #242437;
+  color: #ccc;
+  text-align: center;
+}
+/* CONTENEDOR DE BOTONES DE ACCIÓN */
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+/* ESTILO GENERAL DE BOTONES */
+.action-buttons .btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-weight: 500;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    transition: transform .25s, box-shadow .25s;
+}
+
+/* ANIMACIÓN AL PASAR EL MOUSE */
+.action-buttons .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+/* ÍCONOS */
+.action-buttons span.material-symbols-outlined,
+.action-buttons i {
+    font-size: 22px;
+}

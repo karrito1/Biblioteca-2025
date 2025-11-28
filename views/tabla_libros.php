@@ -18,12 +18,21 @@ $result = $baseDatos->efectuarConsulta($query);
     <h3 class="mb-4"><i class="zmdi zmdi-book"></i> Libros Registrados</h3>
 
     <?php if ($rol === "ADMINISTRADOR") { ?>
-        <div class="mb-4">
+        <div class="action-buttons">
             <button class="btn btn-primary btn-accion" data-bs-toggle="modal" data-bs-target="#modalRegistrarLibro">
                 <span class="material-symbols-outlined">
                     bookmark_add
                 </span>
             </button>
+            <a href="../reports/pdf_libros.php" class="btn btn-danger" target="_blank">
+                <span class="material-symbols-outlined">
+                    picture_as_pdf
+                </span>
+            </a>
+
+            <a href="../reports/excel_libros.php" class="btn btn-success">
+                <i class="zmdi zmdi-file-text"></i> Excel
+            </a>
 
 
         </div>
@@ -77,15 +86,7 @@ $result = $baseDatos->efectuarConsulta($query);
                                         bookmark_remove
                                     </span>
                                 </button>
-                                <a href="../reports/pdf_libros.php" class="btn btn-danger" target="_blank">
-                                    <span class="material-symbols-outlined">
-                                        picture_as_pdf
-                                    </span>
-                                </a>
 
-                                <a href="../reports/excel_libros.php" class="btn btn-success">
-                                    <i class="zmdi zmdi-file-text"></i> Excel
-                                </a>
 
                             </td>
                         <?php } ?>

@@ -11,11 +11,19 @@ $result = $baseDatos->efectuarConsulta($query);
 <div class="card p-4 mb-5 shadow">
     <h3 class="mb-4"><i class="zmdi zmdi-accounts"></i> Usuarios Registrados</h3>
 
-    <!--  Acciones rapidas -->
-    <div class="mb-4">
+    <div class="action-buttons">
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistrarUsuario">
             <i class="zmdi zmdi-account-add"></i> registar usuario
         </button>
+        <a href="../reports/pdf_usuarios.php" class="btn btn-danger" target="_blank">
+            <span class="material-symbols-outlined">
+                picture_as_pdf
+            </span>
+        </a>
+
+        <a href="../reports/excel_usuarios.php" class="btn btn-success">
+            <i class="zmdi zmdi-file-excel"></i> Exportar Excel
+        </a>
     </div>
 
     <!--  Tabla -->
@@ -81,15 +89,7 @@ $result = $baseDatos->efectuarConsulta($query);
                                     person_remove
                                 </span>
                             </button>
-                            <a href="../reports/pdf_usuarios.php" class="btn btn-danger" target="_blank">
-                                <span class="material-symbols-outlined">
-                                    picture_as_pdf
-                                </span>
-                            </a>
 
-                            <a href="../reports/excel_usuarios.php" class="btn btn-success">
-                                <i class="zmdi zmdi-file-excel"></i> Exportar Excel
-                            </a>
 
 
                         </td>

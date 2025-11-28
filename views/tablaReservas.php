@@ -50,17 +50,31 @@ if ($rol === "CLIENTE") {
 // Ejecutar la consulta
 $result = $baseDatos->efectuarConsulta($query);
 ?>
-
+<link rel="stylesheet" href="../assets/css/estilosBotones.css" />
+<link rel="stylesheet" href="../assets/css/estilos.css"/>
 <div class="card p-4 mb-5 shadow">
     <h3 class="mb-4"><i class="zmdi zmdi-calendar"></i>
         <?= $rol === "ADMINISTRADOR" ? "Todas las Reservas" : "Mis Reservas" ?>
     </h3>
+    <div class="action-buttons">
 
-    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistrarReserva">
-        <span class="material-symbols-outlined">
-            add_card
-        </span>
-    </button>
+        <a href="../reports/pdf_reservas.php" class="btn btn-danger" target="_blank">
+            <span class="material-symbols-outlined">picture_as_pdf</span>
+            PDF
+        </a>
+
+        <a href="../reports/excel_reservas.php" class="btn btn-success">
+            <i class="bi bi-file-excel"></i>
+            Excel
+        </a>
+
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistrarReserva">
+            <span class="material-symbols-outlined">add_card</span>
+            Nueva reserva
+        </button>
+
+    </div>
+
 
     <div class="table-responsive mt-3">
         <table class="table table-striped table-bordered">
@@ -102,16 +116,6 @@ $result = $baseDatos->efectuarConsulta($query);
                                     <button class="btn btn-success btn-accion convertir-prestamo-btn" data-id="<?= $fila['id'] ?>">
                                         <i class="zmdi zmdi-book"></i>
                                     </button>
-                                    <a href="../reports/pdf_reservas.php" class="btn btn-danger" target="_blank">
-                                        <span class="material-symbols-outlined">
-                                            picture_as_pdf
-                                        </span>
-                                    </a>
-
-                                    <a href="../reports/excel_reservas.php" class="btn btn-success">
-                                        <i class="bi bi-file-excel"></i> Exportar Excel
-                                    </a>
-
 
                                 </td>
                             <?php } ?>
@@ -125,6 +129,7 @@ $result = $baseDatos->efectuarConsulta($query);
             </tbody>
         </table>
     </div>
+
 </div>
 
 <?php $baseDatos->desconectar(); ?>

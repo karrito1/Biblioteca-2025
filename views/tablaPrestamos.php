@@ -51,10 +51,16 @@ if (!$result) {
     </h3>
 
     <?php if ($rol === "ADMINISTRADOR") { ?>
-        <div class="mb-4">
-            <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistrarPrestamo">
-                <i class="zmdi zmdi-assignment-check"></i> Registrar Prestamo
-            </button> -->
+        <div class="action-buttons">
+            <a href="../reports/pdf_prestamos.php" class="btn btn-danger" target="_blank">
+                <span class="material-symbols-outlined">
+                    picture_as_pdf
+                </span>
+            </a>
+
+            <a href="../reports/excel_prestamos.php" class="btn btn-success">
+                <i class="zmdi zmdi-file-excel"></i> Exportar Excel
+            </a>
         </div>
     <?php } ?>
 
@@ -117,15 +123,7 @@ if (!$result) {
                                             contract_delete
                                         </span>
                                     </button>
-                                    <a href="../reports/pdf_prestamos.php" class="btn btn-danger" target="_blank">
-                                        <span class="material-symbols-outlined">
-                                            picture_as_pdf
-                                        </span>
-                                    </a>
 
-                                    <a href="../reports/excel_prestamos.php" class="btn btn-success">
-                                        <i class="zmdi zmdi-file-excel"></i> Exportar Excel
-                                    </a>
 
 
                                 </td>

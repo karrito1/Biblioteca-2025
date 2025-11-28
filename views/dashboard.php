@@ -81,6 +81,7 @@ if (!isset($_SESSION['usuario_id'])) {
     <link rel="Shortcut Icon" type="image/x-icon" href="/Biblioteca-2025/assets/icons/book.ico" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <link rel="stylesheet" href="../assets/css/estilosBotones.css" />
+    <link rel="stylesheet" href="../assets/css/estilos.css"/>
 
 
     <!-- ====== Bootstrap ====== -->
