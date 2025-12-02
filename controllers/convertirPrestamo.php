@@ -56,15 +56,20 @@ mysqli_begin_transaction($conexion);
 try {
     mysqli_query($conexion, "INSERT INTO prestamos (usuario_id, libro_id, fecha_prestamo, fecha_devolucion, estado) 
                VALUES ($usuario_id, $libro_id, '$fecha_prestamo', '$fecha_devolucion', '$estado')");
+
     mysqli_query($conexion, "UPDATE reservas SET estado='convertida' WHERE id=$reserva_id");
+
     $nuevaCantidad = $cantidadActual - 1;
     $nuevosPrestados = $prestadosActual + 1;
     $nuevoEstado = ($nuevaCantidad > 0) ? 'disponible' : 'no disponible';
+
     mysqli_query($conexion, "UPDATE libros 
                SET cantidad=$nuevaCantidad, prestados=$nuevosPrestados, disponibilidad='$nuevoEstado' 
                WHERE id=$libro_id");
+
     mysqli_commit($conexion);
 
+    // -------- ENVIAR CORREO DE PRÉSTAMO --------
     $mail = new PHPMailer(true);
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
@@ -73,8 +78,10 @@ try {
     $mail->Password = 'xkux owcf zrli yump';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
+
     $mail->setFrom('senabibiloteca73@gmail.com', 'Biblioteca 2025');
     $mail->addAddress($correoUsuario, $nombreUsuario);
+
     $mail->isHTML(true);
     $mail->Subject = 'Prestamo creado a partir de reserva';
     $mail->Body = "
@@ -85,9 +92,44 @@ try {
         <p><strong>Fecha de devolución:</strong> $fecha_devolucion</p>
         <p>Gracias por utilizar la Biblioteca!</p>
     ";
+
     $mail->send();
 
     echo json_encode(['success' => true, 'message' => 'Reserva convertida en préstamo y correo enviado']);
+    $fecha_actual = date('Y-m-d');
+    $diasTranscurridos = (strtotime($fecha_actual) - strtotime($fecha_prestamo)) / 86400;
+
+    if ($diasTranscurridos > 7) {
+        try {
+            $mailAtraso = new PHPMailer(true);
+            $mailAtraso->isSMTP();
+            $mailAtraso->Host = 'smtp.gmail.com';
+            $mailAtraso->SMTPAuth = true;
+            $mailAtraso->Username = 'senabibiloteca73@gmail.com';
+            $mailAtraso->Password = 'xkux owcf zrli yump';
+            $mailAtraso->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mailAtraso->Port = 587;
+
+            $mailAtraso->setFrom('senabibiloteca73@gmail.com', 'Biblioteca 2025');
+            $mailAtraso->addAddress($correoUsuario, $nombreUsuario);
+
+            $mailAtraso->isHTML(true);
+            $mailAtraso->Subject = 'Aviso: devolución atrasada';
+
+            $mailAtraso->Body = "
+                <h2>Hola, $nombreUsuario</h2>
+                <p>Ya han pasado más de 7 días desde tu prestamo del siguiente libro:</p>
+                <p><strong>$tituloLibro</strong></p>
+                <p>Por favor realiza la devolución lo antes posible.</p>
+                <p>Gracias!</p>
+            ";
+
+            $mailAtraso->send();
+
+        } catch (Exception $e) {
+        }
+    }
+
 } catch (Exception $e) {
     mysqli_rollback($conexion);
     echo json_encode(['success' => false, 'message' => 'Error al procesar la operación']);

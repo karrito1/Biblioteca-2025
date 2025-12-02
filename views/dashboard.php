@@ -77,7 +77,7 @@ if (!isset($_SESSION['usuario_id'])) {
     <meta name="keywords" content="biblioteca, educación, lectura, libros digitales, cultura">
     <meta name="author" content="Cristian Villa y Jhoan Morales">
 
-    <!-- ====== Ícono ====== -->
+    <!-- ====== Icono ====== -->
     <link rel="Shortcut Icon" type="image/x-icon" href="/Biblioteca-2025/assets/icons/book.ico" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <link rel="stylesheet" href="../assets/css/estilosBotones.css" />
@@ -95,7 +95,7 @@ if (!isset($_SESSION['usuario_id'])) {
     <link rel="stylesheet" href="/Biblioteca-2025/css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="/Biblioteca-2025/css/style.css">
 
-    <!-- ====== Librerías JS externas ====== -->
+    <!-- ====== Librerias JS externas ====== -->
     <!-- jQuery debe ir antes que cualquier plugin que dependa de él -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
